@@ -6,22 +6,22 @@ Basic Skeleton for a Texas Hold'em game. All UI elements should be in GameView a
 
 = Details =
 
-Model:
+== Model: ==
 
 The relationship between Cards, the Deck and Hand should be obvious.
 
-A hand can rank itself, to create a pair of numbers that can be used to compare itself to another hand and determine a winner. The two numbers represent the hands rank, and in the event two hands tie, the order of high cards.
+A Hand can rank itself, to create a pair of numbers that can be used to compare itself to another hand and determine a winner. The two numbers represent the hands rank, and in the event two hands tie, the order of high cards.
 
 A compare method has been implemented to an array of hands can sort itself from biggest loser to the winner.
 
 A strengthAgainst: method has been implemented to assist a future AI in playing. The method compares a full 5 card hand to a partial hand to determine the likely chance of a win.
 
-View:
+== View: ==
 GameView makes up the bulk of the user interaction. From the controllers standpoint, GameView is the View, although in reality it asks Players to to a lot of the work.
 
 Players handle input from the Player. The idea was/is that I can create additional player classes for AI players, or network players etc., with minimal if any changes to the Controler parts of the code.
 
-Controller:
+== Controller: ==
 
 The controller is in game.m. It simply steps though a poker round, asking the gameview for bets, dealing cards, repeating, and choosing a winner.
 
