@@ -4,6 +4,8 @@
 
 Basic Skeleton for a Texas Hold'em game. All UI elements should be in GameView and Player, which right now are text based. But once working I'd like to easily make both an iPhone and Mac version by only replacing those files.
 
+At this stage it only has human players on the console, so it is rather pointless as players see everyones card. Hopefully it will develop an AI and or network play.
+
 = Details =
 
 == Model: ==
