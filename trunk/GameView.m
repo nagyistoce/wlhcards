@@ -14,23 +14,22 @@
 @implementation GameView
 @synthesize players, numberOfPlayers, flop;
 
+
+		 
+
 -(void)display {
 	
+	clrscrn();
 	
 	for (int i=0;i<numberOfPlayers;i++)
 	{
-		printf("Player Number: %d\n\n",i+1);
+		printf("%s\n",[((Player *)[players objectAtIndex:i]).name UTF8String] );
 		[self displayPlayer:[players objectAtIndex:i]];
 		printf("\n\n\n");
 	
 	}
-	
-	printf("Board: (%d cards)\n",[flop count]);
-	for (int i=0;i<[flop count];i++) {
-		[[flop objectAtIndex:i] print];
-	}
-	printf("\n\n");
-	
+		printf("---------------------------\n");
+	// [self displayBoard];	
 }
 
 -(void)displayPlayer:(Player *)player {
@@ -47,26 +46,28 @@
 	return 4;
 }
 
--(void)getEveryonesBet{}
+
 
 -(void)getBlindBets{
 
-	
-	float p2bet;
-	float p3bet;
-	
-	[[players objectAtIndex:1] print];
-	printf("Player 2, what is your bet? (low blind): ");
-	scanf("%f",&p2bet);
-	((Player *)[players objectAtIndex:1]).currentBet = p2bet;
-	
-	if ([players count] > 2) {
-		[[players objectAtIndex:2] print];
-		printf("Player 3, what is your bet? (low blind): ");
-		scanf("%f",&p3bet);
-	((Player *)[players objectAtIndex:2]).currentBet = p2bet;	
+		
+}
+
+-(float)getBetFromPlayer:(Player *)player {
+	return [player askForBet];
+		
+}
+
+-(void)displayBoard {
+	printf("\nBoard: (%d cards)\n",(int)[flop count]); 
+	for (int i=0;i<[flop count];i++) {
+		[[flop objectAtIndex:i] print];
 	}
 	
+}	
+
+-(void)invalidBet:(float)lastBet {
+	printf("Invalid Bet! You must bet at least %f\n",lastBet);
 }
 
 @end

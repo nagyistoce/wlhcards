@@ -15,9 +15,14 @@
 	GameView *gameView;
 	Deck *deck;
 	NSMutableArray *flop;
+	float pot;
+	float currentBet;
+	float lastBet;
 }
 @property (nonatomic, retain) NSMutableArray *players;
+@property float pot;
 
 -(void) gameLoop;
-
+-(BOOL) betsAreSquare;
+-(void) getEveryonesBet;
 @end

@@ -14,16 +14,20 @@
 	Hand   *playerHand;
 	float	money;
 	float	currentBet;
-//	GameView	*view;
+	NSString *name;
+	GameView *gameView;
+	
 }
 @property (nonatomic, retain) Hand *playerHand;
 @property (nonatomic) float currentBet;
 @property (nonatomic) float money;
+@property (nonatomic, retain) NSString *name;
+@property (nonatomic, retain) GameView *gameView;
 
 -(float)askForBet; // returns bet amount
 -(void)playerLostHand;
 -(void)playerWonHand;
-
+-(Hand *) getPlayerHand;
 -(void)display;
 -(void)print;
 
