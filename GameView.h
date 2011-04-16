@@ -23,8 +23,8 @@
 -(void)displayPlayer:(Player *)player;
 -(void)display;
 -(int)askNumberOfPlayers;
--(void)getEveryonesBet;
 -(void)getBlindBets;
-
-
+-(float)getBetFromPlayer:(Player *)player;
+-(void)displayBoard;
+-(void)invalidBet:(float)lastBet;
 @end

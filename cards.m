@@ -3,6 +3,13 @@
 #import "Card.h";
 #import "game.h";
 
+
+void clrscrn()
+{
+	for (int i=0;i<25;printf("\n"),i++);
+}
+
+
 int main (int argc, const char * argv[]) {
     NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 

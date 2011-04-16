@@ -8,28 +8,39 @@
 
 #import "Player.h"
 #import "Hand.h"
+#import "GameView.h"
 
 @implementation Player
-@synthesize playerHand;
+@synthesize playerHand, name, gameView;
 @synthesize currentBet, money;
 
 -(id)init {
 	if (self = [super init]) {
-		
+		currentBet = 0;
 		playerHand = [[Hand alloc] init];
 		money = 100.00;
+		name = [[NSString alloc] initWithString:@"Player"];
 	}
 	return self;
 }
 		
 -(void) dealloc {
 	[playerHand release];
+	[name release];
 	[super dealloc];
 }
 	
 -(void) display {
+	printf("%s\n",[name UTF8String]);
+	if ([playerHand.cards count]<2) {
+		return;
+	}
 	
-	[playerHand print];
+	for (int i=0;i<2;i++) {
+		[((Card*)[playerHand.cards objectAtIndex:i]) print];
+		printf(" ");
+	}
+	printf("\n");
 }
 
 -(void) print {
@@ -40,7 +51,19 @@
 	return playerHand;
 }
 
--(float)askForBet{return 0;} // returns bet amount
+-(float)askForBet{
+
+	float bet;
+	[self print];
+	[gameView displayBoard];
+	printf("\nWhat is your bet?");
+	scanf("%f",&bet);
+	currentBet = bet;
+	clrscrn();
+	return bet;
+	
+} 
+
 -(void)playerLostHand{}
 -(void)playerWonHand{}
 

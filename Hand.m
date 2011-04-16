@@ -47,15 +47,15 @@
 
 }
 
-// print each card in the hand, for testing purposes
+// print each card in the hand, for testing purposes (and for text game, which itself is for testing purposes)
 -(void) print {
 	
 	for (int i=0;i<[cards count];i++) {
 		printf(" ");
 		[[self.cards objectAtIndex:i] print];
 	}
-	printf("\n Hand Rank: %ld\n",rank);
-	printf("High Card Rank: %d\n",highCardRank);
+//	printf("\n Hand Rank: %ld\n",rank);
+//	printf("High Card Rank: %d\n",highCardRank);
 
 }	
 

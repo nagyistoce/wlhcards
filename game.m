@@ -15,7 +15,7 @@
 
 @implementation game
 @synthesize players; 
-
+@synthesize pot;
 
 -(void)gameLoop {
 	
@@ -43,18 +43,20 @@
 	
 	for ( int i=0;i<numberOfPlayers;i++) {
 		Player *newPlayer = [[Player alloc] init];
-				
+		newPlayer.name = [NSString stringWithFormat:@"Player %d",i+1];	
+		newPlayer.gameView = gameView;
 		[players addObject:newPlayer];
 		[newPlayer release];
 		
 	}
 	
+	((Player *)[players objectAtIndex:0]).name = [NSString stringWithFormat:@"Dealer"];
 	
 if (numberOfPlayers > 1) 
 {
 
 	// blind bets
-	[gameView getBlindBets];	
+//	[gameView getEveryonesBet];	
 	
 	NSLog(@"Deal 2 cards");
 // deal 2 cards to players
@@ -66,8 +68,12 @@ if (numberOfPlayers > 1)
 	}
 	[gameView display];
 // get bets from players
-	[gameView getEveryonesBet];
-// deal flop
+	
+	
+	
+	[self getEveryonesBet];
+
+	// deal flop
 	NSLog(@"Deal Flop");
 	[flop addObject:[deck dealCard]];
 	[flop addObject:[deck dealCard]]; 
@@ -83,7 +89,7 @@ if (numberOfPlayers > 1)
 	 [gameView display];
 	 
 // get bets
-	 [gameView getEveryonesBet];
+	 [self getEveryonesBet];
 // deal the turn
 	NSLog(@"Deal turn");
 	 [flop addObject:[deck dealCard]];
@@ -95,7 +101,7 @@ if (numberOfPlayers > 1)
 	  [gameView display];
 		  
 // get bets
-	  [gameView getEveryonesBet];
+	  [self getEveryonesBet];
 // deal river
 	NSLog(@"Deal River");
 	
@@ -107,7 +113,7 @@ if (numberOfPlayers > 1)
 	   }
 	   [gameView display];
 // get bets
-	   [gameView getEveryonesBet];
+	   [self getEveryonesBet];
 // determine winner
 	NSLog(@"Determine Winner");  
 	
@@ -131,7 +137,7 @@ if (numberOfPlayers > 1)
 	// if they are the same, that player is the winner
 	
 	int winner;
-	for (winner = 0;([[players objectAtIndex:winner] getPlayerHand] != [allHands lastObject]); winner++ )
+	for (winner = 0;([((Player*)[players objectAtIndex:winner]) getPlayerHand] != [allHands lastObject]); winner++ )
 	{ 
 		// NSLog(@"%d",winner); // this should be replaced with error handling code to prevent an infinite loop.
 	}
@@ -150,4 +156,66 @@ if (numberOfPlayers > 1)
 }
 
 
+-(void) getEveryonesBet {
+
+// get Everyone's initial bet
+	lastBet = 0;
+	currentBet = -1.0;
+	
+	for (int i=1;i<[players count];i++){
+	currentBet = [gameView getBetFromPlayer:[players objectAtIndex:i]];
+		while (currentBet < lastBet) {		// make sure bet is at least as high as previous bet
+			[gameView invalidBet:lastBet];
+			currentBet = [gameView getBetFromPlayer:[players objectAtIndex:i]];
+		}
+		
+		lastBet = currentBet;
+	}
+		currentBet = [gameView getBetFromPlayer:[players objectAtIndex:0]]; // dont forget the dealer is last, so not in the for-loop.
+
+	while (currentBet < lastBet) {		// make sure bet is at least as high as previous bet
+		[gameView invalidBet:lastBet];
+		currentBet = [gameView getBetFromPlayer:[players objectAtIndex:0]];
+	}
+	
+	lastBet = currentBet;
+	
+
+	
+// while bets are not square (all the same) ask the next player for a bet.
+	int i = 1;
+	while (![self betsAreSquare]) { // while bets are not square (all the same) ask the next player for a bet.
+		
+		currentBet = [gameView getBetFromPlayer:[players objectAtIndex:i]];
+		while (currentBet < lastBet) {		// make sure bet is at least as high as previous bet
+			[gameView invalidBet:lastBet];
+			currentBet = [gameView getBetFromPlayer:[players objectAtIndex:i]];
+		}
+		
+		lastBet = currentBet;
+		
+		
+		if ( (++i)==[players count]) {i = 0;} // loop back to player 0 until while loop is satisfied.
+		}
+	}
+	
+
+	
+
+
+-(BOOL) betsAreSquare {
+	BOOL square = TRUE;
+	for (int i=1;i<[players count];i++) {
+		if (  
+			(((Player *)[players objectAtIndex:i]).currentBet) !=
+			(((Player *)[players objectAtIndex:i-1]).currentBet)
+			) {
+			square = FALSE;
+		}
+	}
+	
+	return square;
+}
+		
+	 
 @end
