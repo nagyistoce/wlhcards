@@ -1,0 +1,20 @@
+408f1cef304553617fd9feacb766c499 dedeedd3c1f6258f478568b2806e394a ffffffffffffffffffffffffffffffff 16608 /Users/warren/Mac Apps/cards/build/cards.build/Debug/cards.build/Objects-normal/x86_64/GameView.o
+408f1cef314c71687fd9feacb766d3f9 6aa690fd38b83458e697e5aa995115e0 ffffffffffffffffffffffffffffffff 16632 /Users/warren/Mac Apps/cards/build/cards.build/Debug/cards.build/Objects-normal/x86_64/Player.o
+408f1cef3156693c7fd9feacb766dd2f 1ee9337c5b9a667de1f7e481205668ea ffffffffffffffffffffffffffffffff 18240 /Users/warren/Mac Apps/cards/build/cards.build/Debug/cards.build/Objects-normal/x86_64/game.o
+408f1cef305f64087fd9feacb766e542 d39ad29e4d92751e1b7c9ff93bb65714 ffffffffffffffffffffffffffffffff 35048 /Users/warren/Mac Apps/cards/build/cards.build/Debug/cards.build/Objects-normal/x86_64/Hand.o
+408f1cef314aad457fd9feacb766da67 d1333ed8d20166484cdc8f5cf4e49f46 ffffffffffffffffffffffffffffffff 16768 /Users/warren/Mac Apps/cards/build/cards.build/Debug/cards.build/Objects-normal/x86_64/Deck.o
+408f1cef311939887fd9feacb766d6a3 322f1dd22c6d5786cbf3b994d21b9b4a ffffffffffffffffffffffffffffffff 12376 /Users/warren/Mac Apps/cards/build/cards.build/Debug/cards.build/Objects-normal/x86_64/Card.o
+408f1cef7cee1c2a7fd9feacb766de7e 9742bd6583af9639f1431943341472c2 ffffffffffffffffffffffffffffffff 7432 /Users/warren/Mac Apps/cards/build/cards.build/Debug/cards.build/Objects-normal/x86_64/cards.o
+4dda1e4cefc94fed522c2747a7e17143 33861484803d472ab06dc50954fbe745 ffffffffffffffffffffffffffffffff 46976 /Users/warren/Mac Apps/cards/build/Debug/cards
+000000000102e35f000000000000137e 408f1cef7c7338a87fd9feacb766d31e ffffffffffffffffffffffffffffffff 41442064 /var/folders/Wk/WkAuJWBKGliICLf99a3eRk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/cards_Prefix-gvuauiuhceecajgupodvrmupwwac/cards_Prefix.pch.gch
+ffffffffffffffffffffffffffffffff c7342dd82835fb1de04b0cff8ca8421c ffffffffffffffffffffffffffffffff 276 /Users/warren/Mac Apps/cards/build/cards.build/Debug/cards.build/StaticAnalyzer/normal/x86_64/Deck.plist
+cfde55ef2aac69ae028b45798076402c 298d8a6cb9b186f8abfde643341ff507 ffffffffffffffffffffffffffffffff 276 /Users/warren/Mac Apps/cards/build/cards.build/Debug/cards.build/StaticAnalyzer/normal/x86_64/GameView.plist
+cfde55ef2b3343a8028b4579807652cb 83301c20400da06f8816c91fb26cb018 ffffffffffffffffffffffffffffffff 276 /Users/warren/Mac Apps/cards/build/cards.build/Debug/cards.build/StaticAnalyzer/normal/x86_64/Player.plist
+cfde55ef2b2c3753028b45798076598c d745a9b5cab7a3c26d128f1255659fc7 ffffffffffffffffffffffffffffffff 276 /Users/warren/Mac Apps/cards/build/cards.build/Debug/cards.build/StaticAnalyzer/normal/x86_64/game.plist
+cfde55ef2a25e2de028b45798076645c f79baf098dd67f320e74ba885c7ef32a ffffffffffffffffffffffffffffffff 276 /Users/warren/Mac Apps/cards/build/cards.build/Debug/cards.build/StaticAnalyzer/normal/x86_64/Hand.plist
+cfde55ef2b6605e4028b4579807654f5 53423fa2925ca44900ca144dfc32d116 ffffffffffffffffffffffffffffffff 276 /Users/warren/Mac Apps/cards/build/cards.build/Debug/cards.build/StaticAnalyzer/normal/x86_64/Card.plist
+cfde55ef6690b9b1028b457980765cd6 bc842aa09a3bbcda2b7262790dabef64 ffffffffffffffffffffffffffffffff 276 /Users/warren/Mac Apps/cards/build/cards.build/Debug/cards.build/StaticAnalyzer/normal/x86_64/cards.plist
+000000000102e35f000000000000137e cfde55ef660c04c4028b457980765148 ffffffffffffffffffffffffffffffff 6595604 /var/folders/Wk/WkAuJWBKGliICLf99a3eRk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/cards_Prefix-dpuiglnkoarsarfmbfayxyxflxhq/cards_Prefix.pch.pth
+408f1cef315271f37fd9feacb766d3ee 8ab6faca4c73b33a1d7991e3f0370e35 ffffffffffffffffffffffffffffffff 5452 /Users/warren/Mac Apps/cards/build/cards.build/Debug/cards.build/Objects-normal/x86_64/gameView.o
+408f1cef315271747fd9feacb766d0d0 303fc9b8aa01d42c3fcabf1a947f834d ffffffffffffffffffffffffffffffff 9800 /Users/warren/Mac Apps/cards/build/cards.build/Debug/cards.build/Objects-normal/x86_64/card.o
+ffffffffffffffffffffffffffffffff ffffffffffffffffffffffffffffffff ffffffffffffffffffffffffffffffff 0 /Users/warren/Mac Apps/cards/build/cards.build/Debug/cards.build/Objects-normal/x86_64/deck.o
