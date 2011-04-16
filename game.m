@@ -37,6 +37,7 @@
 	numberOfPlayers = [gameView askNumberOfPlayers];
 	
 	gameView.numberOfPlayers = numberOfPlayers;
+	
 // create players
 	players = [[NSMutableArray alloc] init];
 	gameView.players = self.players;
@@ -116,6 +117,8 @@ if (numberOfPlayers > 1)
 	   [self getEveryonesBet];
 // determine winner
 	NSLog(@"Determine Winner");  
+
+	[gameView display];
 	
 	// create array of hands, and rank them
 	

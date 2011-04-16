@@ -20,7 +20,7 @@
 -(void)display {
 	
 	clrscrn();
-	
+		printf("---------------------------\n");	
 	for (int i=0;i<numberOfPlayers;i++)
 	{
 		printf("%s\n",[((Player *)[players objectAtIndex:i]).name UTF8String] );
