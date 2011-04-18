@@ -13,6 +13,7 @@
 		802E267D12E74D420041795E /* game.m in Sources */ = {isa = PBXBuildFile; fileRef = 802E267C12E74D420041795E /* game.m */; };
 		8032944C134E9F3B0086F6AC /* GameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8032944B134E9F3B0086F6AC /* GameView.m */; };
 		8096CB2313476D410064FC3F /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 8096CB2213476D410064FC3F /* Player.m */; };
+		80AB36B7135B9B5200300D62 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80AB36B6135B9B5200300D62 /* Cocoa.framework */; };
 		8DD76F9A0486AA7600D96B5E /* cards.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* cards.m */; settings = {ATTRIBUTES = (); }; };
 		8DD76F9C0486AA7600D96B5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
 		8DD76F9F0486AA7600D96B5E /* cards.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6859EA3029092ED04C91782 /* cards.1 */; };
@@ -47,6 +48,8 @@
 		8032944B134E9F3B0086F6AC /* GameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameView.m; sourceTree = "<group>"; };
 		8096CB2113476D410064FC3F /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		8096CB2213476D410064FC3F /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
+		80AB36B6135B9B5200300D62 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		80AB36BC135B9BB900300D62 /* GameView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameView.xib; sourceTree = "<group>"; };
 		8DD76FA10486AA7600D96B5E /* cards */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = cards; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6859EA3029092ED04C91782 /* cards.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = cards.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -57,6 +60,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DD76F9C0486AA7600D96B5E /* Foundation.framework in Frameworks */,
+				80AB36B7135B9B5200300D62 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +83,7 @@
 		08FB7795FE84155DC02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				80AB36BC135B9BB900300D62 /* GameView.xib */,
 				8032944A134E9F3B0086F6AC /* GameView.h */,
 				8032944B134E9F3B0086F6AC /* GameView.m */,
 				801909DB12D18415005A9561 /* Deck.h */,
@@ -99,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				08FB779EFE84155DC02AAC07 /* Foundation.framework */,
+				80AB36B6135B9B5200300D62 /* Cocoa.framework */,
 			);
 			name = "External Frameworks and Libraries";
 			sourceTree = "<group>";

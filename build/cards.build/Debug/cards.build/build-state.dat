@@ -1,7 +1,7 @@
 Tcards
 v7
 r0
-t324682486.071526
+t324833738.584890
 cCheck dependencies
 cProcessPCH /var/folders/Wk/WkAuJWBKGliICLf99a3eRk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/cards_Prefix-duuurgfgwehrgufappqpahdwywuv/cards_Prefix.pch.gch cards_Prefix.pch normal x86_64 objective-c com.apple.compilers.gcc.4_2
 cCompileC build/cards.build/Debug/cards.build/Objects-normal/x86_64/cards.o "/Users/warren/Mac Apps/cards/wlhcards/cards.m" normal x86_64 objective-c com.apple.compilers.gcc.4_2
@@ -17,6 +17,16 @@ N/Developer 235 and ios 42/SDKs/MacOSX10.6.sdk
 c000000004CAA740B00000000000000EE
 t1286239243
 s238
+
+N/Developer 235 and ios 42/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Cocoa.framework/Cocoa
+c000000004CAA74040000000000003430
+t1286239236
+s13360
+
+N/Developer 235 and ios 42/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Cocoa.framework/Headers/Cocoa.h
+c0000000040C4AA6800000000000001E5
+t1086630504
+s485
 
 N/Developer 235 and ios 42/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h
 c000000004C23AA0400000000000013E6
@@ -271,15 +281,25 @@ i"Deck.h"
 i"Card.h"
 
 N/Users/warren/Mac Apps/cards/wlhcards/GameView.h
-c000000004DA9FC3B000000000000028D
-t1302985787
-s653
+c000000004DAB645300000000000002AF
+t1303077971
+s687
 i<Foundation/Foundation.h>
 i"Player.h"
+i"Cocoa/Cocoa.h"
 
 N/Users/warren/Mac Apps/cards/wlhcards/GameView.m
-c000000004DAA0B7400000000000004B0
-t1302989684
+c000000004DAB65390000000000000543
+t1303078201
+s1347
+i"GameView.h"
+i"Player.h"
+i"Hand.h"
+i"Card.h"
+
+N/Users/warren/Mac Apps/cards/wlhcards/GameView_temp.m
+c000000004DAB5FF900000000000004B0
+t1303076857
 s1200
 i"GameView.h"
 i"Player.h"
@@ -315,8 +335,8 @@ i"Hand.h"
 i"GameView.h"
 
 N/Users/warren/Mac Apps/cards/wlhcards/build/Debug/cards
-t1302989686
-s53088
+t1303078202
+s53520
 
 N/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/Objects-normal/x86_64/Card.o
 t1302917523
@@ -327,20 +347,24 @@ t1302989566
 s16784
 
 N/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/Objects-normal/x86_64/GameView.o
-t1302989685
-s17496
+t1303078202
+s27128
+
+N/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/Objects-normal/x86_64/GameView_temp.o
+t2
+s0
 
 N/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/Objects-normal/x86_64/Hand.o
 t1302983603
 s34840
 
 N/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/Objects-normal/x86_64/Player.o
-t1302985788
-s21652
+t1303077973
+s29484
 
 N/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/Objects-normal/x86_64/cards.LinkFileList
-c000000004DA8F18D00000000000002D8
-t1302917517
+c000000004DAB61ED00000000000002D8
+t1303077357
 s728
 
 N/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/Objects-normal/x86_64/cards.o
@@ -348,8 +372,8 @@ t1302985787
 s7996
 
 N/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/Objects-normal/x86_64/game.o
-t1302989685
-s24684
+t1303078202
+s32652
 
 N/Users/warren/Mac Apps/cards/wlhcards/cards.m
 c000000004DA9F1120000000000000D4B
@@ -373,9 +397,9 @@ s503
 i<Foundation/Foundation.h>
 
 N/Users/warren/Mac Apps/cards/wlhcards/game.m
-c000000004DAA0B74000000000000142D
-t1302989684
-s5165
+c000000004DAB65390000000000001448
+t1303078201
+s5192
 i"game.h"
 i"GameView.h"
 i"Deck.h"
@@ -453,7 +477,7 @@ lSLF07#2@43"Analyze /Users/warren/Mac Apps/cards/game.m324280600#324280601#0(0"0
 
 CCheck dependencies
 r0
-lSLF07#2@18"Check dependencies324682484#324682484#0(0"0(0#1#0"8630057120#0"0#
+lSLF07#2@18"Check dependencies324833738#324833738#0(0"0(0#1#0"8611354432#0"0#
 
 CCompileC build/cards.build/Debug/cards.build/Objects-normal/x86_64/Card.o "/Users/warren/Mac Apps/cards/Card.m" normal x86_64 objective-c com.apple.compilers.gcc.4_2
 s324440220.443856
@@ -523,8 +547,8 @@ o/Users/warren/Mac Apps/cards/GameView.m:28: warning: format '%d' expects type '
 lSLF07#2@47"Compile /Users/warren/Mac Apps/cards/GameView.m324527752#324527754#0(198"/Users/warren/Mac Apps/cards/GameView.m: In function '-[GameView display]':/Users/warren/Mac Apps/cards/GameView.m:28: warning: format '%d' expects type 'int', but argument 2 has type 'NSUInteger'1(22@68"Format '%d' expects type 'int', but argument 2 has type 'NSUInteger'324527754#76#122#0(6@39"/Users/warren/Mac Apps/cards/GameView.m324527752#28#0#28#0#56"format '*' expects type '*', but argument * has type '*'0(0#0#39"/Users/warren/Mac Apps/cards/GameView.m8641868416#1364"    cd "/Users/warren/Mac Apps/cards"    setenv LANG en_US.US-ASCII    "/Developer 235 and ios 42/usr/bin/gcc-4.2" -x objective-c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot "/Developer 235 and ios 42/SDKs/MacOSX10.6.sdk" -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote "/Users/warren/Mac Apps/cards/build/cards.build/Debug/cards.build/cards-generated-files.hmap" "-I/Users/warren/Mac Apps/cards/build/cards.build/Debug/cards.build/cards-own-target-headers.hmap" "-I/Users/warren/Mac Apps/cards/build/cards.build/Debug/cards.build/cards-all-target-headers.hmap" -iquote "/Users/warren/Mac Apps/cards/build/cards.build/Debug/cards.build/cards-project-headers.hmap" "-F/Users/warren/Mac Apps/cards/build/Debug" "-I/Users/warren/Mac Apps/cards/build/Debug/include" "-I/Users/warren/Mac Apps/cards/build/cards.build/Debug/cards.build/DerivedSources/x86_64" "-I/Users/warren/Mac Apps/cards/build/cards.build/Debug/cards.build/DerivedSources" -include /var/folders/Wk/WkAuJWBKGliICLf99a3eRk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/cards_Prefix-gvuauiuhceecajgupodvrmupwwac/cards_Prefix.pch -c "/Users/warren/Mac Apps/cards/GameView.m" -o "/Users/warren/Mac Apps/cards/build/cards.build/Debug/cards.build/Objects-normal/x86_64/GameView.o"0#
 
 CCompileC build/cards.build/Debug/cards.build/Objects-normal/x86_64/GameView.o "/Users/warren/Mac Apps/cards/wlhcards/GameView.m" normal x86_64 objective-c com.apple.compilers.gcc.4_2
-s324682485.202476
-e324682485.682515
+s324771001.913960
+e324771002.770142
 r1
 xCompileC
 xbuild/cards.build/Debug/cards.build/Objects-normal/x86_64/GameView.o
@@ -534,8 +558,28 @@ xx86_64
 xobjective-c
 xcom.apple.compilers.gcc.4_2
 o/Users/warren/Mac Apps/cards/wlhcards/GameView.m: In function '-[GameView display]':
-o/Users/warren/Mac Apps/cards/wlhcards/GameView.m:22: warning: implicit declaration of function 'clrscrn'
-lSLF07#2@56"Compile /Users/warren/Mac Apps/cards/wlhcards/GameView.m324682485#324682485#0(190"/Users/warren/Mac Apps/cards/wlhcards/GameView.m: In function '-[GameView display]':/Users/warren/Mac Apps/cards/wlhcards/GameView.m:22: warning: implicit declaration of function 'clrscrn'1(22@42"Implicit declaration of function 'clrscrn'324682485#85#105#0(6@48"/Users/warren/Mac Apps/cards/wlhcards/GameView.m324682484#22#0#22#0#36"implicit declaration of function '*'0(0#0#48"/Users/warren/Mac Apps/cards/wlhcards/GameView.m8640909984#1463"    cd "/Users/warren/Mac Apps/cards/wlhcards"    setenv LANG en_US.US-ASCII    "/Developer 235 and ios 42/usr/bin/gcc-4.2" -x objective-c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot "/Developer 235 and ios 42/SDKs/MacOSX10.6.sdk" -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote "/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/cards-generated-files.hmap" "-I/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/cards-own-target-headers.hmap" "-I/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/cards-all-target-headers.hmap" -iquote "/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/cards-project-headers.hmap" "-F/Users/warren/Mac Apps/cards/wlhcards/build/Debug" "-I/Users/warren/Mac Apps/cards/wlhcards/build/Debug/include" "-I/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/DerivedSources/x86_64" "-I/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/DerivedSources" -include /var/folders/Wk/WkAuJWBKGliICLf99a3eRk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/cards_Prefix-duuurgfgwehrgufappqpahdwywuv/cards_Prefix.pch -c "/Users/warren/Mac Apps/cards/wlhcards/GameView.m" -o "/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/Objects-normal/x86_64/GameView.o"0#
+o/Users/warren/Mac Apps/cards/wlhcards/GameView.m:33: warning: implicit declaration of function 'clrscrn'
+lSLF07#2@56"Compile /Users/warren/Mac Apps/cards/wlhcards/GameView.m324771001#324771002#0(190"/Users/warren/Mac Apps/cards/wlhcards/GameView.m: In function '-[GameView display]':/Users/warren/Mac Apps/cards/wlhcards/GameView.m:33: warning: implicit declaration of function 'clrscrn'1(22@42"Implicit declaration of function 'clrscrn'324771002#85#105#0(6@48"/Users/warren/Mac Apps/cards/wlhcards/GameView.m324771001#33#0#33#0#36"implicit declaration of function '*'0(0#0#48"/Users/warren/Mac Apps/cards/wlhcards/GameView.m8624297536#1463"    cd "/Users/warren/Mac Apps/cards/wlhcards"    setenv LANG en_US.US-ASCII    "/Developer 235 and ios 42/usr/bin/gcc-4.2" -x objective-c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot "/Developer 235 and ios 42/SDKs/MacOSX10.6.sdk" -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote "/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/cards-generated-files.hmap" "-I/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/cards-own-target-headers.hmap" "-I/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/cards-all-target-headers.hmap" -iquote "/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/cards-project-headers.hmap" "-F/Users/warren/Mac Apps/cards/wlhcards/build/Debug" "-I/Users/warren/Mac Apps/cards/wlhcards/build/Debug/include" "-I/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/DerivedSources/x86_64" "-I/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/DerivedSources" -include /var/folders/Wk/WkAuJWBKGliICLf99a3eRk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/cards_Prefix-duuurgfgwehrgufappqpahdwywuv/cards_Prefix.pch -c "/Users/warren/Mac Apps/cards/wlhcards/GameView.m" -o "/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/Objects-normal/x86_64/GameView.o"0#
+
+CCompileC build/cards.build/Debug/cards.build/Objects-normal/x86_64/GameView_temp.o "/Users/warren/Mac Apps/cards/wlhcards/GameView_temp.m" normal x86_64 objective-c com.apple.compilers.gcc.4_2
+s324769940.515728
+e324769940.665538
+r0
+xCompileC
+xbuild/cards.build/Debug/cards.build/Objects-normal/x86_64/GameView_temp.o
+x/Users/warren/Mac Apps/cards/wlhcards/GameView_temp.m
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+oIn file included from /Users/warren/Mac Apps/cards/wlhcards/GameView_temp.m:9:
+o/Users/warren/Mac Apps/cards/wlhcards/GameView.h:9:24: error: UIKit/UIKit.h: No such file or directory
+oIn file included from /Users/warren/Mac Apps/cards/wlhcards/GameView_temp.m:9:
+o/Users/warren/Mac Apps/cards/wlhcards/GameView.h:14: error: cannot find interface declaration for 'UIViewController', superclass of 'GameView'
+o/Users/warren/Mac Apps/cards/wlhcards/GameView.h:35: warning: '@end' must appear in an @implementation context
+o/Users/warren/Mac Apps/cards/wlhcards/GameView_temp.m: In function '-[GameView display]':
+o/Users/warren/Mac Apps/cards/wlhcards/GameView_temp.m:22: warning: implicit declaration of function 'clrscrn'
+lSLF07#2@61"Compile /Users/warren/Mac Apps/cards/wlhcards/GameView_temp.m324769940#324769940#0(715"In file included from /Users/warren/Mac Apps/cards/wlhcards/GameView_temp.m:9:/Users/warren/Mac Apps/cards/wlhcards/GameView.h:9:24: error: UIKit/UIKit.h: No such file or directoryIn file included from /Users/warren/Mac Apps/cards/wlhcards/GameView_temp.m:9:/Users/warren/Mac Apps/cards/wlhcards/GameView.h:14: error: cannot find interface declaration for 'UIViewController', superclass of 'GameView'/Users/warren/Mac Apps/cards/wlhcards/GameView.h:35: warning: '@end' must appear in an @implementation context/Users/warren/Mac Apps/cards/wlhcards/GameView_temp.m: In function '-[GameView display]':/Users/warren/Mac Apps/cards/wlhcards/GameView_temp.m:22: warning: implicit declaration of function 'clrscrn'4(4@40"UIKit/UIKit.h: No such file or directory324769940#79#103#2(7@75"In file included from /Users/warren/Mac Apps/cards/wlhcards/GameView_temp.m324769940#18446744073709551615#0#0(6@53"/Users/warren/Mac Apps/cards/wlhcards/GameView_temp.m324769657#9#0#9#0#0"0(13@92"UIKit/UIKit.h: No such file or directory in /Users/warren/Mac Apps/cards/wlhcards/GameView.h324769940#18446744073709551615#0#0(6@48"/Users/warren/Mac Apps/cards/wlhcards/GameView.h324769939#9#0#9#0#0"0(6@48"/Users/warren/Mac Apps/cards/wlhcards/GameView.h324769939#9#0#9#0#28"*: No such file or directory0(4@82"Cannot find interface declaration for 'UIViewController', superclass of 'GameView'324769940#261#143#2(7@75"In file included from /Users/warren/Mac Apps/cards/wlhcards/GameView_temp.m324769940#18446744073709551615#0#0(6@53"/Users/warren/Mac Apps/cards/wlhcards/GameView_temp.m324769657#9#0#9#0#0"0(13@134"Cannot find interface declaration for 'UIViewController', superclass of 'GameView' in /Users/warren/Mac Apps/cards/wlhcards/GameView.h324769940#18446744073709551615#0#0(6@48"/Users/warren/Mac Apps/cards/wlhcards/GameView.h324769939#14#0#14#0#0"0(6@48"/Users/warren/Mac Apps/cards/wlhcards/GameView.h324769939#14#0#14#0#60"cannot find interface declaration for '*', superclass of '*'0(22@48"'@end' must appear in an @implementation context324769940#404#111#2(7@75"In file included from /Users/warren/Mac Apps/cards/wlhcards/GameView_temp.m324769940#18446744073709551615#0#0(6@53"/Users/warren/Mac Apps/cards/wlhcards/GameView_temp.m324769657#9#0#9#0#0"0(13@100"'@end' must appear in an @implementation context in /Users/warren/Mac Apps/cards/wlhcards/GameView.h324769940#18446744073709551615#0#0(6@48"/Users/warren/Mac Apps/cards/wlhcards/GameView.h324769939#35#0#35#0#0"0(6@48"/Users/warren/Mac Apps/cards/wlhcards/GameView.h324769939#35#0#35#0#0"0(22@42"Implicit declaration of function 'clrscrn'324769940#605#110#0(6@53"/Users/warren/Mac Apps/cards/wlhcards/GameView_temp.m324769657#22#0#22#0#36"implicit declaration of function '*'0(0#0#53"/Users/warren/Mac Apps/cards/wlhcards/GameView_temp.m7308604728654706688#1473"    cd "/Users/warren/Mac Apps/cards/wlhcards"    setenv LANG en_US.US-ASCII    "/Developer 235 and ios 42/usr/bin/gcc-4.2" -x objective-c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot "/Developer 235 and ios 42/SDKs/MacOSX10.6.sdk" -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote "/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/cards-generated-files.hmap" "-I/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/cards-own-target-headers.hmap" "-I/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/cards-all-target-headers.hmap" -iquote "/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/cards-project-headers.hmap" "-F/Users/warren/Mac Apps/cards/wlhcards/build/Debug" "-I/Users/warren/Mac Apps/cards/wlhcards/build/Debug/include" "-I/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/DerivedSources/x86_64" "-I/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/DerivedSources" -include /var/folders/Wk/WkAuJWBKGliICLf99a3eRk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/cards_Prefix-duuurgfgwehrgufappqpahdwywuv/cards_Prefix.pch -c "/Users/warren/Mac Apps/cards/wlhcards/GameView_temp.m" -o "/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/Objects-normal/x86_64/GameView_temp.o"1#
 
 CCompileC build/cards.build/Debug/cards.build/Objects-normal/x86_64/Hand.o "/Users/warren/Mac Apps/cards/Hand.m" normal x86_64 objective-c com.apple.compilers.gcc.4_2
 s324441016.284274
@@ -577,8 +621,8 @@ xcom.apple.compilers.gcc.4_2
 lSLF07#2@45"Compile /Users/warren/Mac Apps/cards/Player.m324527724#324527725#0(0"0(0#0#37"/Users/warren/Mac Apps/cards/Player.m8625889312#1360"    cd "/Users/warren/Mac Apps/cards"    setenv LANG en_US.US-ASCII    "/Developer 235 and ios 42/usr/bin/gcc-4.2" -x objective-c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot "/Developer 235 and ios 42/SDKs/MacOSX10.6.sdk" -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote "/Users/warren/Mac Apps/cards/build/cards.build/Debug/cards.build/cards-generated-files.hmap" "-I/Users/warren/Mac Apps/cards/build/cards.build/Debug/cards.build/cards-own-target-headers.hmap" "-I/Users/warren/Mac Apps/cards/build/cards.build/Debug/cards.build/cards-all-target-headers.hmap" -iquote "/Users/warren/Mac Apps/cards/build/cards.build/Debug/cards.build/cards-project-headers.hmap" "-F/Users/warren/Mac Apps/cards/build/Debug" "-I/Users/warren/Mac Apps/cards/build/Debug/include" "-I/Users/warren/Mac Apps/cards/build/cards.build/Debug/cards.build/DerivedSources/x86_64" "-I/Users/warren/Mac Apps/cards/build/cards.build/Debug/cards.build/DerivedSources" -include /var/folders/Wk/WkAuJWBKGliICLf99a3eRk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/cards_Prefix-gvuauiuhceecajgupodvrmupwwac/cards_Prefix.pch -c "/Users/warren/Mac Apps/cards/Player.m" -o "/Users/warren/Mac Apps/cards/build/cards.build/Debug/cards.build/Objects-normal/x86_64/Player.o"0#
 
 CCompileC build/cards.build/Debug/cards.build/Objects-normal/x86_64/Player.o "/Users/warren/Mac Apps/cards/wlhcards/Player.m" normal x86_64 objective-c com.apple.compilers.gcc.4_2
-s324678587.840308
-e324678588.101705
+s324770771.572543
+e324770773.661423
 r1
 xCompileC
 xbuild/cards.build/Debug/cards.build/Objects-normal/x86_64/Player.o
@@ -589,7 +633,7 @@ xobjective-c
 xcom.apple.compilers.gcc.4_2
 o/Users/warren/Mac Apps/cards/wlhcards/Player.m: In function '-[Player askForBet]':
 o/Users/warren/Mac Apps/cards/wlhcards/Player.m:62: warning: implicit declaration of function 'clrscrn'
-lSLF07#2@54"Compile /Users/warren/Mac Apps/cards/wlhcards/Player.m324678587#324678588#0(186"/Users/warren/Mac Apps/cards/wlhcards/Player.m: In function '-[Player askForBet]':/Users/warren/Mac Apps/cards/wlhcards/Player.m:62: warning: implicit declaration of function 'clrscrn'1(22@42"Implicit declaration of function 'clrscrn'324678587#83#103#0(6@46"/Users/warren/Mac Apps/cards/wlhcards/Player.m324676645#62#0#62#0#36"implicit declaration of function '*'0(0#0#46"/Users/warren/Mac Apps/cards/wlhcards/Player.m8641355584#1459"    cd "/Users/warren/Mac Apps/cards/wlhcards"    setenv LANG en_US.US-ASCII    "/Developer 235 and ios 42/usr/bin/gcc-4.2" -x objective-c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot "/Developer 235 and ios 42/SDKs/MacOSX10.6.sdk" -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote "/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/cards-generated-files.hmap" "-I/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/cards-own-target-headers.hmap" "-I/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/cards-all-target-headers.hmap" -iquote "/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/cards-project-headers.hmap" "-F/Users/warren/Mac Apps/cards/wlhcards/build/Debug" "-I/Users/warren/Mac Apps/cards/wlhcards/build/Debug/include" "-I/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/DerivedSources/x86_64" "-I/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/DerivedSources" -include /var/folders/Wk/WkAuJWBKGliICLf99a3eRk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/cards_Prefix-duuurgfgwehrgufappqpahdwywuv/cards_Prefix.pch -c "/Users/warren/Mac Apps/cards/wlhcards/Player.m" -o "/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/Objects-normal/x86_64/Player.o"0#
+lSLF07#2@54"Compile /Users/warren/Mac Apps/cards/wlhcards/Player.m324770771#324770773#0(186"/Users/warren/Mac Apps/cards/wlhcards/Player.m: In function '-[Player askForBet]':/Users/warren/Mac Apps/cards/wlhcards/Player.m:62: warning: implicit declaration of function 'clrscrn'1(22@42"Implicit declaration of function 'clrscrn'324770773#83#103#0(6@46"/Users/warren/Mac Apps/cards/wlhcards/Player.m324676645#62#0#62#0#36"implicit declaration of function '*'0(0#0#46"/Users/warren/Mac Apps/cards/wlhcards/Player.m8617740864#1459"    cd "/Users/warren/Mac Apps/cards/wlhcards"    setenv LANG en_US.US-ASCII    "/Developer 235 and ios 42/usr/bin/gcc-4.2" -x objective-c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot "/Developer 235 and ios 42/SDKs/MacOSX10.6.sdk" -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote "/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/cards-generated-files.hmap" "-I/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/cards-own-target-headers.hmap" "-I/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/cards-all-target-headers.hmap" -iquote "/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/cards-project-headers.hmap" "-F/Users/warren/Mac Apps/cards/wlhcards/build/Debug" "-I/Users/warren/Mac Apps/cards/wlhcards/build/Debug/include" "-I/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/DerivedSources/x86_64" "-I/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/DerivedSources" -include /var/folders/Wk/WkAuJWBKGliICLf99a3eRk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/cards_Prefix-duuurgfgwehrgufappqpahdwywuv/cards_Prefix.pch -c "/Users/warren/Mac Apps/cards/wlhcards/Player.m" -o "/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/Objects-normal/x86_64/Player.o"0#
 
 CCompileC build/cards.build/Debug/cards.build/Objects-normal/x86_64/card.o "/Users/warren/Mac Apps/cards/card.m" normal x86_64 objective-c com.apple.compilers.gcc.4_2
 s315720705.785149
@@ -652,8 +696,8 @@ o/Users/warren/Mac Apps/cards/game.m:134: warning: '...' as arguments.)
 lSLF07#2@43"Compile /Users/warren/Mac Apps/cards/game.m324527724#324527725#0(411"/Users/warren/Mac Apps/cards/game.m: In function '-[game gameLoop]':/Users/warren/Mac Apps/cards/game.m:134: warning: no '-getPlayerHand' method found/Users/warren/Mac Apps/cards/game.m:134: warning: (Messages without a matching method signature/Users/warren/Mac Apps/cards/game.m:134: warning: will be assumed to return 'id' and accept/Users/warren/Mac Apps/cards/game.m:134: warning: '...' as arguments.)2(22@32"No '-getPlayerHand' method found324527725#69#83#0(6@35"/Users/warren/Mac Apps/cards/game.m324526506#134#0#134#0#19"no '*' method found0(13@108"(Messages without a matching method signature will be assumed to return 'id' and accept '...' as arguments.)324527725#152#96#0(6@35"/Users/warren/Mac Apps/cards/game.m324526506#134#0#134#0#0"0(0#0#35"/Users/warren/Mac Apps/cards/game.m8635620160#1356"    cd "/Users/warren/Mac Apps/cards"    setenv LANG en_US.US-ASCII    "/Developer 235 and ios 42/usr/bin/gcc-4.2" -x objective-c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot "/Developer 235 and ios 42/SDKs/MacOSX10.6.sdk" -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote "/Users/warren/Mac Apps/cards/build/cards.build/Debug/cards.build/cards-generated-files.hmap" "-I/Users/warren/Mac Apps/cards/build/cards.build/Debug/cards.build/cards-own-target-headers.hmap" "-I/Users/warren/Mac Apps/cards/build/cards.build/Debug/cards.build/cards-all-target-headers.hmap" -iquote "/Users/warren/Mac Apps/cards/build/cards.build/Debug/cards.build/cards-project-headers.hmap" "-F/Users/warren/Mac Apps/cards/build/Debug" "-I/Users/warren/Mac Apps/cards/build/Debug/include" "-I/Users/warren/Mac Apps/cards/build/cards.build/Debug/cards.build/DerivedSources/x86_64" "-I/Users/warren/Mac Apps/cards/build/cards.build/Debug/cards.build/DerivedSources" -include /var/folders/Wk/WkAuJWBKGliICLf99a3eRk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/cards_Prefix-gvuauiuhceecajgupodvrmupwwac/cards_Prefix.pch -c "/Users/warren/Mac Apps/cards/game.m" -o "/Users/warren/Mac Apps/cards/build/cards.build/Debug/cards.build/Objects-normal/x86_64/game.o"0#
 
 CCompileC build/cards.build/Debug/cards.build/Objects-normal/x86_64/game.o "/Users/warren/Mac Apps/cards/wlhcards/game.m" normal x86_64 objective-c com.apple.compilers.gcc.4_2
-s324682484.656967
-e324682485.454354
+s324771001.347138
+e324771002.770396
 r1
 xCompileC
 xbuild/cards.build/Debug/cards.build/Objects-normal/x86_64/game.o
@@ -662,7 +706,7 @@ xnormal
 xx86_64
 xobjective-c
 xcom.apple.compilers.gcc.4_2
-lSLF07#2@52"Compile /Users/warren/Mac Apps/cards/wlhcards/game.m324682484#324682485#0(0"0(0#0#44"/Users/warren/Mac Apps/cards/wlhcards/game.m8617610816#1455"    cd "/Users/warren/Mac Apps/cards/wlhcards"    setenv LANG en_US.US-ASCII    "/Developer 235 and ios 42/usr/bin/gcc-4.2" -x objective-c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot "/Developer 235 and ios 42/SDKs/MacOSX10.6.sdk" -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote "/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/cards-generated-files.hmap" "-I/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/cards-own-target-headers.hmap" "-I/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/cards-all-target-headers.hmap" -iquote "/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/cards-project-headers.hmap" "-F/Users/warren/Mac Apps/cards/wlhcards/build/Debug" "-I/Users/warren/Mac Apps/cards/wlhcards/build/Debug/include" "-I/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/DerivedSources/x86_64" "-I/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/DerivedSources" -include /var/folders/Wk/WkAuJWBKGliICLf99a3eRk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/cards_Prefix-duuurgfgwehrgufappqpahdwywuv/cards_Prefix.pch -c "/Users/warren/Mac Apps/cards/wlhcards/game.m" -o "/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/Objects-normal/x86_64/game.o"0#
+lSLF07#2@52"Compile /Users/warren/Mac Apps/cards/wlhcards/game.m324771001#324771002#0(0"0(0#0#44"/Users/warren/Mac Apps/cards/wlhcards/game.m8624357856#1455"    cd "/Users/warren/Mac Apps/cards/wlhcards"    setenv LANG en_US.US-ASCII    "/Developer 235 and ios 42/usr/bin/gcc-4.2" -x objective-c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot "/Developer 235 and ios 42/SDKs/MacOSX10.6.sdk" -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote "/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/cards-generated-files.hmap" "-I/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/cards-own-target-headers.hmap" "-I/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/cards-all-target-headers.hmap" -iquote "/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/cards-project-headers.hmap" "-F/Users/warren/Mac Apps/cards/wlhcards/build/Debug" "-I/Users/warren/Mac Apps/cards/wlhcards/build/Debug/include" "-I/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/DerivedSources/x86_64" "-I/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/DerivedSources" -include /var/folders/Wk/WkAuJWBKGliICLf99a3eRk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/cards_Prefix-duuurgfgwehrgufappqpahdwywuv/cards_Prefix.pch -c "/Users/warren/Mac Apps/cards/wlhcards/game.m" -o "/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/Objects-normal/x86_64/game.o"0#
 
 CCompileC build/cards.build/Debug/cards.build/Objects-normal/x86_64/gameView.o "/Users/warren/Mac Apps/cards/gameView.m" normal x86_64 objective-c com.apple.compilers.gcc.4_2
 s323919684.484138
@@ -688,14 +732,14 @@ xx86_64
 lSLF07#2@51"Link /Users/warren/Mac Apps/cards/build/Debug/cards324527754#324527754#0(0"0(0#0#0"8641706176#506"    cd "/Users/warren/Mac Apps/cards"    setenv MACOSX_DEPLOYMENT_TARGET 10.6    "/Developer 235 and ios 42/usr/bin/gcc-4.2" -arch x86_64 -isysroot "/Developer 235 and ios 42/SDKs/MacOSX10.6.sdk" "-L/Users/warren/Mac Apps/cards/build/Debug" "-F/Users/warren/Mac Apps/cards/build/Debug" -filelist "/Users/warren/Mac Apps/cards/build/cards.build/Debug/cards.build/Objects-normal/x86_64/cards.LinkFileList" -mmacosx-version-min=10.6 -framework Foundation -o "/Users/warren/Mac Apps/cards/build/Debug/cards"0#
 
 CLd "/Users/warren/Mac Apps/cards/wlhcards/build/Debug/cards" normal x86_64
-s324682485.682617
-e324682486.071454
+s324771002.770459
+e324771002.817065
 r1
 xLd
 x/Users/warren/Mac Apps/cards/wlhcards/build/Debug/cards
 xnormal
 xx86_64
-lSLF07#2@60"Link /Users/warren/Mac Apps/cards/wlhcards/build/Debug/cards324682485#324682486#0(0"0(0#0#0"8596748192#551"    cd "/Users/warren/Mac Apps/cards/wlhcards"    setenv MACOSX_DEPLOYMENT_TARGET 10.6    "/Developer 235 and ios 42/usr/bin/gcc-4.2" -arch x86_64 -isysroot "/Developer 235 and ios 42/SDKs/MacOSX10.6.sdk" "-L/Users/warren/Mac Apps/cards/wlhcards/build/Debug" "-F/Users/warren/Mac Apps/cards/wlhcards/build/Debug" -filelist "/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/Objects-normal/x86_64/cards.LinkFileList" -mmacosx-version-min=10.6 -framework Foundation -o "/Users/warren/Mac Apps/cards/wlhcards/build/Debug/cards"0#
+lSLF07#2@60"Link /Users/warren/Mac Apps/cards/wlhcards/build/Debug/cards324771002#324771002#0(0"0(0#0#0"8616204256#568"    cd "/Users/warren/Mac Apps/cards/wlhcards"    setenv MACOSX_DEPLOYMENT_TARGET 10.6    "/Developer 235 and ios 42/usr/bin/gcc-4.2" -arch x86_64 -isysroot "/Developer 235 and ios 42/SDKs/MacOSX10.6.sdk" "-L/Users/warren/Mac Apps/cards/wlhcards/build/Debug" "-F/Users/warren/Mac Apps/cards/wlhcards/build/Debug" -filelist "/Users/warren/Mac Apps/cards/wlhcards/build/cards.build/Debug/cards.build/Objects-normal/x86_64/cards.LinkFileList" -mmacosx-version-min=10.6 -framework Foundation -framework Cocoa -o "/Users/warren/Mac Apps/cards/wlhcards/build/Debug/cards"0#
 
 CProcessPCH /var/folders/Wk/WkAuJWBKGliICLf99a3eRk+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/cards_Prefix-dpuiglnkoarsarfmbfayxyxflxhq/cards_Prefix.pch.pth cards_Prefix.pch normal x86_64 objective-c com.apple.compilers.llvm.clang.1_0.analyzer
 s317176942.803852
