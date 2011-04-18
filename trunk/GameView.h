@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "Player.h"
+#import "Cocoa/Cocoa.h"
 
-@interface GameView : NSObject {
+@interface GameView : NSWindowController {
 	
 	int		numberOfPlayers;
 	NSMutableArray *players;

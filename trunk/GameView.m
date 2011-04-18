@@ -14,8 +14,19 @@
 @implementation GameView
 @synthesize players, numberOfPlayers, flop;
 
+-(id)init
+{
+	if(![super initWithWindowNibName:@"GameView"])
+		return nil;
+	return self;
+}
 
-		 
+		
+-(void)windowDidLoad
+{
+	NSLog(@"Nib file is loaded");
+	
+}
 
 -(void)display {
 	
