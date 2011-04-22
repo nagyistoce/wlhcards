@@ -21,8 +21,8 @@
 	
 // set up the gameView
 	
-	gameView = [[GameView alloc] init];
-	[gameView showWindow:self];
+gameView = [[GameView alloc] init];
+
 	
 	int numberOfPlayers = 0;
 
