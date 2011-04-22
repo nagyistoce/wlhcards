@@ -10,7 +10,7 @@
 #import "Player.h"
 #import "Cocoa/Cocoa.h"
 
-@interface GameView : NSWindowController {
+@interface GameView : NSObject {
 	
 	int		numberOfPlayers;
 	NSMutableArray *players;

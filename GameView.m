@@ -16,8 +16,6 @@
 
 -(id)init
 {
-	if(![super initWithWindowNibName:@"GameView"])
-		return nil;
 	return self;
 }
 
