@@ -12,6 +12,19 @@
 		80190A5912D2FF73005A9561 /* Hand.m in Sources */ = {isa = PBXBuildFile; fileRef = 80190A5812D2FF73005A9561 /* Hand.m */; };
 		802E267D12E74D420041795E /* game.m in Sources */ = {isa = PBXBuildFile; fileRef = 802E267C12E74D420041795E /* game.m */; };
 		8032944C134E9F3B0086F6AC /* GameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8032944B134E9F3B0086F6AC /* GameView.m */; };
+		8093E898136108BE005CA509 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = 801909CB12D18112005A9561 /* Card.m */; };
+		8093E899136108BE005CA509 /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = 801909DC12D18415005A9561 /* Deck.m */; };
+		8093E89A136108BE005CA509 /* Hand.m in Sources */ = {isa = PBXBuildFile; fileRef = 80190A5812D2FF73005A9561 /* Hand.m */; };
+		8093E89B136108BE005CA509 /* game.m in Sources */ = {isa = PBXBuildFile; fileRef = 802E267C12E74D420041795E /* game.m */; };
+		8093E89C136108BE005CA509 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 8096CB2213476D410064FC3F /* Player.m */; };
+		8093E89D136108BE005CA509 /* GameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8032944B134E9F3B0086F6AC /* GameView.m */; };
+		8093E91F136108CF005CA509 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
+		8093E920136108CF005CA509 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80AB36B6135B9B5200300D62 /* Cocoa.framework */; };
+		8093E96013610C00005CA509 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8093E95F13610C00005CA509 /* main.m */; };
+		8093E96213610C5F005CA509 /* cardsAppDelegate.h in Sources */ = {isa = PBXBuildFile; fileRef = 8093E96113610C4C005CA509 /* cardsAppDelegate.h */; };
+		8093E96413610C6C005CA509 /* cardsAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8093E96313610C6C005CA509 /* cardsAppDelegate.m */; };
+		8093E96D13610DA2005CA509 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8093E96C13610DA2005CA509 /* MainMenu.xib */; };
+		8093E97F13610E46005CA509 /* GameView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8093E97E13610E46005CA509 /* GameView.xib */; };
 		8096CB2313476D410064FC3F /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 8096CB2213476D410064FC3F /* Player.m */; };
 		80AB36B7135B9B5200300D62 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80AB36B6135B9B5200300D62 /* Cocoa.framework */; };
 		8DD76F9A0486AA7600D96B5E /* cards.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* cards.m */; settings = {ATTRIBUTES = (); }; };
@@ -46,15 +59,30 @@
 		802E267C12E74D420041795E /* game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = game.m; sourceTree = "<group>"; };
 		8032944A134E9F3B0086F6AC /* GameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameView.h; sourceTree = "<group>"; };
 		8032944B134E9F3B0086F6AC /* GameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameView.m; sourceTree = "<group>"; };
+		8093E89113610873005CA509 /* TexasHoldemMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TexasHoldemMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8093E89313610873005CA509 /* TexasHoldemMac-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TexasHoldemMac-Info.plist"; sourceTree = "<group>"; };
+		8093E95F13610C00005CA509 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8093E96113610C4C005CA509 /* cardsAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cardsAppDelegate.h; sourceTree = "<group>"; };
+		8093E96313610C6C005CA509 /* cardsAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cardsAppDelegate.m; sourceTree = "<group>"; };
+		8093E96C13610DA2005CA509 /* MainMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
+		8093E97E13610E46005CA509 /* GameView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameView.xib; sourceTree = "<group>"; };
 		8096CB2113476D410064FC3F /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		8096CB2213476D410064FC3F /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		80AB36B6135B9B5200300D62 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		80AB36BC135B9BB900300D62 /* GameView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameView.xib; sourceTree = "<group>"; };
 		8DD76FA10486AA7600D96B5E /* cards */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = cards; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6859EA3029092ED04C91782 /* cards.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = cards.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		8093E88F13610873005CA509 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8093E91F136108CF005CA509 /* Foundation.framework in Frameworks */,
+				8093E920136108CF005CA509 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8DD76F9B0486AA7600D96B5E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -70,8 +98,8 @@
 		08FB7794FE84155DC02AAC07 /* cards */ = {
 			isa = PBXGroup;
 			children = (
-				802E267B12E74D420041795E /* game.h */,
-				802E267C12E74D420041795E /* game.m */,
+				8093E96913610CDF005CA509 /* TexasHoldemMac */,
+				8093E88A136107C6005CA509 /* Resources */,
 				08FB7795FE84155DC02AAC07 /* Source */,
 				C6859EA2029092E104C91782 /* Documentation */,
 				08FB779DFE84155DC02AAC07 /* External Frameworks and Libraries */,
@@ -83,7 +111,8 @@
 		08FB7795FE84155DC02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				80AB36BC135B9BB900300D62 /* GameView.xib */,
+				802E267B12E74D420041795E /* game.h */,
+				802E267C12E74D420041795E /* game.m */,
 				8032944A134E9F3B0086F6AC /* GameView.h */,
 				8032944B134E9F3B0086F6AC /* GameView.m */,
 				801909DB12D18415005A9561 /* Deck.h */,
@@ -113,8 +142,29 @@
 			isa = PBXGroup;
 			children = (
 				8DD76FA10486AA7600D96B5E /* cards */,
+				8093E89113610873005CA509 /* TexasHoldemMac.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		8093E88A136107C6005CA509 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8093E96C13610DA2005CA509 /* MainMenu.xib */,
+				8093E97E13610E46005CA509 /* GameView.xib */,
+				8093E89313610873005CA509 /* TexasHoldemMac-Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		8093E96913610CDF005CA509 /* TexasHoldemMac */ = {
+			isa = PBXGroup;
+			children = (
+				8093E95F13610C00005CA509 /* main.m */,
+				8093E96113610C4C005CA509 /* cardsAppDelegate.h */,
+				8093E96313610C6C005CA509 /* cardsAppDelegate.m */,
+			);
+			name = TexasHoldemMac;
 			sourceTree = "<group>";
 		};
 		C6859EA2029092E104C91782 /* Documentation */ = {
@@ -128,6 +178,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		8093E89013610873005CA509 /* TexasHoldemMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8093E89613610873005CA509 /* Build configuration list for PBXNativeTarget "TexasHoldemMac" */;
+			buildPhases = (
+				8093E88D13610873005CA509 /* Resources */,
+				8093E88E13610873005CA509 /* Sources */,
+				8093E88F13610873005CA509 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TexasHoldemMac;
+			productName = TexasHoldemMac;
+			productReference = 8093E89113610873005CA509 /* TexasHoldemMac.app */;
+			productType = "com.apple.product-type.application";
+		};
 		8DD76F960486AA7600D96B5E /* cards */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1DEB927408733DD40010E9CD /* Build configuration list for PBXNativeTarget "cards" */;
@@ -166,11 +233,40 @@
 			projectRoot = "";
 			targets = (
 				8DD76F960486AA7600D96B5E /* cards */,
+				8093E89013610873005CA509 /* TexasHoldemMac */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		8093E88D13610873005CA509 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8093E96D13610DA2005CA509 /* MainMenu.xib in Resources */,
+				8093E97F13610E46005CA509 /* GameView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		8093E88E13610873005CA509 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8093E898136108BE005CA509 /* Card.m in Sources */,
+				8093E899136108BE005CA509 /* Deck.m in Sources */,
+				8093E89A136108BE005CA509 /* Hand.m in Sources */,
+				8093E89B136108BE005CA509 /* game.m in Sources */,
+				8093E89C136108BE005CA509 /* Player.m in Sources */,
+				8093E89D136108BE005CA509 /* GameView.m in Sources */,
+				8093E96013610C00005CA509 /* main.m in Sources */,
+				8093E96213610C5F005CA509 /* cardsAppDelegate.h in Sources */,
+				8093E96413610C6C005CA509 /* cardsAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8DD76F990486AA7600D96B5E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -243,6 +339,54 @@
 			};
 			name = Release;
 		};
+		8093E89413610873005CA509 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "TexasHoldemMac-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = TexasHoldemMac;
+			};
+			name = Debug;
+		};
+		8093E89513610873005CA509 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "TexasHoldemMac-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = TexasHoldemMac;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -260,6 +404,15 @@
 			buildConfigurations = (
 				1DEB927908733DD40010E9CD /* Debug */,
 				1DEB927A08733DD40010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8093E89613610873005CA509 /* Build configuration list for PBXNativeTarget "TexasHoldemMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8093E89413610873005CA509 /* Debug */,
+				8093E89513610873005CA509 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
