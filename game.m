@@ -200,6 +200,8 @@ if (numberOfPlayers > 1)
 
 -(void)setupGameView: (GameView *)aGameView {
 	self.gameView = aGameView;
+	
+	NSLog(@"gameViewAskNumberOfPlayers %d",[gameView askNumberOfPlayers]);
 	[self setupDeckFlopPlayers];
 	
 	
