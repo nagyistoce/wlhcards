@@ -85,4 +85,17 @@
 	printf("Invalid Bet! You must bet at least %f\n",lastBet);
 }
 
+
+-(IBAction)player1Bet {
+}
+
+-(IBAction)player2Bet{
+}
+
+-(IBAction)player3Bet{
+}
+
+-(IBAction)player4Bet{
+}
+
 @end
