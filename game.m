@@ -26,35 +26,8 @@
 	
 gameView = [[GameView alloc] init];
 
-	
-	int numberOfPlayers = 0;
-
-// Set up the Deck
-	
-	deck = [[Deck alloc] init];
-	[deck shuffle];
-	flop = [[NSMutableArray alloc] init];
-	
-// how many players?
-		
-	numberOfPlayers = [gameView askNumberOfPlayers];
-	
-	gameView.numberOfPlayers = numberOfPlayers;
-	
-// create players
-	players = [[NSMutableArray alloc] init];
-	gameView.players = self.players;
-	
-	for ( int i=0;i<numberOfPlayers;i++) {
-		Player *newPlayer = [[Player alloc] init];
-		newPlayer.name = [NSString stringWithFormat:@"Player %d",i+1];	
-		newPlayer.gameView = gameView;
-		[players addObject:newPlayer];
-		[newPlayer release];
-		
-	}
-	
-	((Player *)[players objectAtIndex:0]).name = [NSString stringWithFormat:@"Dealer"];
+int numberOfPlayers = [gameView askNumberOfPlayers];
+	[self setupDeckFlopPlayers];
 	
 if (numberOfPlayers > 1) 
 {
@@ -227,7 +200,44 @@ if (numberOfPlayers > 1)
 
 -(void)setupGameView: (GameView *)aGameView {
 	self.gameView = aGameView;
+	[self setupDeckFlopPlayers];
+	
 	
 }
+
+#pragma mark Commom stuff
+
+-(void)setupDeckFlopPlayers {
+	int numberOfPlayers = 0;
+	
+	// Set up the Deck
+	
+	deck = [[Deck alloc] init];
+	[deck shuffle];
+	flop = [[NSMutableArray alloc] init];
+	
+	// how many players?
+	
+	numberOfPlayers = [gameView askNumberOfPlayers];
+	
+	gameView.numberOfPlayers = numberOfPlayers;
+	
+	// create players
+	players = [[NSMutableArray alloc] init];
+	gameView.players = self.players;
+	
+	for ( int i=0;i<numberOfPlayers;i++) {
+		Player *newPlayer = [[Player alloc] init];
+		newPlayer.name = [NSString stringWithFormat:@"Player %d",i+1];	
+		newPlayer.gameView = gameView;
+		[players addObject:newPlayer];
+		[newPlayer release];
+		
+	}
+	
+	((Player *)[players objectAtIndex:0]).name = [NSString stringWithFormat:@"Dealer"];
+	
+}	
+
 
 @end
