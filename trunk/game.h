@@ -32,4 +32,7 @@
 
 -(void)setupGameView: (GameView *)gameView;
 
+// Common
+-(void)setupDeckFlopPlayers;
+
 @end
