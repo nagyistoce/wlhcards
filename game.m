@@ -16,6 +16,9 @@
 @implementation game
 @synthesize players; 
 @synthesize pot;
+@synthesize gameView;
+
+#pragma mark Text Based Implemetation
 
 -(void)gameLoop {
 	
@@ -220,5 +223,11 @@ if (numberOfPlayers > 1)
 	return square;
 }
 		
-	 
+#pragma mark Mac GUI Implemetation
+
+-(void)setupGameView: (GameView *)aGameView {
+	self.gameView = aGameView;
+	
+}
+
 @end

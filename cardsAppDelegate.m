@@ -12,11 +12,12 @@
 @implementation cardsAppDelegate
 
 @synthesize window;
+@synthesize gameView;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
 	
 	game *theGame = [[game alloc] init];
-	[theGame gameLoop];
+	[theGame setupGameView:gameView];
 
 	
 }

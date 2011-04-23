@@ -21,8 +21,15 @@
 }
 @property (nonatomic, retain) NSMutableArray *players;
 @property float pot;
+@property (nonatomic, retain) GameView *gameView;
 
+// text based methods
 -(void) gameLoop;
 -(BOOL) betsAreSquare;
 -(void) getEveryonesBet;
+
+// GUI methods
+
+-(void)setupGameView: (GameView *)gameView;
+
 @end
