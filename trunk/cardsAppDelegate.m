@@ -12,14 +12,15 @@
 @implementation cardsAppDelegate
 
 @synthesize window;
-@synthesize gameView;
+
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
 	
 	game *theGame = [[game alloc] init];
-	[theGame setupGameView:gameView];
-
+	theGame.aWindow = window;
 	
+	
+	[NSThread detachNewThreadSelector:@selector(gameLoop) toTarget:theGame withObject:nil];
 }
 
 @end

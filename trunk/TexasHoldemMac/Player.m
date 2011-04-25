@@ -13,7 +13,9 @@
 @implementation Player
 @synthesize playerHand, name, gameView;
 @synthesize currentBet, money;
-@synthesize playerTextView;
+
+@synthesize nibName;
+
 
 -(id)init {
 	if (self = [super init]) {
@@ -21,8 +23,12 @@
 		playerHand = [[Hand alloc] init];
 		money = 100.00;
 		name = [[NSString alloc] initWithString:@"Player"];
+		self.nibName = @"Player";
+		self.loadView;
 	}
 	return self;
+
+
 }
 		
 -(void) dealloc {

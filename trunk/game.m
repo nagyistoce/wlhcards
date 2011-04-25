@@ -17,17 +17,26 @@
 @synthesize players; 
 @synthesize pot;
 @synthesize gameView;
+@synthesize aWindow;
+
 
 #pragma mark Text Based Implemetation
 
 -(void)gameLoop {
-	
+
+    NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
+
 // set up the gameView
 	
 gameView = [[GameView alloc] init];
 
+
+	
 int numberOfPlayers = [gameView askNumberOfPlayers];
-	[self setupDeckFlopPlayers];
+[self setupDeckFlopPlayers];
+	NSLog(@"passing window %@",self.aWindow);
+	[gameView addPlayersToWindow:[self aWindow]];	
+
 	
 if (numberOfPlayers > 1) 
 {
@@ -132,6 +141,7 @@ if (numberOfPlayers > 1)
 	[deck release];
 	[players release];
 	[flop release];
+	[pool drain];
 }
 
 
@@ -198,13 +208,8 @@ if (numberOfPlayers > 1)
 		
 #pragma mark Mac GUI Implemetation
 
--(void)setupGameView: (GameView *)aGameView {
-	self.gameView = aGameView;
-	
-	NSLog(@"gameViewAskNumberOfPlayers %d",[gameView askNumberOfPlayers]);
-	[self setupDeckFlopPlayers];
-	
-	
+-(void) setWindow:(NSWindow *)window {
+
 }
 
 #pragma mark Commom stuff

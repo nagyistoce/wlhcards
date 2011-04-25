@@ -10,13 +10,14 @@
 @class Hand;
 @class GameView;
 
-@interface Player : NSObject {
+@interface Player : NSViewController {
 	Hand   *playerHand;
 	float	money;
 	float	currentBet;
 	NSString *name;
 	GameView *gameView;
-	NSTextView *playerTextView;
+	
+
 	
 }
 @property (nonatomic, retain) Hand *playerHand;
@@ -24,7 +25,8 @@
 @property (nonatomic) float money;
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) GameView *gameView;
-@property (nonatomic, retain) NSTextView *playerTextView;
+@property (nonatomic, retain) NSString *nibName;
+
 
 -(float)askForBet; // returns bet amount
 -(void)playerLostHand;

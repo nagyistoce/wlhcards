@@ -14,26 +14,12 @@
 #import "Player.h"
 #import "Cocoa/Cocoa.h"
 
-@interface GameView : NSViewController {
+@interface GameView : NSObject {
 	
 	int		numberOfPlayers;
 	NSMutableArray *players;
 	NSMutableArray *flop;
 	
-IBOutlet NSTextField *player1Label;	
-IBOutlet NSTextField *player2Label;
-IBOutlet NSTextField *player3Label;
-IBOutlet NSTextField *player4Label;
-	
-IBOutlet NSTextField *player1Hand;
-IBOutlet NSTextField *player2Hand;
-IBOutlet NSTextField *player3Hand;
-IBOutlet NSTextField *player4Hand;
-	
-IBOutlet NSTextField *player1Bet;
-IBOutlet NSTextField *player2Bet;
-IBOutlet NSTextField *player3Bet;
-IBOutlet NSTextField *player4Bet;
 	
 	
 	
@@ -49,11 +35,7 @@ IBOutlet NSTextField *player4Bet;
 -(float)getBetFromPlayer:(Player *)player;
 -(void)displayBoard;
 -(void)invalidBet:(float)lastBet;
-
--(IBAction)player1Bet;
--(IBAction)player2Bet;
--(IBAction)player3Bet;
--(IBAction)player4Bet;
+-(void)addPlayersToWindow:(NSWindow *) window;
 
 
 @end
