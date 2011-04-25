@@ -11,10 +11,10 @@
 
 @interface cardsAppDelegate : NSObject <NSApplicationDelegate> {
     NSWindow *window;
-	GameView *gameView;
+	
 }
 
 @property (assign) IBOutlet NSWindow *window;
-@property (assign) IBOutlet GameView *gameView;
+
 
 @end

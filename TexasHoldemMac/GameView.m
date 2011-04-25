@@ -32,6 +32,41 @@
 	
 }
 
+
+-(void)addPlayersToWindow:(NSWindow *) window{
+	
+	NSLog(@"Add Players To Window %@", window);
+	// get windows view
+	
+	NSView *subView = [window contentView];
+	
+	// for each player  {
+	
+	for (int i = 0;i < numberOfPlayers;i++) {
+		
+	
+	// get the players view
+		NSView *pView = ((Player *)[players objectAtIndex:i]).view;
+		
+	// add that view to the contentView
+	
+		[subView addSubview:pView];
+		
+		
+	// set Views x and y  -   (void)setFrameOrigin:(NSPoint)newOrigin }
+		float x= 10;
+		float y=80*(i);
+		NSPoint aPoint = NSMakePoint(x, y);
+		[pView setFrameOrigin:aPoint];
+		
+	}
+	
+	// (void)setNeedsDisplay:(BOOL)flag
+
+	[subView setNeedsDisplay:YES];
+	
+}
+
 -(void)display {
 	
 	clrscrn();

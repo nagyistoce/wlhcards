@@ -18,10 +18,13 @@
 	float pot;
 	float currentBet;
 	float lastBet;
+	NSWindow *aWindow;
 }
 @property (nonatomic, retain) NSMutableArray *players;
 @property float pot;
 @property (nonatomic, retain) GameView *gameView;
+@property (nonatomic, retain) NSWindow *aWindow;
+
 
 // text based methods
 -(void) gameLoop;
@@ -30,7 +33,8 @@
 
 // GUI methods
 
--(void)setupGameView: (GameView *)gameView;
+-(void) setWindow:(NSWindow *)window;
+
 
 // Common
 -(void)setupDeckFlopPlayers;
