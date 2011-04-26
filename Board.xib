@@ -43,23 +43,23 @@
 				<int key="NSvFlags">268</int>
 				<object class="NSMutableArray" key="NSSubviews">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<object class="NSTextField" id="417164926">
+					<object class="NSTextField" id="91057881">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{17, 20}, {214, 17}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<bool key="NSEnabled">YES</bool>
-						<object class="NSTextFieldCell" key="NSCell" id="1037568883">
+						<object class="NSTextFieldCell" key="NSCell" id="946073251">
 							<int key="NSCellFlags">68288064</int>
 							<int key="NSCellFlags2">138413056</int>
 							<string key="NSContents">Game Status L2</string>
-							<object class="NSFont" key="NSSupport" id="804993867">
+							<object class="NSFont" key="NSSupport" id="571167920">
 								<string key="NSName">LucidaGrande</string>
 								<double key="NSSize">13</double>
 								<int key="NSfFlags">1044</int>
 							</object>
-							<reference key="NSControlView" ref="417164926"/>
-							<object class="NSColor" key="NSBackgroundColor" id="93920497">
+							<reference key="NSControlView" ref="91057881"/>
+							<object class="NSColor" key="NSBackgroundColor" id="834897926">
 								<int key="NSColorSpace">6</int>
 								<string key="NSCatalogName">System</string>
 								<string key="NSColorName">controlColor</string>
@@ -68,47 +68,47 @@
 									<bytes key="NSWhite">MC42NjY2NjY2NjY3AA</bytes>
 								</object>
 							</object>
-							<object class="NSColor" key="NSTextColor" id="686763456">
+							<object class="NSColor" key="NSTextColor" id="88874096">
 								<int key="NSColorSpace">6</int>
 								<string key="NSCatalogName">System</string>
 								<string key="NSColorName">controlTextColor</string>
-								<object class="NSColor" key="NSColor" id="166772516">
+								<object class="NSColor" key="NSColor" id="70329952">
 									<int key="NSColorSpace">3</int>
 									<bytes key="NSWhite">MAA</bytes>
 								</object>
 							</object>
 						</object>
 					</object>
-					<object class="NSTextField" id="624289518">
+					<object class="NSTextField" id="789307372">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{17, 45}, {214, 17}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<bool key="NSEnabled">YES</bool>
-						<object class="NSTextFieldCell" key="NSCell" id="553786251">
+						<object class="NSTextFieldCell" key="NSCell" id="322628002">
 							<int key="NSCellFlags">68288064</int>
 							<int key="NSCellFlags2">138413056</int>
 							<string key="NSContents">Game Status</string>
-							<reference key="NSSupport" ref="804993867"/>
-							<reference key="NSControlView" ref="624289518"/>
-							<reference key="NSBackgroundColor" ref="93920497"/>
-							<reference key="NSTextColor" ref="686763456"/>
+							<reference key="NSSupport" ref="571167920"/>
+							<reference key="NSControlView" ref="789307372"/>
+							<reference key="NSBackgroundColor" ref="834897926"/>
+							<reference key="NSTextColor" ref="88874096"/>
 						</object>
 					</object>
-					<object class="NSTextField" id="596446467">
+					<object class="NSTextField" id="996013899">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{65, 70}, {163, 22}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<bool key="NSEnabled">YES</bool>
-						<object class="NSTextFieldCell" key="NSCell" id="580244253">
+						<object class="NSTextFieldCell" key="NSCell" id="327726908">
 							<int key="NSCellFlags">-1804468671</int>
 							<int key="NSCellFlags2">272630784</int>
 							<string key="NSContents"/>
-							<reference key="NSSupport" ref="804993867"/>
-							<reference key="NSControlView" ref="596446467"/>
+							<reference key="NSSupport" ref="571167920"/>
+							<reference key="NSControlView" ref="996013899"/>
 							<bool key="NSDrawsBackground">YES</bool>
-							<object class="NSColor" key="NSBackgroundColor" id="334950059">
+							<object class="NSColor" key="NSBackgroundColor" id="7070766">
 								<int key="NSColorSpace">6</int>
 								<string key="NSCatalogName">System</string>
 								<string key="NSColorName">textBackgroundColor</string>
@@ -117,61 +117,61 @@
 									<bytes key="NSWhite">MQA</bytes>
 								</object>
 							</object>
-							<object class="NSColor" key="NSTextColor" id="668814538">
+							<object class="NSColor" key="NSTextColor" id="180733748">
 								<int key="NSColorSpace">6</int>
 								<string key="NSCatalogName">System</string>
 								<string key="NSColorName">textColor</string>
-								<reference key="NSColor" ref="166772516"/>
+								<reference key="NSColor" ref="70329952"/>
 							</object>
 						</object>
 					</object>
-					<object class="NSTextField" id="520988986">
+					<object class="NSTextField" id="749865464">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{17, 70}, {38, 17}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<bool key="NSEnabled">YES</bool>
-						<object class="NSTextFieldCell" key="NSCell" id="919215590">
+						<object class="NSTextFieldCell" key="NSCell" id="425085265">
 							<int key="NSCellFlags">68288064</int>
 							<int key="NSCellFlags2">272630784</int>
 							<string key="NSContents">Pot</string>
-							<reference key="NSSupport" ref="804993867"/>
-							<reference key="NSControlView" ref="520988986"/>
-							<reference key="NSBackgroundColor" ref="93920497"/>
-							<reference key="NSTextColor" ref="686763456"/>
+							<reference key="NSSupport" ref="571167920"/>
+							<reference key="NSControlView" ref="749865464"/>
+							<reference key="NSBackgroundColor" ref="834897926"/>
+							<reference key="NSTextColor" ref="88874096"/>
 						</object>
 					</object>
-					<object class="NSTextField" id="651207731">
+					<object class="NSTextField" id="718515885">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{65, 102}, {163, 22}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<bool key="NSEnabled">YES</bool>
-						<object class="NSTextFieldCell" key="NSCell" id="994890373">
+						<object class="NSTextFieldCell" key="NSCell" id="155856486">
 							<int key="NSCellFlags">-1804468671</int>
 							<int key="NSCellFlags2">272630784</int>
 							<string key="NSContents"/>
-							<reference key="NSSupport" ref="804993867"/>
-							<reference key="NSControlView" ref="651207731"/>
+							<reference key="NSSupport" ref="571167920"/>
+							<reference key="NSControlView" ref="718515885"/>
 							<bool key="NSDrawsBackground">YES</bool>
-							<reference key="NSBackgroundColor" ref="334950059"/>
-							<reference key="NSTextColor" ref="668814538"/>
+							<reference key="NSBackgroundColor" ref="7070766"/>
+							<reference key="NSTextColor" ref="180733748"/>
 						</object>
 					</object>
-					<object class="NSTextField" id="933267524">
+					<object class="NSTextField" id="61936989">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{17, 107}, {38, 17}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<bool key="NSEnabled">YES</bool>
-						<object class="NSTextFieldCell" key="NSCell" id="257420993">
+						<object class="NSTextFieldCell" key="NSCell" id="805022266">
 							<int key="NSCellFlags">68288064</int>
 							<int key="NSCellFlags2">272630784</int>
 							<string key="NSContents">Board</string>
-							<reference key="NSSupport" ref="804993867"/>
-							<reference key="NSControlView" ref="933267524"/>
-							<reference key="NSBackgroundColor" ref="93920497"/>
-							<reference key="NSTextColor" ref="686763456"/>
+							<reference key="NSSupport" ref="571167920"/>
+							<reference key="NSControlView" ref="61936989"/>
+							<reference key="NSBackgroundColor" ref="834897926"/>
+							<reference key="NSTextColor" ref="88874096"/>
 						</object>
 					</object>
 				</object>
@@ -195,9 +195,17 @@
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">boardField</string>
 						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="651207731"/>
+						<reference key="destination" ref="718515885"/>
 					</object>
 					<int key="connectionID">15</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">statusOne</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="789307372"/>
+					</object>
+					<int key="connectionID">16</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -232,98 +240,98 @@
 						<reference key="object" ref="1005"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="933267524"/>
-							<reference ref="651207731"/>
-							<reference ref="596446467"/>
-							<reference ref="520988986"/>
-							<reference ref="624289518"/>
-							<reference ref="417164926"/>
+							<reference ref="61936989"/>
+							<reference ref="718515885"/>
+							<reference ref="996013899"/>
+							<reference ref="749865464"/>
+							<reference ref="789307372"/>
+							<reference ref="91057881"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">2</int>
-						<reference key="object" ref="933267524"/>
+						<reference key="object" ref="61936989"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="257420993"/>
+							<reference ref="805022266"/>
 						</object>
 						<reference key="parent" ref="1005"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">3</int>
-						<reference key="object" ref="257420993"/>
-						<reference key="parent" ref="933267524"/>
+						<reference key="object" ref="805022266"/>
+						<reference key="parent" ref="61936989"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">4</int>
-						<reference key="object" ref="651207731"/>
+						<reference key="object" ref="718515885"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="994890373"/>
+							<reference ref="155856486"/>
 						</object>
 						<reference key="parent" ref="1005"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">5</int>
-						<reference key="object" ref="994890373"/>
-						<reference key="parent" ref="651207731"/>
+						<reference key="object" ref="155856486"/>
+						<reference key="parent" ref="718515885"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">6</int>
-						<reference key="object" ref="520988986"/>
+						<reference key="object" ref="749865464"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="919215590"/>
+							<reference ref="425085265"/>
 						</object>
 						<reference key="parent" ref="1005"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">7</int>
-						<reference key="object" ref="919215590"/>
-						<reference key="parent" ref="520988986"/>
+						<reference key="object" ref="425085265"/>
+						<reference key="parent" ref="749865464"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">8</int>
-						<reference key="object" ref="596446467"/>
+						<reference key="object" ref="996013899"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="580244253"/>
+							<reference ref="327726908"/>
 						</object>
 						<reference key="parent" ref="1005"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">9</int>
-						<reference key="object" ref="580244253"/>
-						<reference key="parent" ref="596446467"/>
+						<reference key="object" ref="327726908"/>
+						<reference key="parent" ref="996013899"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">10</int>
-						<reference key="object" ref="624289518"/>
+						<reference key="object" ref="789307372"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="553786251"/>
+							<reference ref="322628002"/>
 						</object>
 						<reference key="parent" ref="1005"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">11</int>
-						<reference key="object" ref="553786251"/>
-						<reference key="parent" ref="624289518"/>
+						<reference key="object" ref="322628002"/>
+						<reference key="parent" ref="789307372"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">12</int>
-						<reference key="object" ref="417164926"/>
+						<reference key="object" ref="91057881"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="1037568883"/>
+							<reference ref="946073251"/>
 						</object>
 						<reference key="parent" ref="1005"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">13</int>
-						<reference key="object" ref="1037568883"/>
-						<reference key="parent" ref="417164926"/>
+						<reference key="object" ref="946073251"/>
+						<reference key="parent" ref="91057881"/>
 					</object>
 				</object>
 			</object>
@@ -396,7 +404,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">15</int>
+			<int key="maxID">16</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -413,14 +421,35 @@
 					<string key="className">GameView</string>
 					<string key="superclassName">NSViewController</string>
 					<object class="NSMutableDictionary" key="outlets">
-						<string key="NS.key.0">boardField</string>
-						<string key="NS.object.0">NSTextField</string>
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>boardField</string>
+							<string>statusOne</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>NSTextField</string>
+							<string>NSTextField</string>
+						</object>
 					</object>
 					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<string key="NS.key.0">boardField</string>
-						<object class="IBToOneOutletInfo" key="NS.object.0">
-							<string key="name">boardField</string>
-							<string key="candidateClassName">NSTextField</string>
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>boardField</string>
+							<string>statusOne</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBToOneOutletInfo">
+								<string key="name">boardField</string>
+								<string key="candidateClassName">NSTextField</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">statusOne</string>
+								<string key="candidateClassName">NSTextField</string>
+							</object>
 						</object>
 					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">

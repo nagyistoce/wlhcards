@@ -17,7 +17,7 @@
 
 @implementation GameView
 @synthesize players, numberOfPlayers, flop;
-@synthesize nibName, boardField;
+@synthesize nibName, boardField, statusOne;
 
 -(id)init
 {
@@ -118,7 +118,9 @@
 }
 
 -(float)getBetFromPlayer:(Player *)player {
-	return [player askForBet];
+	float bet = [player askForBet];
+	[statusOne setStringValue:@""];
+	return bet;
 		
 }
 
@@ -132,7 +134,9 @@
 }	
 
 -(void)invalidBet:(float)lastBet {
+	NSString *aString = [NSString stringWithFormat:@"Bet at least %f\n",lastBet];
 	printf("Invalid Bet! You must bet at least %f\n",lastBet);
+	[statusOne setStringValue:aString];
 }
 
 
