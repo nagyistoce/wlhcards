@@ -38,7 +38,7 @@
 @property int suit;
 @property int faceValue;
 
--(void) print;
+-(NSString *) print;
 -(NSComparisonResult) compare:(Card *)otherCard;
 
 @end

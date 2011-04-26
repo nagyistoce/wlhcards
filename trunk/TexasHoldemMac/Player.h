@@ -16,6 +16,13 @@
 	float	currentBet;
 	NSString *name;
 	GameView *gameView;
+	BOOL	hasBet;
+
+	IBOutlet NSTextField *nameLabel;
+	IBOutlet NSTextField *handField;
+	IBOutlet NSTextField *betField;
+	IBOutlet NSButton *betButton;
+	
 	
 
 	
@@ -26,6 +33,12 @@
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) GameView *gameView;
 @property (nonatomic, retain) NSString *nibName;
+@property (nonatomic) BOOL hasBet;
+@property (nonatomic, retain) NSTextField *nameLabel;
+@property (nonatomic, retain) NSTextField *handField;
+@property (nonatomic, retain) NSTextField *betField;
+@property (nonatomic, retain) NSButton *betButton;
+
 
 
 -(float)askForBet; // returns bet amount
@@ -33,6 +46,7 @@
 -(void)playerWonHand;
 -(Hand *) getPlayerHand;
 -(void)display;
--(void)print;
+-(IBAction)betButton:(id) sender ;
+
 
 @end

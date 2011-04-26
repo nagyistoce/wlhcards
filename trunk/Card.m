@@ -18,7 +18,7 @@
 	return self;
 }
 
--(void)print {
+-(NSString *)print {
 	char mysuit;
 	char myfaceValue;
 	switch (self.suit)
@@ -64,7 +64,9 @@
 	
 	printf("%c",myfaceValue);
 	printf("%c ",mysuit);
-
+	NSString *cardStr = [NSString stringWithFormat:@"%c%c ",myfaceValue,mysuit];
+	[cardStr autorelease];
+	return cardStr;
 
 }
 

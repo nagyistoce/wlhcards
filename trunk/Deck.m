@@ -55,7 +55,7 @@
 	printf("Printing a Deck...\n");
 	for (int i=0;i<[cards count];i++) {
 		printf("\n");
-		[[self.cards objectAtIndex:i] print];
+		[((Card *)[self.cards objectAtIndex:i]) print];
 	}
 }	
 

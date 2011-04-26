@@ -19,7 +19,6 @@
 		8093E91F136108CF005CA509 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
 		8093E920136108CF005CA509 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80AB36B6135B9B5200300D62 /* Cocoa.framework */; };
 		8093E96013610C00005CA509 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8093E95F13610C00005CA509 /* main.m */; };
-		8093E96213610C5F005CA509 /* cardsAppDelegate.h in Sources */ = {isa = PBXBuildFile; fileRef = 8093E96113610C4C005CA509 /* cardsAppDelegate.h */; };
 		8093E96413610C6C005CA509 /* cardsAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8093E96313610C6C005CA509 /* cardsAppDelegate.m */; };
 		8093EA0613611865005CA509 /* GameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8093EA0513611865005CA509 /* GameView.m */; };
 		8096CB2313476D410064FC3F /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 8096CB2213476D410064FC3F /* Player.m */; };
@@ -269,7 +268,6 @@
 				8093E89A136108BE005CA509 /* Hand.m in Sources */,
 				8093E89B136108BE005CA509 /* game.m in Sources */,
 				8093E96013610C00005CA509 /* main.m in Sources */,
-				8093E96213610C5F005CA509 /* cardsAppDelegate.h in Sources */,
 				8093E96413610C6C005CA509 /* cardsAppDelegate.m in Sources */,
 				8093EA0613611865005CA509 /* GameView.m in Sources */,
 			);

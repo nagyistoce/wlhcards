@@ -28,4 +28,6 @@
 -(float)getBetFromPlayer:(Player *)player;
 -(void)displayBoard;
 -(void)invalidBet:(float)lastBet;
+-(void)addPlayersToWindow:(NSWindow *) window;
+
 @end
