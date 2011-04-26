@@ -17,11 +17,15 @@
 
 @implementation GameView
 @synthesize players, numberOfPlayers, flop;
+@synthesize nibName, boardField;
 
 -(id)init
 {
 	
 	NSLog(@"Loaded Cocoa Version of GameView");
+	
+	self.nibName = @"Board";
+	self.loadView;
 	return self;
 }
 
@@ -40,6 +44,11 @@
 	
 	NSView *subView = [window contentView];
 	
+	NSSize subSize = subView.frame.size;
+	
+	float subHeight = subSize.height;
+	subHeight -= 50; // this number is the offset from the top of the frame that players will start to be added
+	
 	// for each player  {
 	
 	for (int i = 0;i < numberOfPlayers;i++) {
@@ -52,16 +61,19 @@
 	
 		[subView addSubview:pView];
 		
-		
+
 	// set Views x and y  -   (void)setFrameOrigin:(NSPoint)newOrigin }
-		float x= 10;
-		float y=80*(i);
+		float x= 10; // this is the horz. offset of the players added
+		float y= subHeight-((i+1)*80); // the multiplier is the space in the view given to each player
 		NSPoint aPoint = NSMakePoint(x, y);
-		[pView setFrameOrigin:aPoint];
+		[pView setFrameOrigin:aPoint];  // this places the player
 		
 	}
+	// Add the board to the view
 	
-	
+	[subView addSubview:self.view];
+	NSPoint aPoint = NSMakePoint(210, subHeight-110);
+	[self.view setFrameOrigin:aPoint];
 
 	[subView setNeedsDisplay:YES];
 	
@@ -111,11 +123,12 @@
 }
 
 -(void)displayBoard {
+	NSString *bString = [[NSString alloc] init];
 	printf("\nBoard: (%d cards)\n",(int)[flop count]); 
 	for (int i=0;i<[flop count];i++) {
-		[((Card *)[flop objectAtIndex:i]) print];
+		bString = [bString stringByAppendingString: [((Card *)[flop objectAtIndex:i]) print]];
 	}
-	
+	[boardField setStringValue:bString];
 }	
 
 -(void)invalidBet:(float)lastBet {
