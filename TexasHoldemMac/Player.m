@@ -12,9 +12,9 @@
 
 @implementation Player
 @synthesize playerHand, name, gameView;
-@synthesize currentBet, money;
+@synthesize currentBet, money, hasBet;
 
-@synthesize nibName;
+@synthesize nibName, nameLabel, handField, betField, betButton;
 
 
 -(id)init {
@@ -38,21 +38,30 @@
 }
 	
 -(void) display {
+	
+	NSString *aString = [[NSString alloc] init];
+	
+	self.nameLabel.stringValue = name;
+	
 	printf("%s\n",[name UTF8String]);
+	
+	
+	
 	if ([playerHand.cards count]<2) {
 		return;
 	}
 	
 	for (int i=0;i<2;i++) {
-		[((Card*)[playerHand.cards objectAtIndex:i]) print];
+		aString =[aString stringByAppendingString:[((Card*)[playerHand.cards objectAtIndex:i]) print]];
 		printf(" ");
 	}
+	[self.handField setStringValue:aString];
+	
 	printf("\n");
 }
 
--(void) print {
-	[self display];
-}
+
+
 
 -(Hand *) getPlayerHand {
 	return playerHand;
@@ -60,16 +69,29 @@
 
 -(float)askForBet{
 
-	float bet;
-	[self print];
+	[self display];
 	[gameView displayBoard];
 	printf("\nWhat is your bet?");
-	scanf("%f",&bet);
-	currentBet = bet;
-	clrscrn();
-	return bet;
+	hasBet = NO;
+	[self.betButton setEnabled:YES];
+	
+	while (hasBet==NO) {
+		
+	}
+	[self.betButton setEnabled:NO];
+	
+	printf("%f\n",currentBet);
+	
+	return currentBet;
 	
 } 
+
+
+-(IBAction)betButton:(id) sender {
+	currentBet = betField.floatValue; 
+	hasBet = YES;
+}
+
 
 -(void)playerLostHand{}
 -(void)playerWonHand{}

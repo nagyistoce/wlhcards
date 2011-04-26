@@ -61,7 +61,7 @@
 		
 	}
 	
-	// (void)setNeedsDisplay:(BOOL)flag
+	
 
 	[subView setNeedsDisplay:YES];
 	
@@ -69,12 +69,14 @@
 
 -(void)display {
 	
-	clrscrn();
+
 		printf("---------------------------\n");	
 	for (int i=0;i<numberOfPlayers;i++)
 	{
+		[[players objectAtIndex:i] display];
 		printf("%s\n",[((Player *)[players objectAtIndex:i]).name UTF8String] );
 		[self displayPlayer:[players objectAtIndex:i]];
+		
 		printf("\n\n\n");
 	
 	}
@@ -86,7 +88,7 @@
 	
 	for (int i=0;i<[player.playerHand.cards count];i++) {
 		printf(" ");
-		[[player.playerHand.cards objectAtIndex:i] print];
+		[((Card *)[player.playerHand.cards objectAtIndex:i]) print];
 	}
 	
 }
@@ -111,7 +113,7 @@
 -(void)displayBoard {
 	printf("\nBoard: (%d cards)\n",(int)[flop count]); 
 	for (int i=0;i<[flop count];i++) {
-		[[flop objectAtIndex:i] print];
+		[((Card *)[flop objectAtIndex:i]) print];
 	}
 	
 }	
@@ -121,16 +123,5 @@
 }
 
 
--(IBAction)player1Bet {
-}
-
--(IBAction)player2Bet{
-}
-
--(IBAction)player3Bet{
-}
-
--(IBAction)player4Bet{
-}
 
 @end

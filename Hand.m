@@ -52,10 +52,9 @@
 	
 	for (int i=0;i<[cards count];i++) {
 		printf(" ");
-		[[self.cards objectAtIndex:i] print];
+		[((Card *)[self.cards objectAtIndex:i]) print];
 	}
-//	printf("\n Hand Rank: %ld\n",rank);
-//	printf("High Card Rank: %d\n",highCardRank);
+
 
 }	
 

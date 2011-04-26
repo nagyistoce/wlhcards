@@ -10,7 +10,7 @@
 #import "Hand.h"
 #import "GameView.h"
 
-@implementation Player
+@implementation tPlayer
 @synthesize playerHand, name, gameView;
 @synthesize currentBet, money;
 @synthesize playerTextView;

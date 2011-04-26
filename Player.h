@@ -10,7 +10,7 @@
 @class Hand;
 @class GameView;
 
-@interface Player : NSObject {
+@interface tPlayer : NSObject {
 	Hand   *playerHand;
 	float	money;
 	float	currentBet;

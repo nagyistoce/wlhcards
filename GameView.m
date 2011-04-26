@@ -14,6 +14,9 @@
 @implementation GameView
 @synthesize players, numberOfPlayers, flop;
 
+-(void)addPlayersToWindow:(NSWindow *) window {}
+
+
 -(id)init
 {
 	return self;

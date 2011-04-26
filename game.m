@@ -35,7 +35,7 @@ gameView = [[GameView alloc] init];
 int numberOfPlayers = [gameView askNumberOfPlayers];
 [self setupDeckFlopPlayers];
 	NSLog(@"passing window %@",self.aWindow);
-	[gameView addPlayersToWindow:[self aWindow]];	
+	[gameView addPlayersToWindow:aWindow];	
 
 	
 if (numberOfPlayers > 1) 
