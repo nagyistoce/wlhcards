@@ -305,6 +305,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = cards_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "text_only=1";
 				INSTALL_PATH = /usr/local/bin;
 				PRODUCT_NAME = cards;
 			};

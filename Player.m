@@ -13,7 +13,9 @@
 @implementation Player
 @synthesize playerHand, name, gameView;
 @synthesize currentBet, money;
+#if !(text_only==1)
 @synthesize playerTextView;
+#endif
 
 -(id)init {
 	if (self = [super init]) {

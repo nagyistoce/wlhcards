@@ -48,7 +48,7 @@
 	
 	for (int i=0;i<[player.playerHand.cards count];i++) {
 		printf(" ");
-		[[player.playerHand.cards objectAtIndex:i] print];
+		[((Card *)[player.playerHand.cards objectAtIndex:i]) print];
 	}
 	
 }
@@ -73,7 +73,7 @@
 -(void)displayBoard {
 	printf("\nBoard: (%d cards)\n",(int)[flop count]); 
 	for (int i=0;i<[flop count];i++) {
-		[[flop objectAtIndex:i] print];
+		[((Card *)[flop objectAtIndex:i]) print];
 	}
 	
 }	
