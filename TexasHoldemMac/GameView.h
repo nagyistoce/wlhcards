@@ -14,11 +14,13 @@
 #import "Player.h"
 #import "Cocoa/Cocoa.h"
 
-@interface GameView : NSObject {
+@interface GameView : NSViewController {
 	
 	int		numberOfPlayers;
 	NSMutableArray *players;
 	NSMutableArray *flop;
+	
+	IBOutlet NSTextField *boardField;
 	
 	
 	
@@ -27,6 +29,8 @@
 @property (nonatomic, retain) NSMutableArray *players;
 @property (nonatomic) int	numberOfPlayers;
 @property (nonatomic, retain) NSMutableArray *flop;
+@property (nonatomic, retain) NSString *nibName;
+@property (nonatomic, retain) NSTextField *boardField;
 
 -(void)displayPlayer:(Player *)player;
 -(void)display;

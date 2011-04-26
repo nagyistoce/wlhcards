@@ -15,7 +15,9 @@
 
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-	
+
+	srandom(time(NULL));
+
 	game *theGame = [[game alloc] init];
 	theGame.aWindow = window;
 	
