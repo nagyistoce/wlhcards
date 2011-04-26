@@ -21,7 +21,7 @@
 	NSMutableArray *flop;
 	
 	IBOutlet NSTextField *boardField;
-	
+	IBOutlet NSTextField *statusOne;
 	
 	
 	
@@ -31,6 +31,9 @@
 @property (nonatomic, retain) NSMutableArray *flop;
 @property (nonatomic, retain) NSString *nibName;
 @property (nonatomic, retain) NSTextField *boardField;
+@property (nonatomic, retain) NSTextField *statusOne;
+
+
 
 -(void)displayPlayer:(Player *)player;
 -(void)display;

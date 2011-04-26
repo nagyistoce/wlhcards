@@ -74,6 +74,7 @@
 	printf("\nWhat is your bet?");
 	hasBet = NO;
 	[self.betButton setEnabled:YES];
+	[self.betField becomeFirstResponder];
 	
 	while (hasBet==NO) {
 		
