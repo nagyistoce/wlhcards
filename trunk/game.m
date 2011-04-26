@@ -17,8 +17,9 @@
 @synthesize players; 
 @synthesize pot;
 @synthesize gameView;
+#if !(text_only==1)
 @synthesize aWindow;
-
+#endif
 
 #pragma mark Text Based Implemetation
 
@@ -34,9 +35,10 @@ gameView = [[GameView alloc] init];
 	
 int numberOfPlayers = [gameView askNumberOfPlayers];
 [self setupDeckFlopPlayers];
+#if !(text_only==1)
 	NSLog(@"passing window %@",self.aWindow);
 	[gameView addPlayersToWindow:aWindow];	
-
+#endif
 	
 if (numberOfPlayers > 1) 
 {
