@@ -86,6 +86,7 @@
 -(Card *) dealCard {
 	Card *newCard = [cards objectAtIndex:0];
 	[newCard retain];   // This is a memory leak. Using autorelease causes crash.
+	[newCard autorelease];	
 	[cards removeObjectAtIndex:0];
 	return newCard;
 }

@@ -8,13 +8,14 @@
 
 #import <Cocoa/Cocoa.h>
 #import "GameView.h"
+#import "game.h"
 
 @interface cardsAppDelegate : NSObject <NSApplicationDelegate> {
     NSWindow *window;
-	
+	game *theGame;
 }
 
 @property (assign) IBOutlet NSWindow *window;
-
+@property (nonatomic, retain) game *theGame;
 
 @end
