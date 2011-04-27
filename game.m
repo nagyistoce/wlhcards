@@ -137,7 +137,7 @@ if (numberOfPlayers > 1)
 	
 	// call gameview winner
 	NSLog(@"And the winner is! %d",winner+1);
-	   
+	[allHands release];  
 }
 	[gameView release];
 	[deck release];

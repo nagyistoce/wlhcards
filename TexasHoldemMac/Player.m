@@ -39,20 +39,19 @@
 	
 -(void) display {
 	
-	NSString *aString = [[NSString alloc] init];
 	
 	self.nameLabel.stringValue = name;
 	
 	printf("%s\n",[name UTF8String]);
 	
-	
-	
+		
 	if ([playerHand.cards count]<2) {
 		return;
 	}
-	
+	NSString *aString = [[NSString alloc] init];
+
 	for (int i=0;i<2;i++) {
-		aString =[aString stringByAppendingString:[((Card*)[playerHand.cards objectAtIndex:i]) print]];
+		aString =[aString stringByAppendingString:[((Card*)[playerHand.cards objectAtIndex:i]) print]]; // There is a leak here.
 		printf(" ");
 	}
 	[self.handField setStringValue:aString];

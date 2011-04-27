@@ -65,6 +65,7 @@
 	printf("%c",myfaceValue);
 	printf("%c ",mysuit);
 	NSString *cardStr = [NSString stringWithFormat:@"%c%c ",myfaceValue,mysuit];
+	[cardStr retain];
 	[cardStr autorelease];
 	return cardStr;
 
