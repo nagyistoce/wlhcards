@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 @class GameView;
 @class Deck;
+@class cardsAppDelegate;
 
 @interface game : NSObject {
 	NSMutableArray *players;
@@ -18,10 +19,14 @@
 	float pot;
 	float currentBet;
 	float lastBet;
+	int numberOfPlayers;
+	cardsAppDelegate  *delegate;
+	
 #if !(text_only==1)
 	NSWindow *aWindow;
 #endif
 }
+@property (nonatomic, retain) cardsAppDelegate *delegate;
 @property (nonatomic, retain) NSMutableArray *players;
 @property float pot;
 @property (nonatomic, retain) GameView *gameView;
@@ -41,5 +46,6 @@
 
 // Common
 -(void)setupDeckFlopPlayers;
+-(void)setupNewDeck;
 
 @end

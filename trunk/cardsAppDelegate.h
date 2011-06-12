@@ -15,6 +15,9 @@
 	game *theGame;
 }
 
+
+-(IBAction) startGame:(id)sender;
+
 @property (assign) IBOutlet NSWindow *window;
 @property (nonatomic, retain) game *theGame;
 

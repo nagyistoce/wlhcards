@@ -18,6 +18,7 @@
 @implementation GameView
 @synthesize players, numberOfPlayers, flop;
 @synthesize nibName, boardField, statusOne;
+@synthesize potField;
 
 -(id)init
 {
@@ -36,6 +37,16 @@
 	
 }
 
+-(void)removeBoard {
+	[self.view removeFromSuperview];
+}
+
+-(void)removePlayer:(Player*) player fromWindow:(NSWindow *) window {
+	NSView *pView = player.view;
+	// NSView *subView = [window contentView];
+	[pView removeFromSuperview];
+
+}
 
 -(void)addPlayersToWindow:(NSWindow *) window{
 	
@@ -51,7 +62,7 @@
 	
 	// for each player  {
 	
-	for (int i = 0;i < numberOfPlayers;i++) {
+	for (int i = 0;i < [players count];i++) {
 		
 	
 	// get the players view
@@ -83,12 +94,11 @@
 	
 
 		printf("---------------------------\n");	
-	for (int i=0;i<numberOfPlayers;i++)
+	for (int i=0;i<[players count];i++)
 	{
 		[[players objectAtIndex:i] display];
-		printf("%s\n",[((Player *)[players objectAtIndex:i]).name UTF8String] );
-		[self displayPlayer:[players objectAtIndex:i]];
 		
+				
 		printf("\n\n\n");
 	
 	}
@@ -107,7 +117,7 @@
 
 
 -(int)askNumberOfPlayers {
-	return 4;
+	return 2;
 }
 
 
@@ -134,11 +144,21 @@
 }	
 
 -(void)invalidBet:(float)lastBet {
-	NSString *aString = [NSString stringWithFormat:@"Bet at least %f\n",lastBet];
+	NSString *aString = [NSString stringWithFormat:@"Bet at least $ %.2f\n",lastBet];
 	printf("Invalid Bet! You must bet at least %f\n",lastBet);
 	[statusOne setStringValue:aString];
 }
 
+-(void)updatePot:(float) pot {
+	[potField setStringValue:[NSString stringWithFormat:@" $ %.2f",pot]];
+	 }
+
+-(void)winner:(int) winner {
+	NSString *aString = [NSString stringWithFormat:@"The Winner is:"];
+	NSString *bString = ((Player *)[players objectAtIndex:winner]).name;
+	[statusOne setStringValue:[aString stringByAppendingString:bString]];
+	NSLog(@"%@ %@",aString,bString);
+	 }
 
 
 @end

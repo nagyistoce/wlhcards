@@ -18,11 +18,17 @@
 
 	srandom(time(NULL));
 
-	theGame = [[game alloc] init];
-	theGame.aWindow = window;
 	
+	// self.startGame;
 	
-	[NSThread detachNewThreadSelector:@selector(gameLoop) toTarget:theGame withObject:nil];
+
 }
+
+-(IBAction) startGame:(id)sender {
+	theGame = [[game alloc] init];
+	[theGame setWindow:window];
+//	theGame.delegate = self;
+	[NSThread detachNewThreadSelector:@selector(gameLoop) toTarget:theGame withObject:nil]; 
+	 }
 
 @end
