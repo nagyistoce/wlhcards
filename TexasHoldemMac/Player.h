@@ -22,7 +22,7 @@
 	IBOutlet NSTextField *handField;
 	IBOutlet NSTextField *betField;
 	IBOutlet NSButton *betButton;
-	
+	IBOutlet NSTextField *moneyField;
 	
 
 	
@@ -38,6 +38,7 @@
 @property (nonatomic, retain) NSTextField *handField;
 @property (nonatomic, retain) NSTextField *betField;
 @property (nonatomic, retain) NSButton *betButton;
+@property (nonatomic, retain) NSTextField *moneyField;
 
 
 

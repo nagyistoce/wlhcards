@@ -14,7 +14,8 @@
 #import "Hand.h"
 
 @implementation game
-@synthesize players; 
+@synthesize players;
+@synthesize delegate;
 @synthesize pot;
 @synthesize gameView;
 #if !(text_only==1)
@@ -23,24 +24,29 @@
 
 #pragma mark Text Based Implemetation
 
+-(void) dealloc {
+	[gameView release];
+	[deck release];
+	[players release];
+	[flop release];
+	[super dealloc];
+}
+
+-(id) init {
+	// set up the gameView
+	
+	gameView = [[GameView alloc] init];
+	numberOfPlayers = [gameView askNumberOfPlayers];
+	[self setupDeckFlopPlayers];
+	return self;
+}	
+
 -(void)gameLoop {
 
     NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 
-// set up the gameView
 	
-gameView = [[GameView alloc] init];
-
-
-	
-int numberOfPlayers = [gameView askNumberOfPlayers];
-[self setupDeckFlopPlayers];
-#if !(text_only==1)
-	NSLog(@"passing window %@",self.aWindow);
-	[gameView addPlayersToWindow:aWindow];	
-#endif
-	
-if (numberOfPlayers > 1) 
+while ([players count]>1) // while more then one player exists
 {
 
 	// blind bets
@@ -131,20 +137,52 @@ if (numberOfPlayers > 1)
 	{ 
 		// NSLog(@"%d",winner); // this should be replaced with error handling code to prevent an infinite loop.
 	}
+	[allHands release];
+	
 	
 		
-			
+	// give money to winner player		
+	((Player *)[players objectAtIndex:winner]).money+= pot;
+	pot = 0;
+	[gameView updatePot:pot];
+	[gameView winner:winner];
 	
-	// call gameview winner
-	NSLog(@"And the winner is! %d",winner+1);
-	[allHands release];  
-}
-	[gameView release];
-	[deck release];
-	[players release];
+	
+	// clear player hands and flop
+	for (int i =0;i<numberOfPlayers;i++) {
+		
+		((Player *)[players objectAtIndex:i]).playerHand = [[Hand alloc] init];
+		 }
 	[flop release];
+	flop = [[NSMutableArray alloc] init];
+	 gameView.flop = flop;
+	
+	if (((numberOfPlayers*2)+5) > [deck.cards count]) { // do we have enough cards for another hand?
+		NSLog(@"shuffling a new deck");
+		self.setupNewDeck;
+	}
+	
+	// any players out of money?
+	for (int i = 0;i < [players count];i++) {
+		Player *player = ((Player *)[players objectAtIndex:i]); 
+		float pMoney = (player.money);
+		
+		if ( pMoney < 0 ) {
+			[gameView removePlayer:player fromWindow:aWindow];
+			[players removeObjectAtIndex:i];
+			numberOfPlayers--;
+		}
+	}
+	  
+} // while
+	
+	//remove remaining objects from window
+	[gameView removePlayer:[players objectAtIndex:0] fromWindow:aWindow];
+	[gameView removeBoard];
 	[pool drain];
-}
+	
+	
+} // game loop
 
 
 -(void) getEveryonesBet {
@@ -174,23 +212,33 @@ if (numberOfPlayers > 1)
 
 	
 // while bets are not square (all the same) ask the next player for a bet.
-	int i = 1;
+	int j = 1;
 	while (![self betsAreSquare]) { // while bets are not square (all the same) ask the next player for a bet.
 		
-		currentBet = [gameView getBetFromPlayer:[players objectAtIndex:i]];
+		currentBet = [gameView getBetFromPlayer:[players objectAtIndex:j]];
 		while (currentBet < lastBet) {		// make sure bet is at least as high as previous bet
 			[gameView invalidBet:lastBet];
-			currentBet = [gameView getBetFromPlayer:[players objectAtIndex:i]];
+			currentBet = [gameView getBetFromPlayer:[players objectAtIndex:j]];
 		}
 		
 		lastBet = currentBet;
 		
 		
-		if ( (++i)==[players count]) {i = 0;} // loop back to player 0 until while loop is satisfied.
+		if ( (++j)==[players count]) {j = 0;} // loop back to player 0 until while loop is satisfied.
 		}
+
+	// update the money in the pot
+	pot += lastBet * [players count];
+	[gameView updatePot:pot];
+
+	// subtract the bets from the players
+	for (int i=0;i<[players count];i++) {
+		((Player *)[players objectAtIndex:i]).money -= lastBet;
 	}
 	
-
+	
+}
+	
 	
 
 
@@ -212,22 +260,27 @@ if (numberOfPlayers > 1)
 
 -(void) setWindow:(NSWindow *)window {
 
+#if !(text_only==1)
+		self.aWindow = window;
+	[gameView addPlayersToWindow:aWindow];	
+#endif
+	
+	
 }
 
 #pragma mark Commom stuff
 
 -(void)setupDeckFlopPlayers {
-	int numberOfPlayers = 0;
-	
+		
 	// Set up the Deck
 	
-	deck = [[Deck alloc] init];
-	[deck shuffle];
+	self.setupNewDeck;
+	
 	flop = [[NSMutableArray alloc] init];
 	
 	// how many players?
 	
-	numberOfPlayers = [gameView askNumberOfPlayers];
+
 	
 	gameView.numberOfPlayers = numberOfPlayers;
 	
@@ -248,5 +301,14 @@ if (numberOfPlayers > 1)
 	
 }	
 
+-(void)setupNewDeck {
+	// Set up the Deck
+	if (deck) [deck release];
+		
+	deck = [[Deck alloc] init];
+	[deck shuffle];
+	
+}
+	
 
 @end

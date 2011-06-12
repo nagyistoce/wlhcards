@@ -6,7 +6,7 @@
 //  Copyright 2011 Warren Holybee. All rights reserved.
 //
 
-#import "GameView.h"
+#import "GameViewText.h"
 #import "Player.h"
 #import "Hand.h"
 #import "Card.h"
@@ -33,7 +33,7 @@
 	
 	clrscrn();
 		printf("---------------------------\n");	
-	for (int i=0;i<numberOfPlayers;i++)
+	for (int i=0;i<[players count];i++)
 	{
 		printf("%s\n",[((Player *)[players objectAtIndex:i]).name UTF8String] );
 		[self displayPlayer:[players objectAtIndex:i]];
@@ -55,7 +55,7 @@
 
 
 -(int)askNumberOfPlayers {
-	return 4;
+	return 2;
 }
 
 
@@ -80,6 +80,14 @@
 
 -(void)invalidBet:(float)lastBet {
 	printf("Invalid Bet! You must bet at least %f\n",lastBet);
+}
+
+-(void)updatePot:(float) pot {
+printf("Pot is now %f",pot);
+}
+	
+-(void)winner:(int)winner {
+	printf("The winner is: %d\n\n",winner+1);
 }
 
 @end

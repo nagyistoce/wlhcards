@@ -15,7 +15,7 @@
 @synthesize currentBet, money, hasBet;
 
 @synthesize nibName, nameLabel, handField, betField, betButton;
-
+@synthesize moneyField;
 
 -(id)init {
 	if (self = [super init]) {
@@ -42,21 +42,21 @@
 	
 	self.nameLabel.stringValue = name;
 	
-	printf("%s\n",[name UTF8String]);
+	
 	
 		
 	if ([playerHand.cards count]<2) {
 		return;
 	}
 	NSString *aString = [[NSString alloc] init];
-
+   printf("%s\n",[self.name UTF8String] );
 	for (int i=0;i<2;i++) {
 		aString =[aString stringByAppendingString:[((Card*)[playerHand.cards objectAtIndex:i]) print]]; // There is a leak here.
-		printf(" ");
+		
 	}
 	[self.handField setStringValue:aString];
+	[self.moneyField setStringValue:[NSString stringWithFormat:@" $ %.2f",money]];
 	
-	printf("\n");
 }
 
 

@@ -22,7 +22,7 @@
 	
 	IBOutlet NSTextField *boardField;
 	IBOutlet NSTextField *statusOne;
-	
+	IBOutlet NSTextField *potField;	
 	
 	
 }
@@ -32,7 +32,7 @@
 @property (nonatomic, retain) NSString *nibName;
 @property (nonatomic, retain) NSTextField *boardField;
 @property (nonatomic, retain) NSTextField *statusOne;
-
+@property (nonatomic, retain) NSTextField *potField;
 
 
 -(void)displayPlayer:(Player *)player;
@@ -43,6 +43,9 @@
 -(void)displayBoard;
 -(void)invalidBet:(float)lastBet;
 -(void)addPlayersToWindow:(NSWindow *) window;
-
+-(void)updatePot:(float) pot;
+-(void)winner:(int) winner;
+-(void)removePlayer:(Player *) player fromWindow:(NSWindow *) window;
+-(void)removeBoard;
 
 @end
