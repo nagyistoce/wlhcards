@@ -24,7 +24,7 @@
 		money = 100.00;
 		name = [[NSString alloc] initWithString:@"Player"];
 		self.nibName = @"Player";
-		self.loadView;
+		[self loadView];
 	}
 	return self;
 
@@ -92,6 +92,10 @@
 	hasBet = YES;
 }
 
+-(void)controlTextDidEndEditing:(NSNotification *)obj {
+	((NSButton *)[obj object]).resignFirstResponder;
+	//	[self betButton:self];
+}
 
 -(void)playerLostHand{}
 -(void)playerWonHand{}

@@ -17,6 +17,7 @@
 	NSString *name;
 	GameView *gameView;
 	BOOL	hasBet;
+    NSString *nibName;
 
 	IBOutlet NSTextField *nameLabel;
 	IBOutlet NSTextField *handField;

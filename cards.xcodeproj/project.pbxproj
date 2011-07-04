@@ -7,12 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		801909CC12D18112005A9561 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = 801909CB12D18112005A9561 /* Card.m */; };
-		801909DD12D18415005A9561 /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = 801909DC12D18415005A9561 /* Deck.m */; };
-		80190A5912D2FF73005A9561 /* Hand.m in Sources */ = {isa = PBXBuildFile; fileRef = 80190A5812D2FF73005A9561 /* Hand.m */; };
 		802464E713A54EB300E1AB10 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 802464E613A54EB300E1AB10 /* AppKit.framework */; };
-		8024655E13A55AE800E1AB10 /* noOfPlayers.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8024655D13A55AE800E1AB10 /* noOfPlayers.xib */; };
-		802E267D12E74D420041795E /* game.m in Sources */ = {isa = PBXBuildFile; fileRef = 802E267C12E74D420041795E /* game.m */; };
 		8093E898136108BE005CA509 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = 801909CB12D18112005A9561 /* Card.m */; };
 		8093E899136108BE005CA509 /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = 801909DC12D18415005A9561 /* Deck.m */; };
 		8093E89A136108BE005CA509 /* Hand.m in Sources */ = {isa = PBXBuildFile; fileRef = 80190A5812D2FF73005A9561 /* Hand.m */; };
@@ -22,27 +17,11 @@
 		8093E96013610C00005CA509 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8093E95F13610C00005CA509 /* main.m */; };
 		8093E96413610C6C005CA509 /* cardsAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8093E96313610C6C005CA509 /* cardsAppDelegate.m */; };
 		8093EA0613611865005CA509 /* GameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8093EA0513611865005CA509 /* GameView.m */; };
-		80AB36B7135B9B5200300D62 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80AB36B6135B9B5200300D62 /* Cocoa.framework */; };
 		80BAB00413653D2400389685 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 80BAB00213653CFE00389685 /* Player.m */; };
 		80BAB01413653FEE00389685 /* Player.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80BAB01313653FEE00389685 /* Player.xib */; };
 		80BAB19E136680C100389685 /* Board.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80BAB19D136680C100389685 /* Board.xib */; };
 		8448107D1363681C0036B736 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8448107C1363681C0036B736 /* MainMenu.xib */; };
-		8DD76F9C0486AA7600D96B5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
-		8DD76F9F0486AA7600D96B5E /* cards.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6859EA3029092ED04C91782 /* cards.1 */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		8DD76F9E0486AA7600D96B5E /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 8;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
-			files = (
-				8DD76F9F0486AA7600D96B5E /* cards.1 in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		08FB779EFE84155DC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
@@ -54,8 +33,6 @@
 		80190A5712D2FF73005A9561 /* Hand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hand.h; sourceTree = "<group>"; };
 		80190A5812D2FF73005A9561 /* Hand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hand.m; sourceTree = "<group>"; };
 		802464E613A54EB300E1AB10 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
-		8024655D13A55AE800E1AB10 /* noOfPlayers.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = noOfPlayers.xib; sourceTree = "<group>"; };
-		8024655F13A55AE800E1AB10 /* cards */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = cards; path = build/Debug/cards; sourceTree = "<group>"; };
 		802E267B12E74D420041795E /* game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = game.h; sourceTree = "<group>"; };
 		802E267C12E74D420041795E /* game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = game.m; sourceTree = "<group>"; };
 		8093E89113610873005CA509 /* TexasHoldemMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TexasHoldemMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,15 +59,6 @@
 				8093E91F136108CF005CA509 /* Foundation.framework in Frameworks */,
 				8093E920136108CF005CA509 /* Cocoa.framework in Frameworks */,
 				802464E713A54EB300E1AB10 /* AppKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8DD76F9B0486AA7600D96B5E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8DD76F9C0486AA7600D96B5E /* Foundation.framework in Frameworks */,
-				80AB36B7135B9B5200300D62 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,7 +108,6 @@
 			isa = PBXGroup;
 			children = (
 				8093E89113610873005CA509 /* TexasHoldemMac.app */,
-				8024655F13A55AE800E1AB10 /* cards */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -148,6 +115,9 @@
 		8093E88A136107C6005CA509 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				80BAB19D136680C100389685 /* Board.xib */,
+				80BAB01313653FEE00389685 /* Player.xib */,
+				8448107C1363681C0036B736 /* MainMenu.xib */,
 				8093E89313610873005CA509 /* TexasHoldemMac-Info.plist */,
 			);
 			name = Resources;
@@ -158,15 +128,11 @@
 			children = (
 				80BAB00113653CFE00389685 /* Player.h */,
 				80BAB00213653CFE00389685 /* Player.m */,
-				8448107C1363681C0036B736 /* MainMenu.xib */,
-				80BAB19D136680C100389685 /* Board.xib */,
 				8093EA0413611865005CA509 /* GameView.h */,
 				8093EA0513611865005CA509 /* GameView.m */,
 				8093E95F13610C00005CA509 /* main.m */,
 				8093E96113610C4C005CA509 /* cardsAppDelegate.h */,
 				8093E96313610C6C005CA509 /* cardsAppDelegate.m */,
-				80BAB01313653FEE00389685 /* Player.xib */,
-				8024655D13A55AE800E1AB10 /* noOfPlayers.xib */,
 			);
 			name = TexasHoldemMac;
 			sourceTree = "<group>";
@@ -199,29 +165,14 @@
 			productReference = 8093E89113610873005CA509 /* TexasHoldemMac.app */;
 			productType = "com.apple.product-type.application";
 		};
-		8DD76F960486AA7600D96B5E /* cards */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1DEB927408733DD40010E9CD /* Build configuration list for PBXNativeTarget "cards" */;
-			buildPhases = (
-				8DD76F990486AA7600D96B5E /* Sources */,
-				8DD76F9B0486AA7600D96B5E /* Frameworks */,
-				8DD76F9E0486AA7600D96B5E /* CopyFiles */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = cards;
-			productInstallPath = "$(HOME)/bin";
-			productName = cards;
-			productReference = 8024655F13A55AE800E1AB10 /* cards */;
-			productType = "com.apple.product-type.tool";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		08FB7793FE84155DC02AAC07 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0410;
+			};
 			buildConfigurationList = 1DEB927808733DD40010E9CD /* Build configuration list for PBXProject "cards" */;
 			compatibilityVersion = "Xcode 3.1";
 			developmentRegion = English;
@@ -236,7 +187,6 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8DD76F960486AA7600D96B5E /* cards */,
 				8093E89013610873005CA509 /* TexasHoldemMac */,
 			);
 		};
@@ -250,7 +200,6 @@
 				8448107D1363681C0036B736 /* MainMenu.xib in Resources */,
 				80BAB01413653FEE00389685 /* Player.xib in Resources */,
 				80BAB19E136680C100389685 /* Board.xib in Resources */,
-				8024655E13A55AE800E1AB10 /* noOfPlayers.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,50 +221,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8DD76F990486AA7600D96B5E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				801909CC12D18112005A9561 /* Card.m in Sources */,
-				801909DD12D18415005A9561 /* Deck.m in Sources */,
-				80190A5912D2FF73005A9561 /* Hand.m in Sources */,
-				802E267D12E74D420041795E /* game.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		1DEB927508733DD40010E9CD /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = NO;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
-				GCC_MODEL_TUNING = G5;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = cards_Prefix.pch;
-				GCC_PREPROCESSOR_DEFINITIONS = "text_only=1";
-				INSTALL_PATH = /usr/local/bin;
-				PRODUCT_NAME = cards;
-			};
-			name = Debug;
-		};
-		1DEB927608733DD40010E9CD /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_MODEL_TUNING = G5;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = cards_Prefix.pch;
-				INSTALL_PATH = /usr/local/bin;
-				PRODUCT_NAME = cards;
-			};
-			name = Release;
-		};
 		1DEB927908733DD40010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -393,15 +301,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1DEB927408733DD40010E9CD /* Build configuration list for PBXNativeTarget "cards" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1DEB927508733DD40010E9CD /* Debug */,
-				1DEB927608733DD40010E9CD /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		1DEB927808733DD40010E9CD /* Build configuration list for PBXProject "cards" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
