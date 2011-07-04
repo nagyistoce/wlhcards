@@ -167,7 +167,7 @@ while ([players count]>1) // while more then one player exists
 		Player *player = ((Player *)[players objectAtIndex:i]); 
 		float pMoney = (player.money);
 		
-		if ( pMoney < 0 ) {
+		if ( pMoney <= 0 ) {
 			[gameView removePlayer:player fromWindow:aWindow];
 			[players removeObjectAtIndex:i];
 			numberOfPlayers--;
@@ -199,6 +199,21 @@ while ([players count]>1) // while more then one player exists
 		}
 		
 		lastBet = currentBet;
+		
+		// update the money in the pot
+		pot += lastBet;
+		[gameView updatePot:pot];
+		
+		// subtract bet from player
+		Player *player = ((Player *)[players objectAtIndex:i]);
+		player.money -= lastBet;
+		if (player.money < 0) {
+			pot += player.money; // don't allow more  added to pot than player has
+			player.money = 0;
+			[gameView updatePot:pot];
+		}
+		[player display];
+
 	}
 		currentBet = [gameView getBetFromPlayer:[players objectAtIndex:0]]; // dont forget the dealer is last, so not in the for-loop.
 
@@ -209,7 +224,20 @@ while ([players count]>1) // while more then one player exists
 	
 	lastBet = currentBet;
 	
-
+	// update the money in the pot
+	pot += lastBet;
+	[gameView updatePot:pot];
+	
+	//subtract bet from player
+	
+	Player *player = ((Player *)[players objectAtIndex:0]);
+	player.money -= lastBet;
+	if (player.money < 0) {
+		pot += player.money; // don't allow more  added to pot than player has
+		player.money = 0;
+		[gameView updatePot:pot];
+	}
+	[player display];
 	
 // while bets are not square (all the same) ask the next player for a bet.
 	int j = 1;
@@ -223,21 +251,28 @@ while ([players count]>1) // while more then one player exists
 		
 		lastBet = currentBet;
 		
+		// update the money in the pot
+		pot += lastBet;
+		[gameView updatePot:pot];
+		
+		// subtract bet from player
+		Player *player = ((Player *)[players objectAtIndex:0]);
+		player.money -= lastBet;
+		if (player.money < 0) {
+			pot += player.money; // don't allow more  added to pot than player has
+			player.money = 0;
+			[gameView updatePot:pot];
+		}
+		[player display];
 		
 		if ( (++j)==[players count]) {j = 0;} // loop back to player 0 until while loop is satisfied.
-		}
+		} //  while bets are not square
 
-	// update the money in the pot
-	pot += lastBet * [players count];
-	[gameView updatePot:pot];
+	
 
-	// subtract the bets from the players
-	for (int i=0;i<[players count];i++) {
-		((Player *)[players objectAtIndex:i]).money -= lastBet;
-	}
 	
 	
-}
+} // get everyones bet
 	
 	
 

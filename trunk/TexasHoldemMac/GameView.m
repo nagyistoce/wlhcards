@@ -20,13 +20,14 @@
 @synthesize nibName, boardField, statusOne;
 @synthesize potField;
 
+
 -(id)init
 {
 	
 	NSLog(@"Loaded Cocoa Version of GameView");
 	
 	self.nibName = @"Board";
-	self.loadView;
+	[self loadView];
 	return self;
 }
 
@@ -117,9 +118,8 @@
 
 
 -(int)askNumberOfPlayers {
-	return 2;
+	return 4;
 }
-
 
 
 -(void)getBlindBets{

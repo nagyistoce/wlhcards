@@ -19,11 +19,12 @@
 	int		numberOfPlayers;
 	NSMutableArray *players;
 	NSMutableArray *flop;
-	
+	NSString *nibName;
+    
 	IBOutlet NSTextField *boardField;
 	IBOutlet NSTextField *statusOne;
 	IBOutlet NSTextField *potField;	
-	
+		
 	
 }
 @property (nonatomic, retain) NSMutableArray *players;
@@ -33,6 +34,7 @@
 @property (nonatomic, retain) NSTextField *boardField;
 @property (nonatomic, retain) NSTextField *statusOne;
 @property (nonatomic, retain) NSTextField *potField;
+
 
 
 -(void)displayPlayer:(Player *)player;
@@ -47,5 +49,6 @@
 -(void)winner:(int) winner;
 -(void)removePlayer:(Player *) player fromWindow:(NSWindow *) window;
 -(void)removeBoard;
+
 
 @end
