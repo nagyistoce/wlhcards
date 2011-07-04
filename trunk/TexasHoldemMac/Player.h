@@ -24,10 +24,12 @@
 	IBOutlet NSTextField *betField;
 	IBOutlet NSButton *betButton;
 	IBOutlet NSTextField *moneyField;
-	
-
-	
+    IBOutlet NSImageView *cardImage1;
+    IBOutlet NSImageView *cardImage2;
+    
+		
 }
+
 @property (nonatomic, retain) Hand *playerHand;
 @property (nonatomic) float currentBet;
 @property (nonatomic) float money;

@@ -28,6 +28,7 @@
 			tempCard.suit = suit;
 			tempCard.faceValue = card;
 			[self.cards addObject:tempCard];
+            [tempCard loadImage];
 			[tempCard release];
 		}
 	}
