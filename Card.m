@@ -10,7 +10,7 @@
 
 
 @implementation Card
-@synthesize suit, faceValue;
+@synthesize suit, faceValue, image;
 -(id)init {
 	suit = wSpade;
 	faceValue = wAce;
@@ -18,7 +18,20 @@
 	return self;
 }
 
--(NSString *)print {
+-(void) loadImage {
+    NSString *resourcePath = [[NSBundle mainBundle] resourcePath];
+    NSString *cardFile = [NSString stringWithFormat:@"/%@.png",[self cardString]];
+    NSString *filePath = [resourcePath stringByAppendingString:cardFile];
+    NSLog(@"%@",filePath);
+    
+    if (image) [image release];
+    
+    image = [[NSImage alloc] initWithContentsOfFile:filePath];
+    
+   
+}
+
+-(NSString *)cardString {
 	char mysuit;
 	char myfaceValue;
 	switch (self.suit)
@@ -38,7 +51,7 @@
 		default:
 			mysuit = '?';
 			break;
-
+            
 	}
 	
 	switch (self.faceValue) {
@@ -62,11 +75,19 @@
 			break;
 	}
 	
-	printf("%c",myfaceValue);
-	printf("%c ",mysuit);
-	NSString *cardStr = [NSString stringWithFormat:@"%c%c ",myfaceValue,mysuit];
+	NSString *cardStr = [NSString stringWithFormat:@"%c%c",myfaceValue,mysuit];
 	[cardStr retain];
 	[cardStr autorelease];
+	return cardStr;
+    
+}
+
+-(NSString *)print {
+	NSString *cardStr = [self cardString];
+	[cardStr retain];
+	[cardStr autorelease];
+	printf("%s",[cardStr UTF8String] );
+
 	return cardStr;
 
 }
@@ -107,4 +128,8 @@
 	
 }
 	
+-(void) dealloc {
+    [image release];
+    [super dealloc];
+}
 @end

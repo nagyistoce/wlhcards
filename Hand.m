@@ -211,7 +211,7 @@
 		int c4 = [[self.cards objectAtIndex:i+3] faceValue];
 		
 		if ((c1 == c2) && (c1 == c3) && (c1 == c4)) {
-			c1<<24;
+			c1<<=24;
 			rank|=c1; // store in bits 25-32
 			// NSLog(@"Found 4 of a Kind %d",c2);
 			return;

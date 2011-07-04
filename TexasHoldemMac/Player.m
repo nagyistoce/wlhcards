@@ -54,6 +54,9 @@
 		aString =[aString stringByAppendingString:[((Card*)[playerHand.cards objectAtIndex:i]) print]]; // There is a leak here.
 		
 	}
+    [cardImage1 setImage:[((Card *)[playerHand.cards objectAtIndex:0]) image] ];
+    [cardImage2 setImage:[((Card *)[playerHand.cards objectAtIndex:1]) image] ];
+    
 	[self.handField setStringValue:aString];
 	[self.moneyField setStringValue:[NSString stringWithFormat:@" $ %.2f",money]];
 	

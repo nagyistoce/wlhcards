@@ -33,12 +33,18 @@
 	
 	int suit;
 	int faceValue;
+    NSImage *image;
+    
 	
 }
 @property int suit;
 @property int faceValue;
+@property (nonatomic, retain) NSImage *image;
 
 -(NSString *) print;
+-(NSString *) cardString;
+-(void) loadImage;
+
 -(NSComparisonResult) compare:(Card *)otherCard;
 
 @end
