@@ -88,7 +88,7 @@
         
     // Horizontal Layout
         float x = 10 + (i * 210); // approx width of a player view
-        float y = subHeight - 192 ; // approx height of a player view
+        float y = subHeight - 400 ; 
 		NSPoint aPoint = NSMakePoint(x, y);
 		[pView setFrameOrigin:aPoint];  // this places the player
         
@@ -97,7 +97,7 @@
 	// Add the board to the view
 	
 	[subView addSubview:self.view];
-	NSPoint aPoint = NSMakePoint(20, subHeight-330);
+	NSPoint aPoint = NSMakePoint(20, subHeight-150);
 	[self.view setFrameOrigin:aPoint];
 
 	[subView setNeedsDisplay:YES];
