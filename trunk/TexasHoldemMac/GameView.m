@@ -28,6 +28,15 @@
 	
 	self.nibName = @"Board";
 	[self loadView];
+	NSString *resourcePath = [[NSBundle mainBundle] resourcePath];
+    NSString *cardFile = @"/back.png";
+    NSString *filePath = [resourcePath stringByAppendingString:cardFile];
+    flopImages = [NSArray arrayWithObjects:flop1,flop2,flop3,flop4,flop5,nil];
+	[flopImages retain];
+    
+    
+    cardBack = [[NSImage alloc] initWithContentsOfFile:filePath];
+	
 	return self;
 }
 
@@ -59,7 +68,7 @@
 	NSSize subSize = subView.frame.size;
 	
 	float subHeight = subSize.height;
-	subHeight -= 50; // this number is the offset from the top of the frame that players will start to be added
+	subHeight -= 80; // this number is the offset from the top of the frame that players will start to be added
 	
 	// for each player  {
 	
@@ -87,7 +96,7 @@
         
         
     // Horizontal Layout
-        float x = 10 + (i * 210); // approx width of a player view
+        float x = 10 + (i * 233); // approx width of a player view
         float y = subHeight - 400 ; 
 		NSPoint aPoint = NSMakePoint(x, y);
 		[pView setFrameOrigin:aPoint];  // this places the player
@@ -150,10 +159,23 @@
 -(void)displayBoard {
 	NSString *bString = [[NSString alloc] init];
 	printf("\nBoard: (%d cards)\n",(int)[flop count]); 
+
+	for (int i=0;i<5;i++) { // set all flop images to the card back
+		[[flopImages objectAtIndex:i] setImage:cardBack];
+	}	
+	
 	for (int i=0;i<[flop count];i++) {
 		bString = [bString stringByAppendingString: [((Card *)[flop objectAtIndex:i]) print]];
+		[[flopImages objectAtIndex:i] setImage:[[flop objectAtIndex:i] image]];
 	}
+	
+		
+	
 	[boardField setStringValue:bString];
+	
+		
+	
+	
 }	
 
 -(void)invalidBet:(float)lastBet {
@@ -172,6 +194,10 @@
 	[statusOne setStringValue:[aString stringByAppendingString:bString]];
 	NSLog(@"%@ %@",aString,bString);
 	 }
-
+-(void) dealloc {
+	[cardBack release];
+	[flopImages release];
+	[super dealloc];
+}
 
 @end

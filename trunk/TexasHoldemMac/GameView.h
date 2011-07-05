@@ -23,7 +23,15 @@
     
 	IBOutlet NSTextField *boardField;
 	IBOutlet NSTextField *statusOne;
-	IBOutlet NSTextField *potField;	
+	IBOutlet NSTextField *potField;
+	IBOutlet NSImageView *flop1;
+	IBOutlet NSImageView *flop2;
+	IBOutlet NSImageView *flop3;
+	IBOutlet NSImageView *flop4;
+	IBOutlet NSImageView *flop5;
+	NSImage *cardBack;
+	NSArray *flopImages;
+	
 		
 	
 }
