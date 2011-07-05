@@ -270,7 +270,7 @@
       <object class="NSWindowTemplate" id="972006081">
         <int key="NSWindowStyleMask">261</int>
         <int key="NSWindowBacking">2</int>
-        <string key="NSWindowRect">{{406, 239}, {890, 520}}</string>
+        <string key="NSWindowRect">{{406, 239}, {962, 520}}</string>
         <int key="NSWTFlags">1954021376</int>
         <string key="NSWindowTitle">Texas Hold'em</string>
         <string key="NSWindowClass">NSWindow</string>
@@ -280,7 +280,7 @@
         <object class="NSView" key="NSWindowView" id="439893737">
           <reference key="NSNextResponder"/>
           <int key="NSvFlags">256</int>
-          <string key="NSFrameSize">{890, 520}</string>
+          <string key="NSFrameSize">{962, 520}</string>
           <reference key="NSSuperview"/>
         </object>
         <string key="NSScreenRect">{{0, 0}, {1680, 1028}}</string>
@@ -689,9 +689,9 @@
           <string>com.apple.InterfaceBuilder.CocoaPlugin</string>
           <string>com.apple.InterfaceBuilder.CocoaPlugin</string>
           <string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-          <string>{{-967, 228}, {890, 520}}</string>
+          <string>{{-1186, 239}, {962, 520}}</string>
           <string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-          <string>{{-967, 228}, {890, 520}}</string>
+          <string>{{-1186, 239}, {962, 520}}</string>
           <integer value="1"/>
           <string>com.apple.InterfaceBuilder.CocoaPlugin</string>
           <object class="NSColor">

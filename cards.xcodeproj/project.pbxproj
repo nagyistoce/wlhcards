@@ -30,6 +30,7 @@
 		8093E96013610C00005CA509 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8093E95F13610C00005CA509 /* main.m */; };
 		8093E96413610C6C005CA509 /* cardsAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8093E96313610C6C005CA509 /* cardsAppDelegate.m */; };
 		8093EA0613611865005CA509 /* GameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8093EA0513611865005CA509 /* GameView.m */; };
+		8098326513C28D91007F349F /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 8098326413C28D91007F349F /* back.png */; };
 		80BAB00413653D2400389685 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 80BAB00213653CFE00389685 /* Player.m */; };
 		80BAB01413653FEE00389685 /* Player.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80BAB01313653FEE00389685 /* Player.xib */; };
 		80BAB19E136680C100389685 /* Board.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80BAB19D136680C100389685 /* Board.xib */; };
@@ -107,6 +108,7 @@
 		8093E96313610C6C005CA509 /* cardsAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cardsAppDelegate.m; sourceTree = "<group>"; };
 		8093EA0413611865005CA509 /* GameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameView.h; path = TexasHoldemMac/GameView.h; sourceTree = "<group>"; };
 		8093EA0513611865005CA509 /* GameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameView.m; path = TexasHoldemMac/GameView.m; sourceTree = "<group>"; };
+		8098326413C28D91007F349F /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = back.png; path = images/back.png; sourceTree = "<group>"; };
 		80AB36B6135B9B5200300D62 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		80BAB00113653CFE00389685 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Player.h; path = TexasHoldemMac/Player.h; sourceTree = "<group>"; };
 		80BAB00213653CFE00389685 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Player.m; path = TexasHoldemMac/Player.m; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 		805B11D813C25E76005252CA /* images */ = {
 			isa = PBXGroup;
 			children = (
+				8098326413C28D91007F349F /* back.png */,
 				805B11D913C25EAD005252CA /* QC.png */,
 				80E264C113C27E9C00B8C037 /* KS.png */,
 				80E264C213C27E9C00B8C037 /* XS.png */,
@@ -416,6 +419,7 @@
 				80E2650C13C27E9C00B8C037 /* AD.png in Resources */,
 				80E2650D13C27E9C00B8C037 /* 2D.png in Resources */,
 				80E2650E13C27E9C00B8C037 /* 3D.png in Resources */,
+				8098326513C28D91007F349F /* back.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
