@@ -148,6 +148,9 @@
         [gameView winner:winner];
         
         
+		
+		
+		
         // clear player hands and flop
         for (int i =0;i<numberOfPlayers;i++) {
             
