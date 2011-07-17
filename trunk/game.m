@@ -193,60 +193,14 @@
     // get Everyone's initial bet
 	lastBet = 0;
 	currentBet = -1.0;
-	
-	for (int i=1;i<[players count];i++){
-        currentBet = [gameView getBetFromPlayer:[players objectAtIndex:i]];
-		while (currentBet < lastBet) {		// make sure bet is at least as high as previous bet
-			[gameView invalidBet:lastBet];
-			currentBet = [gameView getBetFromPlayer:[players objectAtIndex:i]];
-		}
+
+	// while bets are not square (all the same) ask the next player for a bet.
+	int j = 0;
+	int oneRound = NO; // to insure at least one round of betting completes
+	while ( ( ![self betsAreSquare] ) || ( oneRound==NO )  ) { // while bets are not square (all the same) ask the next player for a bet.
 		
-		lastBet = currentBet;
-		
-		// update the money in the pot
-		pot += lastBet;
-		[gameView updatePot:pot];
-		
-		// subtract bet from player
-		Player *player = ((Player *)[players objectAtIndex:i]);
-		player.money -= lastBet;
-		if (player.money < 0) {
-			pot += player.money; // don't allow more  added to pot than player has
-			player.money = 0;
-			[gameView updatePot:pot];
-		}
-		[player display];
-        
-	}
-    currentBet = [gameView getBetFromPlayer:[players objectAtIndex:0]]; // dont forget the dealer is last, so not in the for-loop.
-    
-	while (currentBet < lastBet) {		// make sure bet is at least as high as previous bet
-		[gameView invalidBet:lastBet];
-		currentBet = [gameView getBetFromPlayer:[players objectAtIndex:0]];
-	}
 	
-	lastBet = currentBet;
-	
-	// update the money in the pot
-	pot += lastBet;
-	[gameView updatePot:pot];
-	
-	//subtract bet from player
-	
-	Player *player = ((Player *)[players objectAtIndex:0]);
-	player.money -= lastBet;
-	if (player.money < 0) {
-		pot += player.money; // don't allow more  added to pot than player has
-		player.money = 0;
-		[gameView updatePot:pot];
-	}
-	[player display];
-	
-    // while bets are not square (all the same) ask the next player for a bet.
-	int j = 1;
-	while (![self betsAreSquare]) { // while bets are not square (all the same) ask the next player for a bet.
-		
-		currentBet = [gameView getBetFromPlayer:[players objectAtIndex:j]];
+        currentBet = [gameView getBetFromPlayer:[players objectAtIndex:j]];
 		while (currentBet < lastBet) {		// make sure bet is at least as high as previous bet
 			[gameView invalidBet:lastBet];
 			currentBet = [gameView getBetFromPlayer:[players objectAtIndex:j]];
@@ -259,7 +213,7 @@
 		[gameView updatePot:pot];
 		
 		// subtract bet from player
-		Player *player = ((Player *)[players objectAtIndex:0]);
+		Player *player = ((Player *)[players objectAtIndex:j]);
 		player.money -= lastBet;
 		if (player.money < 0) {
 			pot += player.money; // don't allow more  added to pot than player has
@@ -267,13 +221,9 @@
 			[gameView updatePot:pot];
 		}
 		[player display];
-		
-		if ( (++j)==[players count]) {j = 0;} // loop back to player 0 until while loop is satisfied.
-    } //  while bets are not square
-    
-	
-    
-	
+
+ 		if ( (++j)==[players count]) {j = 0;oneRound=TRUE;} // loop back to player 0 until while loop is satisfied.       
+	} //while loop
 	
 } // get everyones bet
 
