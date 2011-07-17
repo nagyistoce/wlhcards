@@ -27,8 +27,8 @@
 -(IBAction) startGame:(id)sender {
 	theGame = [[game alloc] init];
 	[theGame setWindow:window];
-//	theGame.delegate = self;
-	[NSThread detachNewThreadSelector:@selector(gameLoop) toTarget:theGame withObject:nil]; 
-	 }
+	[theGame gameLoop];
+ }
 
 @end
+

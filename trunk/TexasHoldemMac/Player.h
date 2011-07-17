@@ -45,7 +45,7 @@
 
 
 
--(float)askForBet; // returns bet amount
+-(void)askForBet; // returns bet amount
 -(void)playerLostHand;
 -(void)playerWonHand;
 -(Hand *) getPlayerHand;

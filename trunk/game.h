@@ -7,9 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#define wDeal2Cards	0
+#define wDealFlop	1
+#define wDealTurn	2
+#define wDealRiver	3
+#define wDetermineWinner 4
+#define wHandOver	5
+
+
 @class GameView;
 @class Deck;
 @class cardsAppDelegate;
+@class Player;
 
 @interface game : NSObject {
 	NSMutableArray *players;
@@ -21,6 +30,8 @@
 	float lastBet;
 	int numberOfPlayers;
 	cardsAppDelegate  *delegate;
+	int bettingPlayer;
+	int nextStep;
 	
 #if !(text_only==1)
 	NSWindow *aWindow;
@@ -34,18 +45,14 @@
 @property (nonatomic, retain) NSWindow *aWindow;
 #endif
 
-// text based methods
 -(void) gameLoop;
 -(BOOL) betsAreSquare;
--(void) getEveryonesBet;
 
-// GUI methods
-#if !(text_only==1)
+
 -(void) setWindow:(NSWindow *)window;
-#endif
 
-// Common
 -(void)setupDeckFlopPlayers;
 -(void)setupNewDeck;
+-(void)gotBetFromPlayer:(Player *) player;
 
 @end

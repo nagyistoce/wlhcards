@@ -138,130 +138,153 @@
 	[gameView updatePot:pot];
 	[gameView winner:winner];
 	
+}
+
+-(void)endHand {
+	// clear player hands and flop
+	for (int i =0;i<numberOfPlayers;i++) {
+		
+		((Player *)[players objectAtIndex:i]).playerHand = [[Hand alloc] init];
+	}
+	[flop release];
+	flop = [[NSMutableArray alloc] init];
+	gameView.flop = flop;
+	
+	if (((numberOfPlayers*2)+5) > [deck.cards count]) { // do we have enough cards for another hand?
+		NSLog(@"shuffling a new deck");
+		[self setupNewDeck];
+	}
+	
+	// any players out of money?
+	for (int i = 0;i < [players count];i++) {
+		Player *player = ((Player *)[players objectAtIndex:i]); 
+		float pMoney = (player.money);
+		
+		if ( pMoney <= 0 ) {
+			[gameView removePlayer:player fromWindow:aWindow];
+			[players removeObjectAtIndex:i];
+			numberOfPlayers--;
+		}
+	}
+}
+
+-(void)endGame {
+	//remove remaining objects from window
+	[gameView removePlayer:[players objectAtIndex:0] fromWindow:aWindow];
+	[gameView removeBoard];
+
+	
 }	
 	
 -(void)gameLoop {
     
-    NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
+   
     
-	
-    while ([players count]>1) // while more then one player exists
-    {
-        
-        // blind bets
-        //	[gameView getEveryonesBet];	
-        
+		currentBet = -1.0;
+		lastBet = -1.0;
+		bettingPlayer = 0;
+		nextStep = wDeal2Cards;
 		[self deal2cards];
-	    [self getEveryonesBet];
-		[self dealFlop];
-        [self getEveryonesBet];
-		[self dealTurn];
-        [self getEveryonesBet];
-        [self dealRiver];
-        [self getEveryonesBet];
- 		[self determineWinner];
-		
-		
-        // clear player hands and flop
-        for (int i =0;i<numberOfPlayers;i++) {
-            
-            ((Player *)[players objectAtIndex:i]).playerHand = [[Hand alloc] init];
-        }
-        [flop release];
-        flop = [[NSMutableArray alloc] init];
-        gameView.flop = flop;
-        
-        if (((numberOfPlayers*2)+5) > [deck.cards count]) { // do we have enough cards for another hand?
-            NSLog(@"shuffling a new deck");
-            [self setupNewDeck];
-        }
-        
-        // any players out of money?
-        for (int i = 0;i < [players count];i++) {
-            Player *player = ((Player *)[players objectAtIndex:i]); 
-            float pMoney = (player.money);
-            
-            if ( pMoney <= 0 ) {
-                [gameView removePlayer:player fromWindow:aWindow];
-                [players removeObjectAtIndex:i];
-                numberOfPlayers--;
-            }
-        }
-        
-    } // while
-	
-	//remove remaining objects from window
-	[gameView removePlayer:[players objectAtIndex:0] fromWindow:aWindow];
-	[gameView removeBoard];
-	[pool drain];
-	
-	
-} // game loop
+		nextStep += 1;
+		[gameView getBetFromPlayer:[players objectAtIndex:0]];
+}
 
 
--(void) getEveryonesBet {
-    
-    // get Everyone's initial bet
-	lastBet = 0;
-	currentBet = -1.0;
+// gotBetFromPlayer (Player *) player
+-(void)gotBetFromPlayer:(Player *) player {
+	NSLog(@"gotBetFromPlayer");
 
-	// while bets are not square (all the same) ask the next player for a bet.
-	int j = 0;
-	int oneRound = NO; // to insure at least one round of betting completes
-	while ( ( ![self betsAreSquare] ) || ( oneRound==NO )  ) { // while bets are not square (all the same) ask the next player for a bet.
-		
+
+// is bet from player we expect?
+if (player != [players objectAtIndex:bettingPlayer]) {
+	// if not throw error
+
+	NSLog(@"Error! wrong player Bet!");
 	
-        currentBet = [gameView getBetFromPlayer:[players objectAtIndex:j]];
-		while (currentBet < lastBet) {		// make sure bet is at least as high as previous bet
-			[gameView invalidBet:lastBet];
-			currentBet = [gameView getBetFromPlayer:[players objectAtIndex:j]];
-		}
-		
+} else {
+	// is bet valid?
+	if (player.currentBet>=lastBet) {
+		currentBet = player.currentBet;
 		lastBet = currentBet;
 		
-		// update the money in the pot
-		pot += lastBet;
-		[gameView updatePot:pot];
-		
-		// subtract bet from player
-		Player *player = ((Player *)[players objectAtIndex:j]);
-		player.money -= lastBet;
-		if (player.money < 0) {
-			pot += player.money; // don't allow more  added to pot than player has
-			player.money = 0;
-			[gameView updatePot:pot];
-		}
-		[player display];
-
- 		if ( (++j)==[players count]) {j = 0;oneRound=TRUE;} // loop back to player 0 until while loop is satisfied.       
-	} //while loop
-	
-} // get everyones bet
-
-
-
-// -(IBAction) gotBetFromPlayer (Player *) player
-// is bet from player we expect?
-		// if not throw error
-// is bet valid?
-		// if not throw error and rebet
-// bet is valid
-		// lastbet=currentbet
 		// subtract money from player
-		// update money in the pot
-		// gameView updatePot
-		// player display
-// have all players bet?
-		// if not advance to next player
-//are all bets square?
-		// if not advance to next player
-		//if yes call next of:
-				// deal 2 cards
-				// deal flop
-				// deal turn
-				// deal river
+		if ( lastBet < player.money ) { // dont put more money in pot than player has
+			player.money -= lastBet;
+			pot += lastBet;
+		} else {
+			pot += player.money;
+			player.money = 0;
+		}
+		[gameView updatePot:pot]; // display new pot amount	
+		[player display];	
 
+	
+		// have all players bet?
+		
+		if ((++bettingPlayer)==[players count]) {
+			// all players have bet
+			bettingPlayer = 0;
+			if ([self betsAreSquare]) { // if all bets are square
+				switch (nextStep) {
+					case wDealFlop:
+						[self dealFlop];
+						[gameView getBetFromPlayer:[players objectAtIndex:bettingPlayer]];
+						nextStep++;
+						break;
+					case wDealTurn:
+						[self dealTurn];
+						[gameView getBetFromPlayer:[players objectAtIndex:bettingPlayer]];
+						nextStep++;
+						break;
+					case wDealRiver:
+						[self dealRiver];
+						[gameView getBetFromPlayer:[players objectAtIndex:bettingPlayer]];
+						nextStep++;
+						break;
+					case wDetermineWinner:
+						[self determineWinner];
+						[self endHand];
+						nextStep++;
+						break;
+					default:
+						break;
+				}
+				NSLog(@"nextStep = %d",nextStep);
+				
+				if (nextStep == wHandOver) { // case of end of Hand
+					
+					NSLog(@"End of Hand");
+					currentBet = -1.0;
+					lastBet = -1.0;
+					bettingPlayer = 0;
+					nextStep = wDeal2Cards;
+					[self deal2cards];
+					nextStep += 1;
+					[gameView getBetFromPlayer:[players objectAtIndex:0]];
+					
+				}
+		} // if all bets are square
+			
+	} // all players have bet
+		
+	[gameView getBetFromPlayer:[players objectAtIndex:bettingPlayer]];
 
+		
+		
+	} else { // valid bet
+		// this is not a valid bet
+		[gameView invalidBet:lastBet];
+}
+ 
+	
+	
+}
+
+	
+	
+	
+
+} // gotBetFromPlayer
 
 -(BOOL) betsAreSquare {
 	BOOL square = TRUE;
