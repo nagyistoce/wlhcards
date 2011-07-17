@@ -9,6 +9,7 @@
 #import "Player.h"
 #import "Hand.h"
 #import "GameView.h"
+#import "cardsAppDelegate.h"
 
 @implementation Player
 @synthesize playerHand, name, gameView;
@@ -69,30 +70,23 @@
 	return playerHand;
 }
 
--(float)askForBet{
+-(void)askForBet{
 
 	[self display];
 	[gameView displayBoard];
-	printf("\nWhat is your bet?");
 	hasBet = NO;
 	[self.betButton setEnabled:YES];
 	[self.betField becomeFirstResponder];
 	
-	while (hasBet==NO) {
 		
-	}
-	[self.betButton setEnabled:NO];
-	
-	printf("%f\n",currentBet);
-	
-	return currentBet;
-	
 } 
 
 
 -(IBAction)betButton:(id) sender {
 	currentBet = betField.floatValue; 
 	hasBet = YES;
+	cardsAppDelegate *appDelegate =	[[NSApplication sharedApplication] delegate];
+	[[appDelegate theGame] gotBetFromPlayer:self];
 }
 
 -(void)controlTextDidEndEditing:(NSNotification *)obj {

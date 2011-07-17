@@ -149,11 +149,10 @@
 		
 }
 
--(float)getBetFromPlayer:(Player *)player {
-	float bet = [player askForBet];
+-(void)getBetFromPlayer:(Player *)player {
+	[player askForBet];
 	[statusOne setStringValue:@""];
-	return bet;
-		
+			
 }
 
 -(void)displayBoard {
