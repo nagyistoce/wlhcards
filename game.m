@@ -186,6 +186,7 @@
 		nextStep = wDeal2Cards;
 		[self deal2cards];
 		nextStep += 1;
+	allPlayersBet = NO;
 		[gameView getBetFromPlayer:[players objectAtIndex:0]];
 }
 
@@ -224,7 +225,14 @@ if (player != [players objectAtIndex:bettingPlayer]) {
 		if ((++bettingPlayer)==[players count]) {
 			// all players have bet
 			bettingPlayer = 0;
+			allPlayersBet = YES;
+		}
+		
+		if (allPlayersBet == YES) {
 			if ([self betsAreSquare]) { // if all bets are square
+				allPlayersBet = NO;
+				bettingPlayer = 0;
+				lastBet = -1.0;
 				switch (nextStep) {
 					case wDealFlop:
 						[self dealFlop];

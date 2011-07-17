@@ -32,6 +32,7 @@
 	cardsAppDelegate  *delegate;
 	int bettingPlayer;
 	int nextStep;
+	bool allPlayersBet;
 	
 #if !(text_only==1)
 	NSWindow *aWindow;
