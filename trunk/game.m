@@ -41,6 +41,105 @@
 	return self;
 }	
 
+-(void)deal2cards {
+	NSLog(@"Deal 2 cards");
+	// deal 2 cards to players
+	for (int i=0; i< numberOfPlayers; i++) {
+		Player *temp = [players objectAtIndex:i];
+		[temp.playerHand addCard:[deck dealCard]];
+		[temp.playerHand addCard:[deck dealCard]];
+		
+	}
+	[gameView display];
+}
+
+
+-(void)dealFlop {
+	// deal flop
+	NSLog(@"Deal Flop");
+	[flop addObject:[deck dealCard]];
+	[flop addObject:[deck dealCard]]; 
+	[flop addObject:[deck dealCard]];
+	for (int i=0;i<numberOfPlayers;i++)
+	{
+		Player *temp = [players objectAtIndex:i];
+		[temp.playerHand addCard:[flop objectAtIndex:0]];
+		[temp.playerHand addCard:[flop objectAtIndex:1]];
+		[temp.playerHand addCard:[flop objectAtIndex:2]];
+	}
+	gameView.flop = flop;
+	[gameView display];
+	
+}	
+	
+-(void)dealTurn {
+	// deal the turn
+	NSLog(@"Deal turn");
+	[flop addObject:[deck dealCard]];
+	for (int i=0;i<numberOfPlayers;i++)
+	{
+		Player *temp = [players objectAtIndex:i];
+		[temp.playerHand addCard:[flop objectAtIndex:3]];
+	}
+	[gameView display];
+	
+
+}
+
+-(void) dealRiver {
+	// deal river
+	NSLog(@"Deal River");
+	
+	[flop addObject:[deck dealCard]];
+	for (int i=0;i<numberOfPlayers;i++)
+	{
+		Player *temp = [players objectAtIndex:i];
+		[temp.playerHand addCard:[flop objectAtIndex:4]];
+	}
+	[gameView display];
+}	
+	
+-(void)determineWinner {
+	NSLog(@"Determine Winner");  
+	
+	[gameView display];
+	
+	// create array of hands, and rank them
+	
+	NSMutableArray *allHands = [[NSMutableArray alloc] init];
+	for (int i=0;i<numberOfPlayers;i++) {
+		Player *thePlayer = [players objectAtIndex:i];
+		[thePlayer.playerHand rank];
+		[allHands addObject:thePlayer.playerHand];
+	}
+	
+	
+	
+	// sort the array
+	
+	[allHands sortUsingSelector:@selector(compare:)];
+	
+	// loop through players
+	// compare winning hand (last object in array) with players hand
+	// if they are the same, that player is the winner
+	
+	int winner;
+	for (winner = 0;([((Player*)[players objectAtIndex:winner]) getPlayerHand] != [allHands lastObject]); winner++ )
+	{ 
+		// NSLog(@"%d",winner); // this should be replaced with error handling code to prevent an infinite loop.
+	}
+	[allHands release];
+	
+	
+	
+	// give money to winner player		
+	((Player *)[players objectAtIndex:winner]).money+= pot;
+	pot = 0;
+	[gameView updatePot:pot];
+	[gameView winner:winner];
+	
+}	
+	
 -(void)gameLoop {
     
     NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
@@ -52,103 +151,15 @@
         // blind bets
         //	[gameView getEveryonesBet];	
         
-        NSLog(@"Deal 2 cards");
-        // deal 2 cards to players
-        for (int i=0; i< numberOfPlayers; i++) {
-            Player *temp = [players objectAtIndex:i];
-            [temp.playerHand addCard:[deck dealCard]];
-            [temp.playerHand addCard:[deck dealCard]];
-            
-        }
-        [gameView display];
-        // get bets from players
-        
-        
-        
+		[self deal2cards];
+	    [self getEveryonesBet];
+		[self dealFlop];
         [self getEveryonesBet];
-        
-        // deal flop
-        NSLog(@"Deal Flop");
-        [flop addObject:[deck dealCard]];
-        [flop addObject:[deck dealCard]]; 
-        [flop addObject:[deck dealCard]];
-        for (int i=0;i<numberOfPlayers;i++)
-        {
-            Player *temp = [players objectAtIndex:i];
-            [temp.playerHand addCard:[flop objectAtIndex:0]];
-            [temp.playerHand addCard:[flop objectAtIndex:1]];
-            [temp.playerHand addCard:[flop objectAtIndex:2]];
-        }
-        gameView.flop = flop;
-        [gameView display];
-        
-        // get bets
+		[self dealTurn];
         [self getEveryonesBet];
-        // deal the turn
-        NSLog(@"Deal turn");
-        [flop addObject:[deck dealCard]];
-        for (int i=0;i<numberOfPlayers;i++)
-        {
-            Player *temp = [players objectAtIndex:i];
-            [temp.playerHand addCard:[flop objectAtIndex:3]];
-        }
-        [gameView display];
-        
-        // get bets
+        [self dealRiver];
         [self getEveryonesBet];
-        // deal river
-        NSLog(@"Deal River");
-        
-        [flop addObject:[deck dealCard]];
-        for (int i=0;i<numberOfPlayers;i++)
-        {
-            Player *temp = [players objectAtIndex:i];
-            [temp.playerHand addCard:[flop objectAtIndex:4]];
-        }
-        [gameView display];
-        // get bets
-        [self getEveryonesBet];
-        // determine winner
-        NSLog(@"Determine Winner");  
-        
-        [gameView display];
-        
-        // create array of hands, and rank them
-        
-        NSMutableArray *allHands = [[NSMutableArray alloc] init];
-        for (int i=0;i<numberOfPlayers;i++) {
-            Player *thePlayer = [players objectAtIndex:i];
-            [thePlayer.playerHand rank];
-            [allHands addObject:thePlayer.playerHand];
-        }
-        
-        
-        
-        // sort the array
-        
-        [allHands sortUsingSelector:@selector(compare:)];
-        
-        // loop through players
-        // compare winning hand (last object in array) with players hand
-        // if they are the same, that player is the winner
-        
-        int winner;
-        for (winner = 0;([((Player*)[players objectAtIndex:winner]) getPlayerHand] != [allHands lastObject]); winner++ )
-        { 
-            // NSLog(@"%d",winner); // this should be replaced with error handling code to prevent an infinite loop.
-        }
-        [allHands release];
-        
-        
-		
-        // give money to winner player		
-        ((Player *)[players objectAtIndex:winner]).money+= pot;
-        pot = 0;
-        [gameView updatePot:pot];
-        [gameView winner:winner];
-        
-        
-		
+ 		[self determineWinner];
 		
 		
         // clear player hands and flop
@@ -227,6 +238,28 @@
 	
 } // get everyones bet
 
+
+
+// -(IBAction) gotBetFromPlayer (Player *) player
+// is bet from player we expect?
+		// if not throw error
+// is bet valid?
+		// if not throw error and rebet
+// bet is valid
+		// lastbet=currentbet
+		// subtract money from player
+		// update money in the pot
+		// gameView updatePot
+		// player display
+// have all players bet?
+		// if not advance to next player
+//are all bets square?
+		// if not advance to next player
+		//if yes call next of:
+				// deal 2 cards
+				// deal flop
+				// deal turn
+				// deal river
 
 
 
