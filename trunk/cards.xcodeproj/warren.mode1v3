@@ -216,7 +216,7 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>8005985E13D399D700F4A08A</string>
+						<string>800598BC13D3AC2000F4A08A</string>
 						<key>history</key>
 						<array>
 							<string>8005980213D38AD600F4A08A</string>
@@ -320,8 +320,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>9</integer>
-									<integer>2</integer>
+									<integer>17</integer>
+									<integer>15</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -347,7 +347,7 @@
 							<real>259</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>116 112 1377 844 0 0 1680 1028 </string>
+						<string>200 138 1377 844 0 0 1680 1028 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -365,7 +365,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>cardsAppDelegate.m</string>
+								<string>game.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -373,21 +373,19 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>cardsAppDelegate.m</string>
+										<string>game.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>8005985D13D399D700F4A08A</string>
+										<string>800598BB13D3AC2000F4A08A</string>
 										<key>history</key>
 										<array>
 											<string>80190A0512D18E32005A9561</string>
-											<string>803A9DC81363630900A710B3</string>
 											<string>80BAB2C413671C0E00389685</string>
 											<string>807210211399CE69001A81F6</string>
 											<string>802463FC13A53C4B00E1AB10</string>
 											<string>802464F213A54F7400E1AB10</string>
 											<string>8024651513A5516B00E1AB10</string>
-											<string>8024656C13A55D5300E1AB10</string>
 											<string>8024656D13A55D5300E1AB10</string>
 											<string>8093A8E213C2277B0094603E</string>
 											<string>80E2654C13C27FED00B8C037</string>
@@ -399,14 +397,16 @@
 											<string>8098324D13C28D46007F349F</string>
 											<string>8098325013C28D46007F349F</string>
 											<string>800597D013D385CE00F4A08A</string>
-											<string>800597F713D38AD600F4A08A</string>
-											<string>800597FB13D38AD600F4A08A</string>
 											<string>800597FC13D38AD600F4A08A</string>
-											<string>8005981213D3925000F4A08A</string>
-											<string>8005981313D3925000F4A08A</string>
-											<string>8005981C13D3935300F4A08A</string>
-											<string>8005985B13D399D700F4A08A</string>
-											<string>8005985C13D399D700F4A08A</string>
+											<string>8005986E13D3A58B00F4A08A</string>
+											<string>8005989013D3A7B100F4A08A</string>
+											<string>800598A113D3AA2E00F4A08A</string>
+											<string>800598A313D3AA2E00F4A08A</string>
+											<string>800598A413D3AA2E00F4A08A</string>
+											<string>800598AB13D3AA9C00F4A08A</string>
+											<string>800598B313D3ABA200F4A08A</string>
+											<string>800598B413D3ABA200F4A08A</string>
+											<string>800598B513D3ABA200F4A08A</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -420,7 +420,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {1074, 622}}</string>
 								<key>RubberWindowFrame</key>
-								<string>116 112 1377 844 0 0 1680 1028 </string>
+								<string>200 138 1377 844 0 0 1680 1028 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -440,7 +440,7 @@
 								<key>Frame</key>
 								<string>{{0, 627}, {1074, 176}}</string>
 								<key>RubberWindowFrame</key>
-								<string>116 112 1377 844 0 0 1680 1028 </string>
+								<string>200 138 1377 844 0 0 1680 1028 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -604,17 +604,17 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>8005985F13D399D700F4A08A</string>
+		<string>800598BD13D3AC2000F4A08A</string>
 		<string>800597C113D36E0C00F4A08A</string>
 		<string>800597C213D36E0C00F4A08A</string>
-		<string>1CD10A99069EF8BA00B06720</string>
-		<string>8005980013D38AD600F4A08A</string>
 		<string>1C78EAAD065D492600B07095</string>
+		<string>8005980013D38AD600F4A08A</string>
 		<string>801909FB12D18DD0005A9561</string>
+		<string>1CD10A99069EF8BA00B06720</string>
 		<string>/Users/warren/Mac Apps/cards/wlhcards/cards.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>116 112 1377 844 0 0 1680 1028 </string>
+	<string>200 138 1377 844 0 0 1680 1028 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
@@ -737,8 +737,8 @@
 										<string>yes</string>
 										<key>sizes</key>
 										<array>
-											<string>{{0, 0}, {316, 203}}</string>
-											<string>{{316, 0}, {378, 203}}</string>
+											<string>{{0, 0}, {534, 288}}</string>
+											<string>{{534, 0}, {638, 288}}</string>
 										</array>
 									</dict>
 									<key>VerticalSplitView</key>
@@ -753,8 +753,8 @@
 										<string>yes</string>
 										<key>sizes</key>
 										<array>
-											<string>{{0, 0}, {694, 203}}</string>
-											<string>{{0, 203}, {694, 178}}</string>
+											<string>{{0, 0}, {1172, 288}}</string>
+											<string>{{0, 288}, {1172, 252}}</string>
 										</array>
 									</dict>
 								</dict>
@@ -774,7 +774,7 @@
 								<key>DebugSTDIOWindowFrame</key>
 								<string>{{200, 200}, {500, 300}}</string>
 								<key>Frame</key>
-								<string>{{0, 0}, {694, 381}}</string>
+								<string>{{0, 0}, {1172, 540}}</string>
 								<key>PBXDebugSessionStackFrameViewKey</key>
 								<dict>
 									<key>DebugVariablesTableConfiguration</key>
@@ -784,24 +784,24 @@
 										<string>Value</string>
 										<real>85</real>
 										<string>Summary</string>
-										<real>148</real>
+										<real>408</real>
 									</array>
 									<key>Frame</key>
-									<string>{{316, 0}, {378, 203}}</string>
+									<string>{{534, 0}, {638, 288}}</string>
 									<key>RubberWindowFrame</key>
-									<string>79 453 694 422 0 0 1680 1028 </string>
+									<string>-1313 295 1172 581 -1440 93 1440 900 </string>
 								</dict>
 								<key>RubberWindowFrame</key>
-								<string>79 453 694 422 0 0 1680 1028 </string>
+								<string>-1313 295 1172 581 -1440 93 1440 900 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXDebugSessionModule</string>
 							<key>Proportion</key>
-							<string>381pt</string>
+							<string>540pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
-					<string>381pt</string>
+					<string>540pt</string>
 				</dict>
 			</array>
 			<key>Name</key>
@@ -826,11 +826,11 @@
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>
 			<key>WindowString</key>
-			<string>79 453 694 422 0 0 1680 1028 </string>
+			<string>-1313 295 1172 581 -1440 93 1440 900 </string>
 			<key>WindowToolGUID</key>
 			<string>1CD10A99069EF8BA00B06720</string>
 			<key>WindowToolIsVisible</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>Identifier</key>
@@ -962,7 +962,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {1105, 684}}</string>
 								<key>RubberWindowFrame</key>
-								<string>253 188 1105 725 0 0 1680 1028 </string>
+								<string>528 163 1105 725 0 0 1680 1028 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXDebugCLIModule</string>
@@ -991,11 +991,11 @@
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.consoleV3</string>
 			<key>WindowString</key>
-			<string>253 188 1105 725 0 0 1680 1028 </string>
+			<string>528 163 1105 725 0 0 1680 1028 </string>
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>Identifier</key>

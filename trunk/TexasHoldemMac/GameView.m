@@ -150,6 +150,10 @@
 }
 
 -(void)getBetFromPlayer:(Player *)player {
+	for (int i=0;i<[players count];i++) {
+		[[[players objectAtIndex:i] betButton] setEnabled:NO];
+	}
+		
 	[player askForBet];
 	[statusOne setStringValue:@""];
 			
