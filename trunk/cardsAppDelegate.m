@@ -19,7 +19,7 @@
 	srandom(time(NULL));
 
 	
-	// self.startGame;
+	[self startGame:self];
 	
 
 }
