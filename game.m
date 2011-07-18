@@ -134,6 +134,7 @@
 	
 	// give money to winner player		
 	((Player *)[players objectAtIndex:winner]).money+= pot;
+	
 	pot = 0;
 	[gameView updatePot:pot];
 	[gameView winner:winner];
@@ -175,19 +176,24 @@
 
 	
 }	
+
+-(void)startHand { 
 	
+	currentBet = -1.0;
+	lastBet = -1.0;
+	bettingPlayer = 0;
+	nextStep = wDeal2Cards;
+	[self deal2cards];
+	nextStep += 1;
+	allPlayersBet = NO;
+	[gameView getBetFromPlayer:[players objectAtIndex:0]];
+}
+
 -(void)gameLoop {
     
    
-    
-		currentBet = -1.0;
-		lastBet = -1.0;
-		bettingPlayer = 0;
-		nextStep = wDeal2Cards;
-		[self deal2cards];
-		nextStep += 1;
-	allPlayersBet = NO;
-		[gameView getBetFromPlayer:[players objectAtIndex:0]];
+	[self startHand];
+	
 }
 
 
@@ -195,7 +201,10 @@
 -(void)gotBetFromPlayer:(Player *) player {
 	NSLog(@"gotBetFromPlayer");
 
-
+	for (int i=0;i<[players count];i++) {
+		[[[players objectAtIndex:i] betButton] setEnabled:NO];
+	}
+	
 // is bet from player we expect?
 if (player != [players objectAtIndex:bettingPlayer]) {
 	// if not throw error
@@ -236,22 +245,21 @@ if (player != [players objectAtIndex:bettingPlayer]) {
 				switch (nextStep) {
 					case wDealFlop:
 						[self dealFlop];
-						[gameView getBetFromPlayer:[players objectAtIndex:bettingPlayer]];
+						
 						nextStep++;
 						break;
 					case wDealTurn:
 						[self dealTurn];
-						[gameView getBetFromPlayer:[players objectAtIndex:bettingPlayer]];
+						
 						nextStep++;
 						break;
 					case wDealRiver:
 						[self dealRiver];
-						[gameView getBetFromPlayer:[players objectAtIndex:bettingPlayer]];
+						
 						nextStep++;
 						break;
 					case wDetermineWinner:
 						[self determineWinner];
-						[self endHand];
 						nextStep++;
 						break;
 					default:
@@ -259,29 +267,23 @@ if (player != [players objectAtIndex:bettingPlayer]) {
 				}
 				NSLog(@"nextStep = %d",nextStep);
 				
-				if (nextStep == wHandOver) { // case of end of Hand
-					
-					NSLog(@"End of Hand");
-					currentBet = -1.0;
-					lastBet = -1.0;
-					bettingPlayer = 0;
-					nextStep = wDeal2Cards;
-					[self deal2cards];
-					nextStep += 1;
-					[gameView getBetFromPlayer:[players objectAtIndex:0]];
-					
-				}
+				
 		} // if all bets are square
 			
 	} // all players have bet
-		
-	[gameView getBetFromPlayer:[players objectAtIndex:bettingPlayer]];
+	if (nextStep!=wHandOver) {
+		[[gameView statusOne] setStringValue:@""];
+		[gameView getBetFromPlayer:[players objectAtIndex:bettingPlayer]];
+	} 	
+
+
 
 		
 		
 	} else { // valid bet
 		// this is not a valid bet
 		[gameView invalidBet:lastBet];
+		[gameView getBetFromPlayer:[players objectAtIndex:bettingPlayer]];
 }
  
 	

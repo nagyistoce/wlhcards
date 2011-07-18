@@ -48,7 +48,8 @@
 
 -(void) gameLoop;
 -(BOOL) betsAreSquare;
-
+-(void) endHand;
+-(void) startHand;
 
 -(void) setWindow:(NSWindow *)window;
 

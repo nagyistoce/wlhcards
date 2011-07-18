@@ -216,7 +216,7 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>800598BC13D3AC2000F4A08A</string>
+						<string>8005994613D3DD0800F4A08A</string>
 						<key>history</key>
 						<array>
 							<string>8005980213D38AD600F4A08A</string>
@@ -320,8 +320,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>17</integer>
-									<integer>15</integer>
+									<integer>9</integer>
+									<integer>2</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -365,7 +365,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>game.m</string>
+								<string>cardsAppDelegate.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -373,11 +373,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>game.m</string>
+										<string>cardsAppDelegate.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>800598BB13D3AC2000F4A08A</string>
+										<string>8005994513D3DD0800F4A08A</string>
 										<key>history</key>
 										<array>
 											<string>80190A0512D18E32005A9561</string>
@@ -398,15 +398,15 @@
 											<string>8098325013C28D46007F349F</string>
 											<string>800597D013D385CE00F4A08A</string>
 											<string>800597FC13D38AD600F4A08A</string>
-											<string>8005986E13D3A58B00F4A08A</string>
-											<string>8005989013D3A7B100F4A08A</string>
 											<string>800598A113D3AA2E00F4A08A</string>
-											<string>800598A313D3AA2E00F4A08A</string>
 											<string>800598A413D3AA2E00F4A08A</string>
-											<string>800598AB13D3AA9C00F4A08A</string>
-											<string>800598B313D3ABA200F4A08A</string>
 											<string>800598B413D3ABA200F4A08A</string>
-											<string>800598B513D3ABA200F4A08A</string>
+											<string>8005990313D3D3D900F4A08A</string>
+											<string>8005992413D3DA1F00F4A08A</string>
+											<string>8005993313D3DBC700F4A08A</string>
+											<string>8005993A13D3DCBF00F4A08A</string>
+											<string>8005994313D3DD0800F4A08A</string>
+											<string>8005994413D3DD0800F4A08A</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -604,13 +604,13 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>800598BD13D3AC2000F4A08A</string>
+		<string>8005994713D3DD0800F4A08A</string>
 		<string>800597C113D36E0C00F4A08A</string>
 		<string>800597C213D36E0C00F4A08A</string>
-		<string>1C78EAAD065D492600B07095</string>
 		<string>8005980013D38AD600F4A08A</string>
-		<string>801909FB12D18DD0005A9561</string>
 		<string>1CD10A99069EF8BA00B06720</string>
+		<string>1C78EAAD065D492600B07095</string>
+		<string>801909FB12D18DD0005A9561</string>
 		<string>/Users/warren/Mac Apps/cards/wlhcards/cards.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
@@ -635,7 +635,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>game.m</string>
+								<string>GameView.m</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -962,7 +962,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {1105, 684}}</string>
 								<key>RubberWindowFrame</key>
-								<string>528 163 1105 725 0 0 1680 1028 </string>
+								<string>-1180 241 1105 725 -1440 93 1440 900 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXDebugCLIModule</string>
@@ -991,11 +991,11 @@
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.consoleV3</string>
 			<key>WindowString</key>
-			<string>528 163 1105 725 0 0 1680 1028 </string>
+			<string>-1180 241 1105 725 -1440 93 1440 900 </string>
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>Identifier</key>

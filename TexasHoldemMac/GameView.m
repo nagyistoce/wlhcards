@@ -14,6 +14,7 @@
 #import "Player.h"
 #import "Hand.h"
 #import "Card.h"
+#import "cardsAppDelegate.h"
 
 @implementation GameView
 @synthesize players, numberOfPlayers, flop;
@@ -115,28 +116,12 @@
 
 -(void)display {
 	
-
-		printf("---------------------------\n");	
-	for (int i=0;i<[players count];i++)
-	{
+	for (int i=0;i<[players count];i++) {
 		[[players objectAtIndex:i] display];
-		
-				
-		printf("\n\n\n");
-	
 	}
-		printf("---------------------------\n");
-	// [self displayBoard];	
+	
 }
 
--(void)displayPlayer:(Player *)player {
-	
-	for (int i=0;i<[player.playerHand.cards count];i++) {
-		printf(" ");
-		[((Card *)[player.playerHand.cards objectAtIndex:i]) print];
-	}
-	
-}
 
 
 -(int)askNumberOfPlayers {
@@ -149,13 +134,13 @@
 		
 }
 
+
+
+
 -(void)getBetFromPlayer:(Player *)player {
-	for (int i=0;i<[players count];i++) {
-		[[[players objectAtIndex:i] betButton] setEnabled:NO];
-	}
 		
 	[player askForBet];
-	[statusOne setStringValue:@""];
+	
 			
 }
 
@@ -194,13 +179,24 @@
 -(void)winner:(int) winner {
 	NSString *aString = [NSString stringWithFormat:@"The Winner is:"];
 	NSString *bString = ((Player *)[players objectAtIndex:winner]).name;
+	[[players objectAtIndex:winner] display];
 	[statusOne setStringValue:[aString stringByAppendingString:bString]];
-	NSLog(@"%@ %@",aString,bString);
+
+
+
 	 }
 -(void) dealloc {
 	[cardBack release];
 	[flopImages release];
 	[super dealloc];
 }
+
+-(IBAction) dealCards:(id)sender {
+	[statusOne setStringValue:@" "];
+	cardsAppDelegate *appDelegate =	[[NSApplication sharedApplication] delegate];
+	[[appDelegate theGame] endHand];
+	[[appDelegate theGame] startHand];
+}
+	
 
 @end

@@ -45,7 +45,7 @@
 
 
 
--(void)displayPlayer:(Player *)player;
+
 -(void)display;
 -(int)askNumberOfPlayers;
 -(void)getBlindBets;
@@ -57,6 +57,7 @@
 -(void)winner:(int) winner;
 -(void)removePlayer:(Player *) player fromWindow:(NSWindow *) window;
 -(void)removeBoard;
+-(IBAction) dealCards:(id)sender;
 
 
 @end
