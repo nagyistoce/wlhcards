@@ -22,7 +22,7 @@
 @synthesize aWindow;
 #endif
 
-#pragma mark Text Based Implemetation
+#pragma mark init/dealloc
 
 -(void) dealloc {
 	[gameView release];
@@ -34,12 +34,12 @@
 
 -(id) init {
 	// set up the gameView
-	
-	gameView = [[GameView alloc] init];
-	numberOfPlayers = [gameView askNumberOfPlayers];
-	[self setupDeckFlopPlayers];
+
+    inGame = NO;
 	return self;
 }	
+
+#pragma mark Deal Cards
 
 -(void)deal2cards {
 	NSLog(@"Deal 2 cards");
@@ -141,11 +141,66 @@
 	
 }
 
+#pragma mark Start Hand hand or Game
+
+
+-(void) setWindow:(NSWindow *)window {
+    
+    self.aWindow = window;
+
+	
+	
+}
+
+
+-(void)setupDeckFlopPlayers {
+    
+	// Set up the Deck
+	
+	[self setupNewDeck];
+	if (flop) [flop release];
+    
+	flop = [[NSMutableArray alloc] init];
+	
+	// how many players?
+	
+    
+	
+	gameView.numberOfPlayers = numberOfPlayers;
+	
+	// create players
+	players = [[NSMutableArray alloc] init];
+	gameView.players = self.players;
+	
+	for ( int i=0;i<numberOfPlayers;i++) {
+		Player *newPlayer = [[Player alloc] init];
+		newPlayer.name = [NSString stringWithFormat:@"Player %d",i+1];	
+		newPlayer.gameView = gameView;
+		[players addObject:newPlayer];
+		[newPlayer release];
+		
+	}
+	
+	((Player *)[players objectAtIndex:0]).name = [NSString stringWithFormat:@"Dealer"];
+	
+}	
+
+-(void)setupNewDeck {
+	// Set up the Deck
+	if (deck) [deck release];
+    
+	deck = [[Deck alloc] init];
+	[deck shuffle];
+	
+}
+
+
+
 -(void)endHand {
 	// clear player hands and flop
 	for (int i =0;i<numberOfPlayers;i++) {
 		
-		((Player *)[players objectAtIndex:i]).playerHand = [[Hand alloc] init];
+		((Player *)[players objectAtIndex:i]).playerHand = [[[Hand alloc] init] autorelease];
 	}
 	[flop release];
 	flop = [[NSMutableArray alloc] init];
@@ -171,15 +226,36 @@
 
 -(void)endGame {
 	//remove remaining objects from window
-	[gameView removePlayer:[players objectAtIndex:0] fromWindow:aWindow];
+    for (int i=0; i<[players count]; i++) {
+        [gameView removePlayer:[players objectAtIndex:i] fromWindow:aWindow];
+    }
+	
 	[gameView removeBoard];
+    [gameView release];
+    
+    inGame = NO;
 
 	
 }	
 
+-(void)startGame {
+	if (inGame == YES) {
+        
+        [self endGame];
+        
+    }
+	gameView = [[GameView alloc] init];
+	numberOfPlayers = [gameView askNumberOfPlayers];
+    [self setupDeckFlopPlayers];
+    [gameView addPlayersToWindow:aWindow];	
+    [self startHand];
+    inGame = YES;
+
+}
+
 -(void)startHand { 
-	
-	currentBet = -1.0;
+
+   	currentBet = -1.0;
 	lastBet = -1.0;
 	bettingPlayer = 0;
 	nextStep = wDeal2Cards;
@@ -189,12 +265,8 @@
 	[gameView getBetFromPlayer:[players objectAtIndex:0]];
 }
 
--(void)gameLoop {
-    
-   
-	[self startHand];
-	
-}
+#pragma mark Game Logic
+
 
 
 // gotBetFromPlayer (Player *) player
@@ -310,59 +382,7 @@ if (player != [players objectAtIndex:bettingPlayer]) {
 	return square;
 }
 
-#pragma mark Mac GUI Implemetation
 
--(void) setWindow:(NSWindow *)window {
-    
-#if !(text_only==1)
-    self.aWindow = window;
-	[gameView addPlayersToWindow:aWindow];	
-#endif
-	
-	
-}
-
-#pragma mark Commom stuff
-
--(void)setupDeckFlopPlayers {
-    
-	// Set up the Deck
-	
-	[self setupNewDeck];
-	
-	flop = [[NSMutableArray alloc] init];
-	
-	// how many players?
-	
-    
-	
-	gameView.numberOfPlayers = numberOfPlayers;
-	
-	// create players
-	players = [[NSMutableArray alloc] init];
-	gameView.players = self.players;
-	
-	for ( int i=0;i<numberOfPlayers;i++) {
-		Player *newPlayer = [[Player alloc] init];
-		newPlayer.name = [NSString stringWithFormat:@"Player %d",i+1];	
-		newPlayer.gameView = gameView;
-		[players addObject:newPlayer];
-		[newPlayer release];
-		
-	}
-	
-	((Player *)[players objectAtIndex:0]).name = [NSString stringWithFormat:@"Dealer"];
-	
-}	
-
--(void)setupNewDeck {
-	// Set up the Deck
-	if (deck) [deck release];
-    
-	deck = [[Deck alloc] init];
-	[deck shuffle];
-	
-}
 
 
 @end

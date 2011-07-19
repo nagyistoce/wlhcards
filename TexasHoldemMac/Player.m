@@ -49,16 +49,10 @@
 	if ([playerHand.cards count]<2) {
 		return;
 	}
-	NSString *aString = [[NSString alloc] init];
-   printf("%s\n",[self.name UTF8String] );
-	for (int i=0;i<2;i++) {
-		aString =[aString stringByAppendingString:[((Card*)[playerHand.cards objectAtIndex:i]) print]]; // There is a leak here.
-		
-	}
     [cardImage1 setImage:[((Card *)[playerHand.cards objectAtIndex:0]) image] ];
     [cardImage2 setImage:[((Card *)[playerHand.cards objectAtIndex:1]) image] ];
     
-	[self.handField setStringValue:aString];
+
 	[self.moneyField setStringValue:[NSString stringWithFormat:@" $ %.2f",money]];
 	
 }
@@ -90,9 +84,8 @@
 }
 
 -(void)controlTextDidEndEditing:(NSNotification *)obj {
-	((NSButton *)[obj object]).resignFirstResponder;
-	//	[self betButton:self];
-}
+	[[obj object] resignFirstResponder];
+	}
 
 -(void)playerLostHand{}
 -(void)playerWonHand{}

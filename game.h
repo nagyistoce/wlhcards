@@ -33,23 +33,24 @@
 	int bettingPlayer;
 	int nextStep;
 	bool allPlayersBet;
+    bool inGame;
 	
-#if !(text_only==1)
+
 	NSWindow *aWindow;
-#endif
+
 }
 @property (nonatomic, retain) cardsAppDelegate *delegate;
 @property (nonatomic, retain) NSMutableArray *players;
 @property float pot;
 @property (nonatomic, retain) GameView *gameView;
-#if !(text_only==1)
 @property (nonatomic, retain) NSWindow *aWindow;
-#endif
 
--(void) gameLoop;
+
+
 -(BOOL) betsAreSquare;
 -(void) endHand;
 -(void) startHand;
+-(void) startGame;
 
 -(void) setWindow:(NSWindow *)window;
 
