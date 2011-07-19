@@ -86,7 +86,7 @@
 	NSString *cardStr = [self cardString];
 	[cardStr retain];
 	[cardStr autorelease];
-	printf("%s",[cardStr UTF8String] );
+	
 
 	return cardStr;
 

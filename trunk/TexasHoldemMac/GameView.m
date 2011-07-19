@@ -168,7 +168,7 @@
 
 -(void)invalidBet:(float)lastBet {
 	NSString *aString = [NSString stringWithFormat:@"Bet at least $ %.2f\n",lastBet];
-	printf("Invalid Bet! You must bet at least %f\n",lastBet);
+
 	[statusOne setStringValue:aString];
 }
 

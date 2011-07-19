@@ -16,7 +16,7 @@
 
 -(id) init {
 	isSevenCardHand = FALSE;
-	self.cards = [[NSMutableArray alloc] init];
+	cards = [[NSMutableArray alloc] init];
 	rank = 0;
 	highCardRank = 0;
 	[super init];
@@ -50,10 +50,7 @@
 // print each card in the hand, for testing purposes (and for text game, which itself is for testing purposes)
 -(void) print {
 	
-	for (int i=0;i<[cards count];i++) {
-		printf(" ");
-		[((Card *)[self.cards objectAtIndex:i]) print];
-	}
+	
 
 
 }	

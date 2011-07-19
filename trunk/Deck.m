@@ -13,9 +13,6 @@
 @synthesize cards;
 
 -(id)init {
-	if (self.cards) {
-		[self.cards release];
-	}
 	// create an empty deck
 	
 	cards = [[NSMutableArray alloc] init];	
@@ -53,11 +50,7 @@
 
 // print each card in the deck, for testing purposes
 -(void) print {
-	printf("Printing a Deck...\n");
-	for (int i=0;i<[cards count];i++) {
-		printf("\n");
-		[((Card *)[self.cards objectAtIndex:i]) print];
-	}
+		
 }	
 
 // deal a 5 or 7 card hand

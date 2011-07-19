@@ -17,17 +17,17 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
 
 	srandom(time(NULL));
-
-	
+	theGame = [[game alloc] init];
+    [theGame setWindow:window];
 	[self startGame:self];
 	
 
 }
 
 -(IBAction) startGame:(id)sender {
-	theGame = [[game alloc] init];
-	[theGame setWindow:window];
-	[theGame gameLoop];
+
+
+	[theGame startGame];
  }
 
 @end
