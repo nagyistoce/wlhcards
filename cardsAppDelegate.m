@@ -13,6 +13,7 @@
 
 @synthesize window;
 @synthesize theGame;
+@synthesize minField, maxField, startFundsField, bigBlindField, littleBlindField, blindButton;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
 
@@ -28,6 +29,15 @@
 
 	[theGame startGame];
  }
+
+-(IBAction)closePrefs:(id)sender{
+    [prefs orderOut:self];
+}
+
+-(IBAction)showPrefs:(id)sender {
+    [prefs orderFront:self];
+    
+}
 
 @end
 

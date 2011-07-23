@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		801B2B8613DB29AA009E647B /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 801B2B8513DB29AA009E647B /* icon.icns */; };
 		802464E713A54EB300E1AB10 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 802464E613A54EB300E1AB10 /* AppKit.framework */; };
 		805B11E613C25EAD005252CA /* QC.png in Resources */ = {isa = PBXBuildFile; fileRef = 805B11D913C25EAD005252CA /* QC.png */; };
 		805B11E713C25EAD005252CA /* JC.png in Resources */ = {isa = PBXBuildFile; fileRef = 805B11DA13C25EAD005252CA /* JC.png */; };
@@ -85,6 +86,7 @@
 		801909DC12D18415005A9561 /* Deck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Deck.m; sourceTree = "<group>"; };
 		80190A5712D2FF73005A9561 /* Hand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hand.h; sourceTree = "<group>"; };
 		80190A5812D2FF73005A9561 /* Hand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hand.m; sourceTree = "<group>"; };
+		801B2B8513DB29AA009E647B /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
 		802464E613A54EB300E1AB10 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		802E267B12E74D420041795E /* game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = game.h; sourceTree = "<group>"; };
 		802E267C12E74D420041795E /* game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = game.m; sourceTree = "<group>"; };
@@ -282,6 +284,7 @@
 		8093E88A136107C6005CA509 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				801B2B8513DB29AA009E647B /* icon.icns */,
 				80BAB19D136680C100389685 /* Board.xib */,
 				80BAB01313653FEE00389685 /* Player.xib */,
 				8448107C1363681C0036B736 /* MainMenu.xib */,
@@ -420,6 +423,7 @@
 				80E2650D13C27E9C00B8C037 /* 2D.png in Resources */,
 				80E2650E13C27E9C00B8C037 /* 3D.png in Resources */,
 				8098326513C28D91007F349F /* back.png in Resources */,
+				801B2B8613DB29AA009E647B /* icon.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,6 +478,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -483,6 +488,7 @@
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
 				INFOPLIST_FILE = "TexasHoldemMac-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
@@ -498,6 +504,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
@@ -506,6 +513,7 @@
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
 				INFOPLIST_FILE = "TexasHoldemMac-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
