@@ -170,6 +170,7 @@
 
 
 -(void)endHand {
+    NSLog(@"endHand");
 	// clear player hands and flop
 	for (int i =0;i<numberOfPlayers;i++) {
 		
@@ -202,6 +203,7 @@
 }
 
 -(void)playAgain {
+    NSLog(@"playAgain");
     int play = NSRunAlertPanel(@"Do You want to Play Again?",@"", @"Yes", @"Quit", nil);
     if (play==NSAlertDefaultReturn) {
         [self startGame];
@@ -211,6 +213,7 @@
 }
 
 -(void)endGame {
+    NSLog(@"endGame");
 	//remove remaining objects from window
     for (int i=0; i<[players count]; i++) {
         [gameView removePlayer:[players objectAtIndex:i] fromWindow:aWindow];
@@ -225,6 +228,7 @@
 }	
 
 -(void)startGame {
+    NSLog(@"startGame");
 	if (inGame == YES) {
         
         [self endGame];
@@ -238,7 +242,7 @@
 }
 
 -(void)startHand { 
-
+    NSLog(@"startHand");
    	currentBet = -1.0;
 	lastBet = -1.0;
 	bettingPlayer = 0;
