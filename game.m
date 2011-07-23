@@ -16,11 +16,10 @@
 @implementation game
 @synthesize players;
 @synthesize delegate;
-@synthesize pot;
 @synthesize gameView;
-#if !(text_only==1)
 @synthesize aWindow;
-#endif
+@synthesize playersSheet;
+@synthesize numberOfPlayersText;
 
 #pragma mark init/dealloc
 
@@ -99,59 +98,32 @@
 	[gameView display];
 }	
 	
--(void)determineWinner {
-	NSLog(@"Determine Winner");  
-	
-	[gameView display];
-	
-	// create array of hands, and rank them
-	
-	NSMutableArray *allHands = [[NSMutableArray alloc] init];
-	for (int i=0;i<numberOfPlayers;i++) {
-		Player *thePlayer = [players objectAtIndex:i];
-		[thePlayer.playerHand rank];
-		[allHands addObject:thePlayer.playerHand];
-	}
-	
-	
-	
-	// sort the array
-	
-	[allHands sortUsingSelector:@selector(compare:)];
-	
-	// loop through players
-	// compare winning hand (last object in array) with players hand
-	// if they are the same, that player is the winner
-	
-	int winner;
-	for (winner = 0;([((Player*)[players objectAtIndex:winner]) getPlayerHand] != [allHands lastObject]); winner++ )
-	{ 
-		// NSLog(@"%d",winner); // this should be replaced with error handling code to prevent an infinite loop.
-	}
-	[allHands release];
-	
-	
-	
-	// give money to winner player		
-	((Player *)[players objectAtIndex:winner]).money+= pot;
-	
-	pot = 0;
-	[gameView updatePot:pot];
-	[gameView winner:winner];
-	
-}
+
 
 #pragma mark Start Hand hand or Game
 
 
--(void) setWindow:(NSWindow *)window {
-    
-    self.aWindow = window;
-
-	
-	
+-(void)openPlayersSheet {
+    NSLog(@"aWindow = %@",aWindow);
+    [NSApp beginSheet:playersSheet
+     modalForWindow:aWindow
+        modalDelegate:nil
+       didEndSelector:NULL
+          contextInfo:NULL];
 }
 
+-(IBAction)endPlayersSheet:(id) sender {
+    numberOfPlayers = [numberOfPlayersText intValue];  
+
+    [NSApp endSheet:playersSheet];
+    [playersSheet orderOut:sender];
+
+    [self setupDeckFlopPlayers];
+    [gameView addPlayersToWindow:aWindow];	
+    [self startHand];
+    inGame = YES;
+
+}
 
 -(void)setupDeckFlopPlayers {
     
@@ -196,6 +168,7 @@
 
 
 
+
 -(void)endHand {
 	// clear player hands and flop
 	for (int i =0;i<numberOfPlayers;i++) {
@@ -218,10 +191,23 @@
 		
 		if ( pMoney <= 0 ) {
 			[gameView removePlayer:player fromWindow:aWindow];
-			[players removeObjectAtIndex:i];
+			[players removeObjectAtIndex:i--];
 			numberOfPlayers--;
 		}
+        
+        if ([players count]==1) {
+            [self playAgain];
+        }
 	}
+}
+
+-(void)playAgain {
+    int play = NSRunAlertPanel(@"Do You want to Play Again?",@"", @"Yes", @"Quit", nil);
+    if (play==NSAlertDefaultReturn) {
+        [self startGame];
+    } else {
+        [[NSApplication sharedApplication] terminate:self];
+    }
 }
 
 -(void)endGame {
@@ -245,11 +231,9 @@
         
     }
 	gameView = [[GameView alloc] init];
-	numberOfPlayers = [gameView askNumberOfPlayers];
-    [self setupDeckFlopPlayers];
-    [gameView addPlayersToWindow:aWindow];	
-    [self startHand];
-    inGame = YES;
+	// numberOfPlayers = [gameView askNumberOfPlayers];
+    [self openPlayersSheet];
+
 
 }
 
@@ -269,103 +253,43 @@
 
 
 
-// gotBetFromPlayer (Player *) player
+
 -(void)gotBetFromPlayer:(Player *) player {
-	NSLog(@"gotBetFromPlayer");
-
-	for (int i=0;i<[players count];i++) {
-		[[[players objectAtIndex:i] betButton] setEnabled:NO];
-	}
+	[self disableBetButtons];
 	
-// is bet from player we expect?
-if (player != [players objectAtIndex:bettingPlayer]) {
-	// if not throw error
-
-	NSLog(@"Error! wrong player Bet!");
-	
-} else {
-	// is bet valid?
-	if (player.currentBet>=lastBet) {
+    // is bet from player we expect?
+    if (player != [players objectAtIndex:bettingPlayer]) {
+        NSLog(@"Error! wrong player Bet!");
+        return;
+    } 
+	if (player.currentBet>=lastBet) { 	// is bet valid?
 		currentBet = player.currentBet;
 		lastBet = currentBet;
-		
-		// subtract money from player
-		if ( lastBet < player.money ) { // dont put more money in pot than player has
-			player.money -= lastBet;
-			pot += lastBet;
-		} else {
-			pot += player.money;
-			player.money = 0;
-		}
-		[gameView updatePot:pot]; // display new pot amount	
-		[player display];	
-
-	
-		// have all players bet?
-		
+		[self subtractMoneyFromPlayer:player];
+        
+		// advance to next betting player - if all players have bet, set flag and go back to player 0		
 		if ((++bettingPlayer)==[players count]) {
-			// all players have bet
 			bettingPlayer = 0;
 			allPlayersBet = YES;
 		}
 		
 		if (allPlayersBet == YES) {
-			if ([self betsAreSquare]) { // if all bets are square
-				allPlayersBet = NO;
-				bettingPlayer = 0;
-				lastBet = -1.0;
-				switch (nextStep) {
-					case wDealFlop:
-						[self dealFlop];
-						
-						nextStep++;
-						break;
-					case wDealTurn:
-						[self dealTurn];
-						
-						nextStep++;
-						break;
-					case wDealRiver:
-						[self dealRiver];
-						
-						nextStep++;
-						break;
-					case wDetermineWinner:
-						[self determineWinner];
-						nextStep++;
-						break;
-					default:
-						break;
-				}
-				NSLog(@"nextStep = %d",nextStep);
-				
-				
-		} // if all bets are square
+			if ([self betsAreSquare]) {
+                [self advanceGame];
+            }
 			
-	} // all players have bet
-	if (nextStep!=wHandOver) {
-		[[gameView statusOne] setStringValue:@""];
-		[gameView getBetFromPlayer:[players objectAtIndex:bettingPlayer]];
-	} 	
-
-
-
+        }   
+            // if the hand isn't over, get bet from the next player
+            if (nextStep!=wHandOver) {
+            [[gameView statusOne] setStringValue:@""];
+            [gameView getBetFromPlayer:[players objectAtIndex:bettingPlayer]];
+        } 			
 		
-		
-	} else { // valid bet
-		// this is not a valid bet
+	} else { 
+		// this is not a valid bet - notifiy player and get another bet
 		[gameView invalidBet:lastBet];
 		[gameView getBetFromPlayer:[players objectAtIndex:bettingPlayer]];
-}
- 
-	
-	
-}
-
-	
-	
-	
-
+    }
 } // gotBetFromPlayer
 
 -(BOOL) betsAreSquare {
@@ -382,7 +306,98 @@ if (player != [players objectAtIndex:bettingPlayer]) {
 	return square;
 }
 
+-(void)determineWinner {
+	NSLog(@"Determine Winner");  
+	
+	[gameView display];
+	
+	// create array of hands, and rank them
 
+	NSMutableArray *allHands = [[NSMutableArray alloc] init];
+	for (int i=0;i<numberOfPlayers;i++) {
+		Player *thePlayer = [players objectAtIndex:i];
+		[thePlayer.playerHand rank];
+		[allHands addObject:thePlayer.playerHand];
+	}
+	
+	
+	
+	// sort the array
+	
+	[allHands sortUsingSelector:@selector(compare:)];
+	
+	// loop through players
+	// compare winning hand (last object in array) with players hand
+	// if they are the same, that player is the winner
+	
+	int winner;
+	for (winner = 0;([((Player*)[players objectAtIndex:winner]) getPlayerHand] != [allHands lastObject]); winner++ )
+	{ 
+		// NSLog(@"%d",winner); // this should be replaced with error handling code to prevent an infinite loop.
+	}
+	[allHands release];
+	
+	
+	
+	// give money to winner player		
+	((Player *)[players objectAtIndex:winner]).money+= pot;
+	
+	pot = 0;
+	[gameView updatePot:pot];
+	[gameView winner:winner];
+	
+}
 
+-(void) disableBetButtons {
+    for (int i=0;i<[players count];i++) {
+		[[[players objectAtIndex:i] betButton] setEnabled:NO];
+	}
+}
+
+-(void) subtractMoneyFromPlayer:(Player *) player {
+    // subtract money from player
+    if ( lastBet < player.money ) { // dont put more money in pot than player has
+        player.money -= lastBet;
+        pot += lastBet;
+    } else {
+        pot += player.money;
+        player.money = 0;
+    }
+    [gameView updatePot:pot]; // display new pot amount	
+    [player display];	
+ 
+}
+-(void) advanceGame {
+    allPlayersBet = NO;
+    bettingPlayer = 0;
+    lastBet = -1.0;
+    switch (nextStep) {
+        case wDealFlop:
+            [self dealFlop];
+            
+            nextStep++;
+            break;
+        case wDealTurn:
+            [self dealTurn];
+            
+            nextStep++;
+            break;
+        case wDealRiver:
+            [self dealRiver];
+            
+            nextStep++;
+            break;
+        case wDetermineWinner:
+            [self determineWinner];
+            nextStep++;
+            break;
+        default:
+            break;
+    }
+    
+    
+    
+
+}
 
 @end

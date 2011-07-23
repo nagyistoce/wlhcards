@@ -12,11 +12,12 @@
 
 @interface cardsAppDelegate : NSObject <NSApplicationDelegate> {
     NSWindow *window;
-	game *theGame;
+	IBOutlet game *theGame;
 }
 
 
 -(IBAction) startGame:(id)sender;
+
 
 @property (assign) IBOutlet NSWindow *window;
 @property (nonatomic, retain) game *theGame;
