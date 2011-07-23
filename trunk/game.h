@@ -42,6 +42,21 @@
 	bool allPlayersBet;
     bool inGame;
 	int numberOfPlayers;
+    
+    // prefs
+    float maxBet;
+    float minBet;
+    float startFunds;
+    float littleBlind;
+    float bigBlind;
+    BOOL useBlind;
+    IBOutlet NSTextField *minField;
+    IBOutlet NSTextField *maxField;
+    IBOutlet NSTextField *startFundsField;
+    IBOutlet NSTextField *littleBlindField;
+    IBOutlet NSTextField *bigBlindField;
+    IBOutlet NSButton *blindButton;
+    IBOutlet NSWindow *prefs;
 	
 
 
@@ -52,6 +67,13 @@
 @property (nonatomic, retain) NSWindow *aWindow;
 @property (nonatomic, retain) NSWindow *playersSheet;
 @property (nonatomic,retain) NSTextField *numberOfPlayersText;
+@property (nonatomic, retain) NSTextField *minField;
+@property (nonatomic, retain) NSTextField *maxField;
+@property (nonatomic, retain) NSTextField *startFundsField;
+@property (nonatomic, retain) NSTextField *littleBlindField;
+@property (nonatomic, retain) NSTextField *bigBlindField;
+@property (nonatomic, retain) NSButton *blindButton;
+@property (nonatomic, retain) NSWindow *prefs;
 
 // deal cards methods
 
@@ -66,6 +88,12 @@
 -(void) startHand;
 -(void) playAgain;
 
+
+// user prefs
+-(void) registerUserDefaults;
+-(void) showPrefs;
+-(void) closePrefs;
+
 // game logic
 -(void) gotBetFromPlayer:(Player *) player;
 -(BOOL) betsAreSquare;
@@ -73,11 +101,6 @@
 -(void) disableBetButtons;
 -(void) subtractMoneyFromPlayer:(Player *) player;
 -(void) advanceGame;
-
-
-
-
-
 -(void)gotBetFromPlayer:(Player *) player;
 -(void)determineWinner;
 @end

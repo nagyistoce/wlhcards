@@ -20,6 +20,7 @@
 @synthesize aWindow;
 @synthesize playersSheet;
 @synthesize numberOfPlayersText;
+@synthesize minField, maxField, startFundsField, bigBlindField, littleBlindField, blindButton, prefs;
 
 #pragma mark init/dealloc
 
@@ -33,10 +34,60 @@
 
 -(id) init {
 	// set up the gameView
-
+    NSLog(@"[game init]");
+    [self registerUserDefaults];
     inGame = NO;
 	return self;
 }	
+
+#pragma mark User Defaults
+
+-(void) registerUserDefaults {
+    NSMutableDictionary *defaultValues = [NSMutableDictionary dictionary];
+    [defaultValues setObject:[NSNumber numberWithFloat:10.0] forKey:@"minBet"];
+    [defaultValues setObject:[NSNumber numberWithFloat:50.0] forKey:@"maxBet"];
+    [defaultValues setObject:[NSNumber numberWithFloat:100.0] forKey:@"startFunds"];
+    [defaultValues setObject:[NSNumber numberWithFloat:5.0] forKey:@"littleBlind"];
+    [defaultValues setObject:[NSNumber numberWithFloat:10.0] forKey:@"bigBlind"];
+    [defaultValues setObject:[NSNumber numberWithInt:NSOffState] forKey:@"useBlind"];
+    
+    [[NSUserDefaults standardUserDefaults] registerDefaults:defaultValues];
+
+    
+}
+
+-(void) showPrefs {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    minField.floatValue = [[defaults objectForKey:@"minBet"] floatValue];
+    maxField.floatValue = [[defaults objectForKey:@"maxBet"] floatValue];
+    startFundsField.floatValue = [[defaults objectForKey:@"startFunds"] floatValue];
+    littleBlindField.floatValue = [[defaults objectForKey:@"littleBlind"] floatValue];
+    bigBlindField.floatValue = [[defaults objectForKey:@"bigBlind"] floatValue];
+    blindButton.state = [[defaults objectForKey:@"useBlind"] intValue];
+    
+    [prefs orderFront:self];
+}
+
+-(void) closePrefs {
+
+    minBet = [minField floatValue];
+    maxBet = [maxField floatValue];
+    startFunds = [startFundsField floatValue];
+    littleBlind = [littleBlindField floatValue];
+    bigBlind = [bigBlindField floatValue];
+    useBlind = [blindButton state];
+    
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:[NSNumber numberWithFloat:minBet] forKey:@"minBet"];
+    [defaults setObject:[NSNumber numberWithFloat:maxBet] forKey:@"maxBet"];
+    [defaults setObject:[NSNumber numberWithFloat:startFunds] forKey:@"startFunds"];
+    [defaults setObject:[NSNumber numberWithFloat:littleBlind] forKey:@"littleBlind"];
+    [defaults setObject:[NSNumber numberWithFloat:bigBlind] forKey:@"bigBlind"];
+    [defaults setObject:[NSNumber numberWithInt:useBlind] forKey:@"useBlind"];
+    [prefs orderOut:self];
+
+}
 
 #pragma mark Deal Cards
 
