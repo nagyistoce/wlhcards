@@ -22,7 +22,7 @@
     NSString *resourcePath = [[NSBundle mainBundle] resourcePath];
     NSString *cardFile = [NSString stringWithFormat:@"/%@.png",[self cardString]];
     NSString *filePath = [resourcePath stringByAppendingString:cardFile];
-    NSLog(@"%@",filePath);
+ //   NSLog(@"%@",filePath);
     
     if (image) [image release];
     

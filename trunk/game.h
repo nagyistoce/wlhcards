@@ -21,41 +21,63 @@
 @class Player;
 
 @interface game : NSObject {
+    // game representation
 	NSMutableArray *players;
-	GameView *gameView;
 	Deck *deck;
 	NSMutableArray *flop;
 	float pot;
 	float currentBet;
 	float lastBet;
-	int numberOfPlayers;
+
+    // GUI View of game     
+    GameView *gameView;
+	IBOutlet NSWindow *aWindow;
+    IBOutlet NSWindow *playersSheet;
+    IBOutlet NSTextField *numberOfPlayersText;
 	cardsAppDelegate  *delegate;
+
+    // game logic
 	int bettingPlayer;
 	int nextStep;
 	bool allPlayersBet;
     bool inGame;
+	int numberOfPlayers;
 	
 
-	NSWindow *aWindow;
 
 }
 @property (nonatomic, retain) cardsAppDelegate *delegate;
 @property (nonatomic, retain) NSMutableArray *players;
-@property float pot;
 @property (nonatomic, retain) GameView *gameView;
 @property (nonatomic, retain) NSWindow *aWindow;
+@property (nonatomic, retain) NSWindow *playersSheet;
+@property (nonatomic,retain) NSTextField *numberOfPlayersText;
 
+// deal cards methods
 
+// start/end hand or game
 
--(BOOL) betsAreSquare;
+-(void) openPlayersSheet;
+-(IBAction) endPlayersSheet:(id)sender;
+-(void) setupDeckFlopPlayers;
+-(void) setupNewDeck;
 -(void) endHand;
--(void) startHand;
 -(void) startGame;
+-(void) startHand;
+-(void) playAgain;
 
--(void) setWindow:(NSWindow *)window;
+// game logic
+-(void) gotBetFromPlayer:(Player *) player;
+-(BOOL) betsAreSquare;
+-(void) determineWinner;
+-(void) disableBetButtons;
+-(void) subtractMoneyFromPlayer:(Player *) player;
+-(void) advanceGame;
 
--(void)setupDeckFlopPlayers;
--(void)setupNewDeck;
+
+
+
+
 -(void)gotBetFromPlayer:(Player *) player;
-
+-(void)determineWinner;
 @end
