@@ -167,7 +167,7 @@
 }	
 
 -(void)invalidBet:(float)lastBet {
-	NSString *aString = [NSString stringWithFormat:@"Bet at least $ %.2f\n",lastBet];
+	NSString *aString = [NSString stringWithFormat:@"Invalid Bet\n",lastBet];
 
 	[statusOne setStringValue:aString];
 }

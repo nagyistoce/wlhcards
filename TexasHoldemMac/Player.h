@@ -18,6 +18,7 @@
 	GameView *gameView;
 	BOOL	hasBet;
     NSString *nibName;
+    float winChance;
 
 	IBOutlet NSTextField *nameLabel;
 	IBOutlet NSTextField *handField;
@@ -26,7 +27,7 @@
 	IBOutlet NSTextField *moneyField;
     IBOutlet NSImageView *cardImage1;
     IBOutlet NSImageView *cardImage2;
-    
+    IBOutlet NSTextField *winField;
 		
 }
 
@@ -42,7 +43,8 @@
 @property (nonatomic, retain) NSTextField *betField;
 @property (nonatomic, retain) NSButton *betButton;
 @property (nonatomic, retain) NSTextField *moneyField;
-
+@property (nonatomic, retain) NSTextField *winField;
+@property float winChance;
 
 
 -(void)askForBet; // returns bet amount

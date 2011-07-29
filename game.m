@@ -89,6 +89,18 @@
 
 }
 
+-(void) readDefaults {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    minBet = [[defaults objectForKey:@"minBet"] floatValue];
+    maxBet = [[defaults objectForKey:@"maxBet"] floatValue];
+    startFunds = [[defaults objectForKey:@"startFunds"] floatValue];
+    littleBlind = [[defaults objectForKey:@"littleBlind"] floatValue];
+    bigBlind = [[defaults objectForKey:@"bigBlind"] floatValue];
+    useBlind = [[defaults objectForKey:@"useBlind"] intValue];
+
+    
+}
+
 #pragma mark Deal Cards
 
 -(void)deal2cards {
@@ -100,7 +112,7 @@
 		[temp.playerHand addCard:[deck dealCard]];
 		
 	}
-	[gameView display];
+    	[gameView display];
 }
 
 
@@ -118,8 +130,9 @@
 		[temp.playerHand addCard:[flop objectAtIndex:2]];
 	}
 	gameView.flop = flop;
+    
 	[gameView display];
-	
+	[self setPlayerChanceToWin];
 }	
 	
 -(void)dealTurn {
@@ -132,6 +145,7 @@
 		[temp.playerHand addCard:[flop objectAtIndex:3]];
 	}
 	[gameView display];
+    [self setPlayerChanceToWin];
 	
 
 }
@@ -147,6 +161,7 @@
 		[temp.playerHand addCard:[flop objectAtIndex:4]];
 	}
 	[gameView display];
+    [self setPlayerChanceToWin];
 }	
 	
 
@@ -199,6 +214,7 @@
 		Player *newPlayer = [[Player alloc] init];
 		newPlayer.name = [NSString stringWithFormat:@"Player %d",i+1];	
 		newPlayer.gameView = gameView;
+        newPlayer.money = startFunds;
 		[players addObject:newPlayer];
 		[newPlayer release];
 		
@@ -247,16 +263,18 @@
 			numberOfPlayers--;
 		}
         
+        	}
         if ([players count]==1) {
-            [self playAgain];
-        }
-	}
+        [self playAgain];
+    }
+
 }
 
 -(void)playAgain {
     NSLog(@"playAgain");
     int play = NSRunAlertPanel(@"Do You want to Play Again?",@"", @"Yes", @"Quit", nil);
     if (play==NSAlertDefaultReturn) {
+        [self endGame];
         [self startGame];
     } else {
         [[NSApplication sharedApplication] terminate:self];
@@ -279,6 +297,7 @@
 }	
 
 -(void)startGame {
+    
     NSLog(@"startGame");
 	if (inGame == YES) {
         
@@ -287,6 +306,7 @@
     }
 	gameView = [[GameView alloc] init];
 	// numberOfPlayers = [gameView askNumberOfPlayers];
+    [self readDefaults];
     [self openPlayersSheet];
 
 
@@ -317,7 +337,11 @@
         NSLog(@"Error! wrong player Bet!");
         return;
     } 
-	if (player.currentBet>=lastBet) { 	// is bet valid?
+	if ((player.currentBet>=lastBet) 
+        && (player.currentBet>=minBet)
+        && (player.currentBet<=maxBet))
+    
+    { 	// is bet valid?
 		currentBet = player.currentBet;
 		lastBet = currentBet;
 		[self subtractMoneyFromPlayer:player];
@@ -453,6 +477,25 @@
     
     
 
+}
+
+-(void) setPlayerChanceToWin {
+    for (int i=0;i<numberOfPlayers;i++) { // outer loop to rate all players
+        float chance = 1.0;
+        for (int j=0; j<numberOfPlayers; j++) { // in loop to rate a single player aganist all others
+            if (i != j) {
+                float temp = [[[players objectAtIndex:i] playerHand] 
+                              strengthAgainst:[[players objectAtIndex:j] playerHand]];
+                if (temp < chance) {
+                    chance = temp;    
+                }
+            
+            }
+            
+        }
+        [[players objectAtIndex:i] setWinChance:chance];
+        
+    }
 }
 
 @end
