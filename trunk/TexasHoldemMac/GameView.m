@@ -119,7 +119,8 @@
 	for (int i=0;i<[players count];i++) {
 		[[players objectAtIndex:i] display];
 	}
-	
+
+
 }
 
 

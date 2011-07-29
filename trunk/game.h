@@ -50,6 +50,9 @@
     float littleBlind;
     float bigBlind;
     BOOL useBlind;
+    BOOL showAICards;
+    BOOL showWinChance;
+    
     IBOutlet NSTextField *minField;
     IBOutlet NSTextField *maxField;
     IBOutlet NSTextField *startFundsField;
@@ -57,6 +60,8 @@
     IBOutlet NSTextField *bigBlindField;
     IBOutlet NSButton *blindButton;
     IBOutlet NSWindow *prefs;
+    IBOutlet NSButton *showAICardsButton;
+    IBOutlet NSButton *showWinChanceButton;
 	
 
 
@@ -73,9 +78,12 @@
 @property (nonatomic, retain) NSTextField *littleBlindField;
 @property (nonatomic, retain) NSTextField *bigBlindField;
 @property (nonatomic, retain) NSButton *blindButton;
+@property (nonatomic, retain) NSButton *showAICardsButton;
+@property (nonatomic, retain) NSButton *showWinChanceButton;
 @property (nonatomic, retain) NSWindow *prefs;
 @property (readonly) int nextStep;
-
+@property (readonly) BOOL showAICards;
+@property (readonly) BOOL showWinChance;
 // deal cards methods
 
 // start/end hand or game

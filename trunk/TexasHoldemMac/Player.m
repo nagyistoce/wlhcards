@@ -45,22 +45,23 @@
 }
 	
 -(void) display {
-	
-	
+	NSLog(@"player display");
+    cardsAppDelegate *appDelegate =	[[NSApplication sharedApplication] delegate];	
 	self.nameLabel.stringValue = name;
-	
-	
-	
-		
-	if ([playerHand.cards count]<2) {
-		return;
+    if ([playerHand.cards count]<2) {
+        return;
 	}
     [cardImage1 setImage:[((Card *)[playerHand.cards objectAtIndex:0]) image] ];
     [cardImage2 setImage:[((Card *)[playerHand.cards objectAtIndex:1]) image] ];
     
 
 	[self.moneyField setStringValue:[NSString stringWithFormat:@" $ %.2f",money]];
-	
+
+	if ([[appDelegate theGame] showWinChance]==1) {
+        [winField setHidden:NO];
+    } else {
+        [winField setHidden:YES];
+    }
 }
 
 
