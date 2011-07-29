@@ -11,6 +11,7 @@
 #import "Deck.h"
 #import "Card.h"
 #import "Player.h"
+#import "AIPlayer.h"
 #import "Hand.h"
 
 @implementation game
@@ -19,7 +20,7 @@
 @synthesize gameView;
 @synthesize aWindow;
 @synthesize playersSheet;
-@synthesize numberOfPlayersText;
+@synthesize numberOfPlayersText, nextStep;
 @synthesize minField, maxField, startFundsField, bigBlindField, littleBlindField, blindButton, prefs;
 
 #pragma mark init/dealloc
@@ -112,7 +113,8 @@
 		[temp.playerHand addCard:[deck dealCard]];
 		
 	}
-    	[gameView display];
+
+   	[gameView display];
 }
 
 
@@ -211,7 +213,12 @@
 	gameView.players = self.players;
 	
 	for ( int i=0;i<numberOfPlayers;i++) {
-		Player *newPlayer = [[Player alloc] init];
+        Player *newPlayer;
+        if (i==0) {
+            newPlayer = [[Player alloc] init];
+        } else {
+            newPlayer = [[AIPlayer alloc] init];
+        }
 		newPlayer.name = [NSString stringWithFormat:@"Player %d",i+1];	
 		newPlayer.gameView = gameView;
         newPlayer.money = startFunds;
@@ -321,6 +328,7 @@
 	[self deal2cards];
 	nextStep += 1;
 	allPlayersBet = NO;
+    [self setPlayerChanceToWin];
 	[gameView getBetFromPlayer:[players objectAtIndex:0]];
 }
 
@@ -496,6 +504,10 @@
         [[players objectAtIndex:i] setWinChance:chance];
         
     }
+}
+
+-(float) currentBet {
+    return currentBet;
 }
 
 @end

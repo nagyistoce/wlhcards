@@ -22,6 +22,8 @@
 		805B11F013C25EAD005252CA /* 4C.png in Resources */ = {isa = PBXBuildFile; fileRef = 805B11E313C25EAD005252CA /* 4C.png */; };
 		805B11F113C25EAD005252CA /* 2C.png in Resources */ = {isa = PBXBuildFile; fileRef = 805B11E413C25EAD005252CA /* 2C.png */; };
 		805B11F213C25EAD005252CA /* 3C.png in Resources */ = {isa = PBXBuildFile; fileRef = 805B11E513C25EAD005252CA /* 3C.png */; };
+		809072A713E25D430005E5D5 /* AIPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 809072A613E25D430005E5D5 /* AIPlayer.m */; };
+		809072A913E2618F0005E5D5 /* AIPlayer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 809072A813E2618F0005E5D5 /* AIPlayer.xib */; };
 		8093E898136108BE005CA509 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = 801909CB12D18112005A9561 /* Card.m */; };
 		8093E899136108BE005CA509 /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = 801909DC12D18415005A9561 /* Deck.m */; };
 		8093E89A136108BE005CA509 /* Hand.m in Sources */ = {isa = PBXBuildFile; fileRef = 80190A5812D2FF73005A9561 /* Hand.m */; };
@@ -103,6 +105,9 @@
 		805B11E313C25EAD005252CA /* 4C.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 4C.png; path = images/4C.png; sourceTree = "<group>"; };
 		805B11E413C25EAD005252CA /* 2C.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 2C.png; path = images/2C.png; sourceTree = "<group>"; };
 		805B11E513C25EAD005252CA /* 3C.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 3C.png; path = images/3C.png; sourceTree = "<group>"; };
+		809072A513E25D430005E5D5 /* AIPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIPlayer.h; sourceTree = "<group>"; };
+		809072A613E25D430005E5D5 /* AIPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIPlayer.m; sourceTree = "<group>"; };
+		809072A813E2618F0005E5D5 /* AIPlayer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AIPlayer.xib; sourceTree = "<group>"; };
 		8093E89113610873005CA509 /* TexasHoldemMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TexasHoldemMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8093E89313610873005CA509 /* TexasHoldemMac-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TexasHoldemMac-Info.plist"; sourceTree = "<group>"; };
 		8093E95F13610C00005CA509 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -287,6 +292,7 @@
 				801B2B8513DB29AA009E647B /* icon.icns */,
 				80BAB19D136680C100389685 /* Board.xib */,
 				80BAB01313653FEE00389685 /* Player.xib */,
+				809072A813E2618F0005E5D5 /* AIPlayer.xib */,
 				8448107C1363681C0036B736 /* MainMenu.xib */,
 				8093E89313610873005CA509 /* TexasHoldemMac-Info.plist */,
 			);
@@ -296,6 +302,8 @@
 		8093E96913610CDF005CA509 /* TexasHoldemMac */ = {
 			isa = PBXGroup;
 			children = (
+				809072A513E25D430005E5D5 /* AIPlayer.h */,
+				809072A613E25D430005E5D5 /* AIPlayer.m */,
 				80BAB00113653CFE00389685 /* Player.h */,
 				80BAB00213653CFE00389685 /* Player.m */,
 				8093EA0413611865005CA509 /* GameView.h */,
@@ -424,6 +432,7 @@
 				80E2650E13C27E9C00B8C037 /* 3D.png in Resources */,
 				8098326513C28D91007F349F /* back.png in Resources */,
 				801B2B8613DB29AA009E647B /* icon.icns in Resources */,
+				809072A913E2618F0005E5D5 /* AIPlayer.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,6 +451,7 @@
 				8093E96013610C00005CA509 /* main.m in Sources */,
 				8093E96413610C6C005CA509 /* cardsAppDelegate.m in Sources */,
 				8093EA0613611865005CA509 /* GameView.m in Sources */,
+				809072A713E25D430005E5D5 /* AIPlayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

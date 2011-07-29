@@ -74,6 +74,7 @@
 @property (nonatomic, retain) NSTextField *bigBlindField;
 @property (nonatomic, retain) NSButton *blindButton;
 @property (nonatomic, retain) NSWindow *prefs;
+@property (readonly) int nextStep;
 
 // deal cards methods
 
@@ -106,4 +107,6 @@
 -(void) gotBetFromPlayer:(Player *) player;
 -(void) determineWinner;
 -(void) setPlayerChanceToWin;
+-(float) currentBet;
+
 @end
