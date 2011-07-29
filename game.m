@@ -20,8 +20,9 @@
 @synthesize gameView;
 @synthesize aWindow;
 @synthesize playersSheet;
-@synthesize numberOfPlayersText, nextStep;
+@synthesize numberOfPlayersText, nextStep, showAICards, showWinChance;;
 @synthesize minField, maxField, startFundsField, bigBlindField, littleBlindField, blindButton, prefs;
+@synthesize showAICardsButton, showWinChanceButton;
 
 #pragma mark init/dealloc
 
@@ -51,6 +52,8 @@
     [defaultValues setObject:[NSNumber numberWithFloat:5.0] forKey:@"littleBlind"];
     [defaultValues setObject:[NSNumber numberWithFloat:10.0] forKey:@"bigBlind"];
     [defaultValues setObject:[NSNumber numberWithInt:NSOffState] forKey:@"useBlind"];
+    [defaultValues setObject:[NSNumber numberWithInt:NSOffState] forKey:@"showAICards"];
+    [defaultValues setObject:[NSNumber numberWithInt:NSOffState] forKey:@"showChance"];
     
     [[NSUserDefaults standardUserDefaults] registerDefaults:defaultValues];
 
@@ -65,6 +68,8 @@
     littleBlindField.floatValue = [[defaults objectForKey:@"littleBlind"] floatValue];
     bigBlindField.floatValue = [[defaults objectForKey:@"bigBlind"] floatValue];
     blindButton.state = [[defaults objectForKey:@"useBlind"] intValue];
+    showAICardsButton.state = [[defaults objectForKey:@"showAICards"] intValue];
+    showWinChanceButton.state = [[defaults objectForKey:@"showChance"] intValue];
     
     [prefs orderFront:self];
 }
@@ -77,7 +82,8 @@
     littleBlind = [littleBlindField floatValue];
     bigBlind = [bigBlindField floatValue];
     useBlind = [blindButton state];
-    
+    showWinChance = [showWinChanceButton state];
+    showAICards = [showAICardsButton state];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:[NSNumber numberWithFloat:minBet] forKey:@"minBet"];
@@ -86,6 +92,9 @@
     [defaults setObject:[NSNumber numberWithFloat:littleBlind] forKey:@"littleBlind"];
     [defaults setObject:[NSNumber numberWithFloat:bigBlind] forKey:@"bigBlind"];
     [defaults setObject:[NSNumber numberWithInt:useBlind] forKey:@"useBlind"];
+    [defaults setObject:[NSNumber numberWithInt:showAICards] forKey:@"showAICards"];
+    [defaults setObject:[NSNumber numberWithInt:showWinChance] forKey:@"showChance"];
+    
     [prefs orderOut:self];
 
 }
@@ -98,8 +107,8 @@
     littleBlind = [[defaults objectForKey:@"littleBlind"] floatValue];
     bigBlind = [[defaults objectForKey:@"bigBlind"] floatValue];
     useBlind = [[defaults objectForKey:@"useBlind"] intValue];
-
-    
+    showAICards = [[defaults objectForKey:@"showAICards"] intValue];
+    showWinChance = [[defaults objectForKey:@"showChance"] intValue];
 }
 
 #pragma mark Deal Cards
