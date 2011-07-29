@@ -46,7 +46,7 @@
 @property (nonatomic, retain) NSTextField *winField;
 @property float winChance;
 
-
+-(void) loadTheNib;
 -(void)askForBet; // returns bet amount
 -(void)playerLostHand;
 -(void)playerWonHand;

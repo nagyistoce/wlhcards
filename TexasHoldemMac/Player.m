@@ -23,15 +23,21 @@
 		currentBet = 0;
 		playerHand = [[Hand alloc] init];
 		money = 100.00;
-		name = [[NSString alloc] initWithString:@"Player"];
-		self.nibName = @"Player";
-		[self loadView];
+        [self loadTheNib];
 	}
 	return self;
 
 
 }
-		
+
+-(void) loadTheNib {
+    name = [[NSString alloc] initWithString:@"Player"];
+    self.nibName = @"Player";
+    [self loadView];
+
+    
+}
+
 -(void) dealloc {
 	[playerHand release];
 	[name release];
