@@ -84,6 +84,7 @@
 -(void) setupDeckFlopPlayers;
 -(void) setupNewDeck;
 -(void) endHand;
+-(void) endGame;
 -(void) startGame;
 -(void) startHand;
 -(void) playAgain;
@@ -93,6 +94,7 @@
 -(void) registerUserDefaults;
 -(void) showPrefs;
 -(void) closePrefs;
+-(void) readDefaults;
 
 // game logic
 -(void) gotBetFromPlayer:(Player *) player;
@@ -101,6 +103,7 @@
 -(void) disableBetButtons;
 -(void) subtractMoneyFromPlayer:(Player *) player;
 -(void) advanceGame;
--(void)gotBetFromPlayer:(Player *) player;
--(void)determineWinner;
+-(void) gotBetFromPlayer:(Player *) player;
+-(void) determineWinner;
+-(void) setPlayerChanceToWin;
 @end

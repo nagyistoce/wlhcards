@@ -231,6 +231,7 @@
 
 
 -(long)rankFive {
+//    NSLog(@"Rank 5");
 	if (rank) {
 		return rank;
 	}
@@ -284,47 +285,65 @@
 }
 
 -(float)strengthAgainst:(Hand *)otherHand {
-	[self rank];
-	int cardsInOtherHand = [otherHand.cards count]; // know how many cards in otherHand
-	int cardsRemaining = 5 - cardsInOtherHand;
-	int numberOfTests = 1000;
+	NSLog(@"strenghtAgainst");
+	int cardsRemaining = 7 - [self.cards count];
+	int numberOfTests = 20;
 	int wins = 0;
-	
-	for (int i=0; i<numberOfTests ; i++) {									
+	float chance = 0.0;
+    
+	for (int i=0; i<numberOfTests ; i++) {		// loop through a bunch of tests							
+		Deck *tempDeck = [[Deck alloc] init];
+        [tempDeck shuffle];										// a deck to draw random cards from
+
+ // this is a temp hand that is used to build a full hand from the cards in self       
+        Hand *tempSelf = [[Hand alloc] init];       
+        for (int j=0;j<[self.cards count];j++) {
+            [tempSelf.cards addObject:[self.cards objectAtIndex:j]];
+        } // copy
+
+        for (int j=0;j<cardsRemaining;j++) { // add cards to make a full hand
+            [tempSelf.cards addObject:[tempDeck.cards objectAtIndex:0]];
+            [tempDeck.cards removeObjectAtIndex:0];
+        } // add cards to make a full hand
+        
+        
+        
+// this is a temp hand that is used to build a full hand from the 2 known face up cards in otherHand
+        
 		Hand *temp = [[Hand alloc] init];						// the temp hand that will be dealt a full hand
-		for (int j=0;j<cardsInOtherHand;j++) {					// copy other hand
+		for (int j=0;j<2;j++) {                                 // copy face up 2 cards other hand
 			[temp.cards addObject:[otherHand.cards objectAtIndex:j]];
 		} //copy
 
-		Deck *tempDeck = [[Deck alloc] init];
-
-		[tempDeck shuffle];										// a deck to draw random cards from
-		for (int i=0;i<cardsRemaining;i++) {					// deal random cards for rest of hand
+		for (int j=0;j<3;j++) {                                 // add cards to make a full hand
 			[temp.cards addObject:[tempDeck.cards objectAtIndex:0]];
 			[tempDeck.cards removeObjectAtIndex:0];
-		} // add remaining cards
-		
+		} // add cards to make a full hand
+//		NSLog(@"self count = %d",[[tempSelf cards] count]);
+//        NSLog(@"temp count = %d",[[temp cards] count]);
 			
-		if (self.rank > temp.rank)  {
+		if (tempSelf.rank > temp.rank)  {
 			wins+=1;
 		}
 	
-		if ((self.rank == temp.rank) && (self.highCardRank > temp.highCardRank)) {
+		if ((tempSelf.rank == temp.rank) && (tempSelf.highCardRank > temp.highCardRank)) {
 			wins+=1;
 		}
-		
+		[tempSelf release];
 		[temp release];
 		[tempDeck release];
 		
-	}
-	NSLog(@"Wins %d",wins);
-	NSLog(@"Tests %d",numberOfTests);
-	
-	return (float)wins/numberOfTests;	
+	} // loop thorugh a bunch of tests
+//	NSLog(@"Wins %d",wins);
+//	NSLog(@"Tests %d",numberOfTests);
+    chance = (float)wins/numberOfTests;
+//	NSLog(@"chance %f",chance);
+    
+	return chance;	
 }
 
 -(long)rankSeven {  // seems to work, but doesn't fall back to high card if ranks are the same.
-
+ //   NSLog(@"Rank Seven");
 	long highestRank = 0;
 	long tempRank = 0;
 	int highestHighCard = 0;
@@ -377,6 +396,7 @@
 	
 //	NSLog(@"Ranking %d card hand",[self.cards count]);
 	if ([self.cards count] == 5) {
+        
 		return [self rankFive];
 	}
 	

@@ -16,7 +16,7 @@
 @synthesize currentBet, money, hasBet;
 
 @synthesize nibName, nameLabel, handField, betField, betButton;
-@synthesize moneyField;
+@synthesize moneyField, winField;
 
 -(id)init {
 	if (self = [super init]) {
@@ -86,6 +86,17 @@
 -(void)controlTextDidEndEditing:(NSNotification *)obj {
 	[[obj object] resignFirstResponder];
 	}
+
+-(void) setWinChance:(float)chance {
+    winChance = chance*100;
+    [winField setStringValue:[NSString stringWithFormat:@"%2.2f",winChance]];
+
+    
+}
+
+-(float) winChance {
+    return winChance;
+}
 
 -(void)playerLostHand{}
 -(void)playerWonHand{}
