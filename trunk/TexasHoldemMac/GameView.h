@@ -14,6 +14,11 @@
 #import "Player.h"
 #import "Cocoa/Cocoa.h"
 
+
+#define wCheckOrBet 1
+#define wCallOrRaise 2
+
+
 @interface GameView : NSViewController {
 	
 	int		numberOfPlayers;
@@ -47,9 +52,14 @@
 
 
 -(void)display;
--(int)askNumberOfPlayers;
+
+
 -(void)getBlindBets;
 -(void)getBetFromPlayer:(Player *)player;
+-(void)getBetFromPlayer:(Player*) player ofType:(int)type withCurrentBetOf:(int)currentBet;
+-(void)getCheckOrBetFromPlayer:(Player *)player;
+-(void)getCallOrRaiseFromPlayer:(Player *)player withCurrentBetOf:(int)currentBet;
+
 -(void)displayBoard;
 -(void)invalidBet:(float)lastBet;
 -(void)addPlayersToWindow:(NSWindow *) window;

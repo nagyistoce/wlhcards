@@ -13,9 +13,10 @@
 
 @implementation Player
 @synthesize playerHand, name, gameView;
-@synthesize currentBet, money, hasBet;
+@synthesize currentBet, lastBet, money;
 
-@synthesize nibName, nameLabel, handField, betField, betButton;
+@synthesize nibName, nameLabel, handField, betField;
+@synthesize betButton, checkButton, foldButton, callButton, raiseButton;
 @synthesize moneyField, winField;
 
 -(id)init {
@@ -43,7 +44,24 @@
 	[name release];
 	[super dealloc];
 }
-	
+
+-(void) setWinChance:(float)chance {
+    winChance = chance*100;
+    [winField setStringValue:[NSString stringWithFormat:@"%2.2f",winChance]];
+    
+    
+}
+
+-(float) winChance {
+    return winChance;
+}
+
+-(void)playerLostHand{}
+-(void)playerWonHand{}
+
+
+
+
 -(void) display {
 	NSLog(@"player display");
     cardsAppDelegate *appDelegate =	[[NSApplication sharedApplication] delegate];	
@@ -71,12 +89,14 @@
 	return playerHand;
 }
 
+#pragma mark Betting
+
 -(void)askForBet{
 
 	[self display];
 	[gameView displayBoard];
-	hasBet = NO;
-	[self.betButton setEnabled:YES];
+	
+	
 	[self.betField becomeFirstResponder];
 	
 		
@@ -84,29 +104,69 @@
 
 
 -(IBAction)betButton:(id) sender {
+    
+    [[self checkButton] setEnabled:NO];
+    [[self betButton] setEnabled:NO];
+    [[self foldButton] setEnabled:NO];
+    [[self raiseButton] setEnabled:NO];
+    [[self callButton] setEnabled:NO];
+
+    
 	currentBet = betField.floatValue; 
-	hasBet = YES;
+	
 	cardsAppDelegate *appDelegate =	[[NSApplication sharedApplication] delegate];
 	[[appDelegate theGame] gotBetFromPlayer:self];
+}
+
+-(IBAction)callButton:(id)sender {
+    [[self checkButton] setEnabled:NO];
+    [[self betButton] setEnabled:NO];
+    [[self foldButton] setEnabled:NO];
+    [[self raiseButton] setEnabled:NO];
+    [[self callButton] setEnabled:NO];
+
+	cardsAppDelegate *appDelegate =	[[NSApplication sharedApplication] delegate];
+    currentBet = [[appDelegate theGame] currentBet];
+	[[appDelegate theGame] gotBetFromPlayer:self];
+    
+    
+    
+}
+
+
+-(IBAction)raiseButton:(id)sender {
+    [[self checkButton] setEnabled:NO];
+    [[self betButton] setEnabled:NO];
+    [[self foldButton] setEnabled:NO];
+    [[self raiseButton] setEnabled:NO];
+    [[self callButton] setEnabled:NO];
+    
+	cardsAppDelegate *appDelegate =	[[NSApplication sharedApplication] delegate];
+    currentBet = [[appDelegate theGame] currentBet]+betField.floatValue;
+	[[appDelegate theGame] gotBetFromPlayer:self];
+
+    
+    
+}
+
+-(IBAction)checkButton:(id)sender {
+    
+    [[self checkButton] setEnabled:NO];
+    [[self betButton] setEnabled:NO];
+    [[self foldButton] setEnabled:NO];
+    [[self raiseButton] setEnabled:NO];
+    [[self callButton] setEnabled:NO];
+
+	cardsAppDelegate *appDelegate =	[[NSApplication sharedApplication] delegate];
+    currentBet = 0;
+	[[appDelegate theGame] gotBetFromPlayer:self];
+    
+    
 }
 
 -(void)controlTextDidEndEditing:(NSNotification *)obj {
 	[[obj object] resignFirstResponder];
 	}
-
--(void) setWinChance:(float)chance {
-    winChance = chance*100;
-    [winField setStringValue:[NSString stringWithFormat:@"%2.2f",winChance]];
-
-    
-}
-
--(float) winChance {
-    return winChance;
-}
-
--(void)playerLostHand{}
--(void)playerWonHand{}
 
 
 

@@ -15,6 +15,9 @@
 #define wHandOver	5
 
 
+#define wCheckOrBet 1
+#define wCallOrRaise 2
+
 @class GameView;
 @class Deck;
 @class cardsAppDelegate;
@@ -38,6 +41,7 @@
 
     // game logic
 	int bettingPlayer;
+    int betType;
 	int nextStep;
 	bool allPlayersBet;
     bool inGame;
@@ -109,7 +113,6 @@
 -(void) gotBetFromPlayer:(Player *) player;
 -(BOOL) betsAreSquare;
 -(void) determineWinner;
--(void) disableBetButtons;
 -(void) subtractMoneyFromPlayer:(Player *) player;
 -(void) advanceGame;
 -(void) gotBetFromPlayer:(Player *) player;
