@@ -285,7 +285,7 @@
 }
 
 -(float)strengthAgainst:(Hand *)otherHand {
-	NSLog(@"strenghtAgainst");
+	NSLog(@"Thinking ...");
 	int cardsRemaining = 7 - [self.cards count];
 	int numberOfTests = 20;
 	int wins = 0;

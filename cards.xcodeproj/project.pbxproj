@@ -33,6 +33,7 @@
 		8093E96013610C00005CA509 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8093E95F13610C00005CA509 /* main.m */; };
 		8093E96413610C6C005CA509 /* cardsAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8093E96313610C6C005CA509 /* cardsAppDelegate.m */; };
 		8093EA0613611865005CA509 /* GameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8093EA0513611865005CA509 /* GameView.m */; };
+		8096B0FD13E63FC100920F38 /* Thinker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8096B0FC13E63FC100920F38 /* Thinker.m */; };
 		8098326513C28D91007F349F /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 8098326413C28D91007F349F /* back.png */; };
 		80BAB00413653D2400389685 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 80BAB00213653CFE00389685 /* Player.m */; };
 		80BAB01413653FEE00389685 /* Player.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80BAB01313653FEE00389685 /* Player.xib */; };
@@ -115,6 +116,8 @@
 		8093E96313610C6C005CA509 /* cardsAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cardsAppDelegate.m; sourceTree = "<group>"; };
 		8093EA0413611865005CA509 /* GameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameView.h; path = TexasHoldemMac/GameView.h; sourceTree = "<group>"; };
 		8093EA0513611865005CA509 /* GameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameView.m; path = TexasHoldemMac/GameView.m; sourceTree = "<group>"; };
+		8096B0FB13E63FC100920F38 /* Thinker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Thinker.h; sourceTree = "<group>"; };
+		8096B0FC13E63FC100920F38 /* Thinker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Thinker.m; sourceTree = "<group>"; };
 		8098326413C28D91007F349F /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = back.png; path = images/back.png; sourceTree = "<group>"; };
 		80AB36B6135B9B5200300D62 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		80BAB00113653CFE00389685 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Player.h; path = TexasHoldemMac/Player.h; sourceTree = "<group>"; };
@@ -195,6 +198,8 @@
 		08FB7795FE84155DC02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				8096B0FB13E63FC100920F38 /* Thinker.h */,
+				8096B0FC13E63FC100920F38 /* Thinker.m */,
 				802E267B12E74D420041795E /* game.h */,
 				802E267C12E74D420041795E /* game.m */,
 				801909DB12D18415005A9561 /* Deck.h */,
@@ -452,6 +457,7 @@
 				8093E96413610C6C005CA509 /* cardsAppDelegate.m in Sources */,
 				8093EA0613611865005CA509 /* GameView.m in Sources */,
 				809072A713E25D430005E5D5 /* AIPlayer.m in Sources */,
+				8096B0FD13E63FC100920F38 /* Thinker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

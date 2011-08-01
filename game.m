@@ -13,6 +13,7 @@
 #import "Player.h"
 #import "AIPlayer.h"
 #import "Hand.h"
+#import "Thinker.h"
 
 @implementation game
 @synthesize players;
@@ -330,6 +331,9 @@
 
 -(void)startHand { 
     NSLog(@"startHand");
+    for (int i=0;i<[players count];i++) {
+        [[players objectAtIndex:i] setLastBet:0];
+    }
    	currentBet = -1.0;
 	lastBet = -1.0;
 	bettingPlayer = 0;
@@ -337,8 +341,9 @@
 	[self deal2cards];
 	nextStep += 1;
 	allPlayersBet = NO;
+    betType = wCheckOrBet;
     [self setPlayerChanceToWin];
-	[gameView getBetFromPlayer:[players objectAtIndex:0]];
+	[gameView getBetFromPlayer:[players objectAtIndex:0] ofType:betType withCurrentBetOf:0];
 }
 
 #pragma mark Game Logic
@@ -347,7 +352,7 @@
 
 
 -(void)gotBetFromPlayer:(Player *) player {
-	[self disableBetButtons];
+	
 	
     // is bet from player we expect?
     if (player != [players objectAtIndex:bettingPlayer]) {
@@ -359,7 +364,11 @@
         && (player.currentBet<=maxBet))
     
     { 	// is bet valid?
-		currentBet = player.currentBet;
+  		currentBet = player.currentBet;
+        if (currentBet>0) {
+            betType=wCallOrRaise;
+        }
+
 		lastBet = currentBet;
 		[self subtractMoneyFromPlayer:player];
         
@@ -371,6 +380,7 @@
 		
 		if (allPlayersBet == YES) {
 			if ([self betsAreSquare]) {
+                betType = wCheckOrBet;
                 [self advanceGame];
             }
 			
@@ -378,13 +388,13 @@
             // if the hand isn't over, get bet from the next player
             if (nextStep!=wHandOver) {
             [[gameView statusOne] setStringValue:@""];
-            [gameView getBetFromPlayer:[players objectAtIndex:bettingPlayer]];
+            [gameView getBetFromPlayer:[players objectAtIndex:bettingPlayer] ofType:betType withCurrentBetOf:currentBet];
         } 			
 		
 	} else { 
 		// this is not a valid bet - notifiy player and get another bet
 		[gameView invalidBet:lastBet];
-		[gameView getBetFromPlayer:[players objectAtIndex:bettingPlayer]];
+		[gameView getBetFromPlayer:[players objectAtIndex:bettingPlayer] ofType:betType withCurrentBetOf:currentBet];
     }
 } // gotBetFromPlayer
 
@@ -444,21 +454,20 @@
 	
 }
 
--(void) disableBetButtons {
-    for (int i=0;i<[players count];i++) {
-		[[[players objectAtIndex:i] betButton] setEnabled:NO];
-	}
-}
 
 -(void) subtractMoneyFromPlayer:(Player *) player {
     // subtract money from player
-    if ( lastBet < player.money ) { // dont put more money in pot than player has
-        player.money -= lastBet;
-        pot += lastBet;
+    
+    float amt = player.currentBet-player.lastBet;
+    
+    if ( amt < player.money ) { // dont put more money in pot than player has
+        player.money -= amt;
+        pot += amt;
     } else {
         pot += player.money;
         player.money = 0;
     }
+    player.lastBet = player.currentBet;
     [gameView updatePot:pot]; // display new pot amount	
     [player display];	
  
@@ -467,6 +476,11 @@
     allPlayersBet = NO;
     bettingPlayer = 0;
     lastBet = -1.0;
+    
+    for (int i=0;i<[players count];i++) {
+        [[players objectAtIndex:i] setLastBet:0];
+    }
+    
     switch (nextStep) {
         case wDealFlop:
             [self dealFlop];
@@ -498,22 +512,18 @@
 
 -(void) setPlayerChanceToWin {
     for (int i=0;i<numberOfPlayers;i++) { // outer loop to rate all players
-        float chance = 1.0;
+        
         for (int j=0; j<numberOfPlayers; j++) { // in loop to rate a single player aganist all others
             if (i != j) {
-                float temp = [[[players objectAtIndex:i] playerHand] 
-                              strengthAgainst:[[players objectAtIndex:j] playerHand]];
-                if (temp < chance) {
-                    chance = temp;    
+                Thinker *thinker = [[Thinker alloc] initWithI:i andJ:j];
+                [NSThread detachNewThreadSelector:@selector(think) toTarget:thinker withObject:nil];    
                 }
             
             }
             
         }
-        [[players objectAtIndex:i] setWinChance:chance];
         
     }
-}
 
 -(float) currentBet {
     return currentBet;

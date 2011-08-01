@@ -17,7 +17,7 @@
     
 	[self display];
 	[gameView displayBoard];
-	hasBet = NO;
+	
 	[self sendBet];
     
 } 
@@ -53,7 +53,7 @@
     }
     
     
-	hasBet = YES;
+
     betField.floatValue = currentBet;
 	[[appDelegate theGame] gotBetFromPlayer:self];
 }

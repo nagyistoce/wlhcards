@@ -41,6 +41,11 @@
 	return self;
 }
 
+-(void) dealloc {
+	[cardBack release];
+	[flopImages release];
+	[super dealloc];
+}
 		
 -(void)windowDidLoad
 {
@@ -119,36 +124,20 @@
 	for (int i=0;i<[players count];i++) {
 		[[players objectAtIndex:i] display];
 	}
-
+    [self displayBoard];
 
 }
 
 
 
--(int)askNumberOfPlayers {
-	return 4;
-}
-
-
--(void)getBlindBets{
-
-		
-}
 
 
 
-
--(void)getBetFromPlayer:(Player *)player {
-		
-	[player askForBet];
-	
-			
-}
 
 -(void)displayBoard {
 	NSString *bString = [[NSString alloc] init];
-	printf("\nBoard: (%d cards)\n",(int)[flop count]); 
 
+    
 	for (int i=0;i<5;i++) { // set all flop images to the card back
 		[[flopImages objectAtIndex:i] setImage:cardBack];
 	}	
@@ -158,39 +147,31 @@
 		[[flopImages objectAtIndex:i] setImage:[[flop objectAtIndex:i] image]];
 	}
 	
-		
+    
 	
 	[boardField setStringValue:bString];
 	
-		
+    
 	
 	
 }	
 
--(void)invalidBet:(float)lastBet {
-	NSString *aString = [NSString stringWithFormat:@"Invalid Bet\n",lastBet];
 
-	[statusOne setStringValue:aString];
-}
 
 -(void)updatePot:(float) pot {
 	[potField setStringValue:[NSString stringWithFormat:@" $ %.2f",pot]];
-	 }
+}
 
 -(void)winner:(int) winner {
 	NSString *aString = [NSString stringWithFormat:@"The Winner is:"];
 	NSString *bString = ((Player *)[players objectAtIndex:winner]).name;
 	[[players objectAtIndex:winner] display];
 	[statusOne setStringValue:[aString stringByAppendingString:bString]];
-
-
-
-	 }
--(void) dealloc {
-	[cardBack release];
-	[flopImages release];
-	[super dealloc];
+    
+    
+    
 }
+
 
 -(IBAction) dealCards:(id)sender {
     NSLog(@"dealCards");
@@ -199,6 +180,72 @@
 	[[appDelegate theGame] endHand];
 	[[appDelegate theGame] startHand];
 }
+
+
+#pragma mark Betting
+
+
+-(void)getCheckOrBetFromPlayer:(Player *)player { // This is bet type 1
+    NSLog(@"\n\nPlayer %@, It is your bet.",player.name);
+    NSLog(@"You can Check or Bet.");
+    [[player checkButton] setEnabled:YES];
+    [[player betButton] setEnabled:YES];
+    [[player foldButton] setEnabled:NO];
+    [[player raiseButton] setEnabled:NO];
+    [[player callButton] setEnabled:NO];
+    
+    
+    [self getBetFromPlayer:player];
+    
+}
+-(void)getCallOrRaiseFromPlayer:(Player *)player withCurrentBetOf:(int)currentBet{ // This is bet type 2
+ 
+    NSLog(@"\n\nPlayer %@, It is your bet.",player.name);
+    NSLog(@"The Current Bet is: %d ",currentBet );
+    NSLog(@"You can Call, Raise, or Fold");
+    
+    [[player checkButton] setEnabled:NO];
+    [[player betButton] setEnabled:NO];
+    [[player foldButton] setEnabled:YES];
+    [[player raiseButton] setEnabled:YES];
+    [[player callButton] setEnabled:YES];
+    
+    [self getBetFromPlayer:player];
+    
+}
+-(void)getBetFromPlayer:(Player*) player ofType:(int)type withCurrentBetOf:(int)currentBet{
+
+        if (type==wCheckOrBet) {
+            [self getCheckOrBetFromPlayer:player];
+    } else {
+        if (type ==wCallOrRaise) {
+            [self getCallOrRaiseFromPlayer:player withCurrentBetOf:currentBet];
+        }
+        
+    }
+    
+}
+
+-(void)getBetFromPlayer:(Player *)player {
+    
+	[player askForBet];
+	
+    
+}
+
+
+-(void)getBlindBets{
+
+		
+}
+
+-(void)invalidBet:(float)lastBet {
+	NSString *aString = [NSString stringWithFormat:@"Invalid Bet\n",lastBet];
+    
+	[statusOne setStringValue:aString];
+}
+
+
 	
 
 @end
