@@ -198,8 +198,9 @@
 
     [self setupDeckFlopPlayers];
     [gameView addPlayersToWindow:aWindow];	
-    [self startHand];
     inGame = YES;
+    [self startHand];
+    
 
 }
 
@@ -322,7 +323,7 @@
         
     }
 	gameView = [[GameView alloc] init];
-	// numberOfPlayers = [gameView askNumberOfPlayers];
+	
     [self readDefaults];
     [self openPlayersSheet];
 
@@ -451,6 +452,7 @@
 	pot = 0;
 	[gameView updatePot:pot];
 	[gameView winner:winner];
+    [self playAgain];
 	
 }
 

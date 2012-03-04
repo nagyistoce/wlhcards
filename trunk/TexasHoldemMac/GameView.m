@@ -173,13 +173,6 @@
 }
 
 
--(IBAction) dealCards:(id)sender {
-    NSLog(@"dealCards");
-	[statusOne setStringValue:@" "];
-	cardsAppDelegate *appDelegate =	[[NSApplication sharedApplication] delegate];
-	[[appDelegate theGame] endHand];
-	[[appDelegate theGame] startHand];
-}
 
 
 #pragma mark Betting

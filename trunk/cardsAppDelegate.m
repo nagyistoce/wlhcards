@@ -17,7 +17,7 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
 
 	srandom(time(NULL));
-
+   
 	[self startGame:self];
 	
 
