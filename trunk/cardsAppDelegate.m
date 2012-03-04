@@ -10,7 +10,6 @@
 #import "game.h"
 
 @implementation cardsAppDelegate
-
 @synthesize window;
 @synthesize theGame;
 
